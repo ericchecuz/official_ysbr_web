@@ -1,0 +1,149 @@
+.footer_container {
+    background-color: #f0f0f8;
+    color: #060000;
+    padding: 2rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer_content_left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.vertical_line {
+    border: 1px solid black;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: #000000;
+    flex: 0
+}
+
+.logo_container {
+    flex: 1;
+}
+
+.logo {
+    width: 100px;
+}
+
+.info_container {
+    flex: 2;
+    text-align: center;
+}
+
+.address,
+.piva {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+}
+
+.statute_link {
+    color: #ff4d94;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.statute_link:hover {
+    text-decoration: underline;
+}
+
+.social_container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.social_icon {
+    width: 30px;
+    height: 30px;
+}
+
+/*------------------------------------------------- Media Queries -------------------------------------------------*/
+
+/* Mobile (fino a 768px) */
+@media (max-width: 768px) {
+    .footer_content {
+        align-items: center;
+        gap: 1.5rem;
+        justify-content: space-between;
+    }
+
+    .vertical_line {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .logo_container,
+    .info_container,
+    .social_container {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .social_container {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .address,
+    .piva {
+        font-size: 0.9rem;
+    }
+
+    .statute_link {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .footer_content {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .logo_container {
+        flex: 1;
+    }
+
+    .info_container {
+        flex: 2;
+    }
+
+    .social_container {
+        flex: 1;
+    }
+
+    .address,
+    .piva {
+        font-size: 0.95rem;
+    }
+
+    .statute_link {
+        font-size: 0.95rem;
+    }
+}
+
+/* Desktop (oltre 1024px) */
+@media (min-width: 1025px) {
+    .footer_content {
+        flex-direction: row;
+    }
+}

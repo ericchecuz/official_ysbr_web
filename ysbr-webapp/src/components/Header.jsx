@@ -1,14 +1,53 @@
-import React , { useState }  from 'react';
+import React , { useState , useEffect , useCallback }  from 'react';
 import styles from '../styles/header.module.css'
 function Header({ leftItems = [], rightItems = [], logoSrc }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Funzione debounce per limitare la frequenza degli aggiornamenti
+  const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  };
+
+  // Gestione dello scroll
+  const handleScroll = useCallback(
+    debounce(() => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
+
+      if (delta > 0) {
+        setIsHeaderVisible(false);
+      } else if (delta < 0 || currentScrollY <= 0) {
+        setIsHeaderVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    }, 50),  /* sec trascorsi prima di effettuare un altra chiamata */
+    [lastScrollY]
+  );
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
   return (
-    <header className={styles.header_container}>
+     <header
+      className={`${styles.header_container} ${
+        isHeaderVisible ? styles.visible : styles.hidden
+      }`}
+    >
       <nav className={styles.header_nav}>
         {/* Sezione Sinistra */}
         <div className={styles.left_links}>

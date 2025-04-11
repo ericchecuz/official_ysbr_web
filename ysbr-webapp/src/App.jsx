@@ -6,6 +6,7 @@ import Partners from './components/Partners'
 import JoinUs from './components/JoinUs'
 import Footer from './components/Footer'
 
+
 function App() {
   const responsiveStyle = {
     display: 'flex',
@@ -14,14 +15,6 @@ function App() {
     flexDirection: 'column',
   };
   
-  /* css prova conetnuto  */
-  const prova = {
-    display: 'flex',
-    width: '100%',
-    height: '100%',
-    border: '1px solid black',
-  };
-
   const leftItems = [
     { label: 'About Us', href: '#about' },
     { label: 'Events', href: '#events' },
@@ -37,14 +30,21 @@ function App() {
   return (
     <div style={responsiveStyle}>
     <Header leftItems={leftItems} rightItems={rightItems} logoSrc={logoSrc} />
-      <main style={prova}>
-        {/* <Hero />
-        <Events />
+      <main >
+        <Hero />
+        {/* <Events />
         <AboutUs />
         <Partners />
         <JoinUs /> */}
       </main>
-      <Footer />
+      <Footer
+        logoSrc={logoSrc}
+        address="YSBR - Via Volta 7, 20836 Briosco (MB)"
+        piva="P.IVA 13175720963"
+        statuteLink="#statute" 
+        instagramUrl="https://instagram.com" 
+        whatsappUrl="https://whatsapp.com" 
+      />
     </div>
   )
 }
