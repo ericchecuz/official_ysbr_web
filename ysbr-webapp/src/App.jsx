@@ -5,6 +5,7 @@ import AboutUs from './components/AboutUs'
 import Partners from './components/Partners'
 import JoinUs from './components/JoinUs'
 import Footer from './components/Footer'
+import ScrollingText from './components/ScrollingText'
 
 
 function App() {
@@ -32,6 +33,14 @@ function App() {
     <Header leftItems={leftItems} rightItems={rightItems} logoSrc={logoSrc} />
       <main >
         <Hero />
+        <ScrollingText
+        text="Next Events"
+        speed={20} 
+        direction="left" 
+        textColor="#2563eb" 
+        fontSize="2rem" 
+        backgroundColor="#e0e7ff" 
+      />
         {/* <Events />
         <AboutUs />
         <Partners />

@@ -1,5 +1,7 @@
-import React , { useState , useEffect , useCallback }  from 'react';
-import styles from '../styles/header.module.css'
+import React, { useState, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types'; 
+import styles from '../styles/header.module.css';
+
 function Header({ leftItems = [], rightItems = [], logoSrc }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -9,7 +11,6 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Funzione debounce per limitare la frequenza degli aggiornamenti
   const debounce = (func, wait) => {
     let timeout;
     return (...args) => {
@@ -18,7 +19,6 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
     };
   };
 
-  // Gestione dello scroll
   const handleScroll = useCallback(
     debounce(() => {
       const currentScrollY = window.scrollY;
@@ -31,25 +31,24 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
       }
 
       setLastScrollY(currentScrollY);
-    }, 50),  /* sec trascorsi prima di effettuare un altra chiamata */
+    }, 50),
     [lastScrollY]
   );
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [handleScroll]);
+
   return (
-     <header
+    <header
       className={`${styles.header_container} ${
         isHeaderVisible ? styles.visible : styles.hidden
       }`}
     >
       <nav className={styles.header_nav}>
-        {/* Sezione Sinistra */}
         <div className={styles.left_links}>
           {leftItems.map((item) => (
             <a key={item.label} href={item.href} className={styles.link}>
@@ -57,13 +56,9 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
             </a>
           ))}
         </div>
-
-        {/* Logo Centrale */}
         <div className={styles.logo_container}>
           <img src={logoSrc} alt="Logo" />
         </div>
-
-        {/* Sezione Destra con Hamburger */}
         <div className={styles.right_container}>
           <div className={`${styles.right_links} ${isMenuOpen ? styles.open : ''}`}>
             {rightItems.map((item) => {
@@ -75,9 +70,9 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
               return null;
             })}
           </div>
-          <button 
-            className={styles.hamburger} 
-            onClick={toggleMenu} 
+          <button
+            className={styles.hamburger}
+            onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             <span className={styles.hamburger_line}></span>
@@ -85,8 +80,6 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
             <span className={styles.hamburger_line}></span>
           </button>
         </div>
-
-        {/* Menu Mobile */}
         <div className={`${styles.mobile_menu} ${isMenuOpen ? styles.open : ''}`}>
           <div className={styles.mobile_left_links}>
             {leftItems.map((item) => (
@@ -110,5 +103,28 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
     </header>
   );
 }
+
+// Definizione di PropTypes
+Header.propTypes = {
+  leftItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired, 
+      href: PropTypes.string.isRequired, 
+    })
+  ),
+  rightItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired, 
+      href: PropTypes.string, 
+      type: PropTypes.oneOf(['link', 'button']).isRequired, 
+    })
+  ),
+  logoSrc: PropTypes.string.isRequired, 
+};
+
+Header.defaultProps = {
+  leftItems: [],
+  rightItems: [],
+};
 
 export default Header;
