@@ -6,6 +6,7 @@ import Partners from './components/Partners'
 import JoinUs from './components/JoinUs'
 import Footer from './components/Footer'
 import ScrollingText from './components/ScrollingText'
+import ImageCarousel from './components/AboutUs'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     width: '100%',
     height: '100%',
     flexDirection: 'column',
+     minHeight: '100vh', 
   };
   
   const leftItems = [
@@ -27,6 +29,25 @@ function App() {
   ];
   
   const logoSrc = 'ysbr-logo.png';
+
+  const items = [
+  {
+    title: 'SPORT',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua erat.',
+    image: 'https://via.placeholder.com/600x300',
+  },
+  {
+    title: 'NATURE',
+    description: 'Another description for the second slide.',
+    image: 'https://via.placeholder.com/600x300',
+  },
+  {
+    title: 'CITY',
+    description: 'Another description for the third slide.',
+    image: 'https://via.placeholder.com/600x300',
+  },
+];
+  
   
   return (
     <div style={responsiveStyle}>
@@ -40,7 +61,8 @@ function App() {
         textColor="#2563eb" 
         fontSize="2rem" 
         backgroundColor="#e0e7ff" 
-      />
+        />
+        <AboutUs items={items}/>
         {/* <Events />
         <AboutUs />
         <Partners />
