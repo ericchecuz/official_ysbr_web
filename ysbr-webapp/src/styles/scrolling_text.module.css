@@ -19,6 +19,13 @@
     animation: scrollLeft 20s linear infinite;
 }
 
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 30px;
+    vertical-align: middle;
+}
+
 .scrollText span {
     margin-right: 2rem;
 }
