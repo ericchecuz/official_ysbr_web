@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/about_us.module.css';
+import ChipGroup from './commons/ChipGroup';
 
 function AboutUs({ items, className = '' }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,7 +23,13 @@ function AboutUs({ items, className = '' }) {
   return (
     <section className={`${styles.sectionAboutUs} ${className}`}>
       <div className={styles.container_main}>
-        <h1 className={styles.title_section}>{ title}</h1>
+        <h1 className={styles.title_section}>{title}</h1>
+        <ChipGroup
+  categories={items.map((item) => item.category)}
+  selectedCategory={currentIndex}
+  onCategoryChange={goToSlide}
+/>
+
       <div className={styles.carouselContainer}>
         {/* Sezione Testo */}
         <div className={styles.textSection}>

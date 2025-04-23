@@ -1,0 +1,33 @@
+.chip {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid;
+    font-size: 0.875rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+    min-width: 80px;
+    width: 120px;
+    height: 3rem;
+    color: white;
+}
+
+@media (min-width: 640px) {
+    .chip {
+        min-width: 100px;
+    }
+}
+
+.selected {
+    background-color: #5a4e33;
+    border-color: #facc15;
+    color: var(--title-color);
+}
+
+.default {
+    background-color: #5e5473;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.default:hover {
+    background-color: #5a4e33;
+}
