@@ -6,7 +6,7 @@ import styles from '../styles/scrolling_text.module.css';
 const REPETITION_COUNT = 50;
 
 const ScrollingText = ({
-  items = [{ label: "Next Events", icon: null }], 
+  items = [{ label: "NEXT EVENT", icon: null }], 
   speed = 20,
   direction = "left",
   textColor = "black",

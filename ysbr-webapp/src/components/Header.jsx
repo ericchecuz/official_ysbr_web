@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import styles from '../styles/header.module.css';
+import { FaLock } from 'react-icons/fa'; 
 
 function Header({ leftItems = [], rightItems = [], logoSrc }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,6 +43,26 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
     };
   }, [handleScroll]);
 
+
+  const handleSmoothScroll = (e, href) => {
+    e.preventDefault();
+    const targetId = href.replace('#', ''); 
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const header = document.querySelector(`.${styles.header_container}`);
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth',
+      });
+
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <header
       className={`${styles.header_container} ${
@@ -51,7 +72,12 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
       <nav className={styles.header_nav}>
         <div className={styles.left_links}>
           {leftItems.map((item) => (
-            <a key={item.label} href={item.href} className={styles.link}>
+            <a
+              key={item.label}
+              href={item.href}
+              className={styles.link}
+              onClick={(e) => handleSmoothScroll(e, item.href)}
+            >
               {item.label}
             </a>
           ))}
@@ -63,9 +89,40 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
           <div className={`${styles.right_links} ${isMenuOpen ? styles.open : ''}`}>
             {rightItems.map((item) => {
               if (item.type === 'link') {
-                return <a key={item.label} href={item.href} className={styles.link}>{item.label}</a>;
+                // Logica speciale per "SHOP"
+                if (item.label === 'SHOP') {
+                  return (
+                    <span key={item.label} className={styles.shopLink}>
+                      {item.label}
+                      <FaLock className={styles.lockIcon} />
+                    </span>
+                  );
+                }
+                // Altri link
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className={styles.link}
+                    onClick={(e) => handleSmoothScroll(e, item.href)}
+                  >
+                    {item.label}
+                  </a>
+                );
               } else if (item.type === 'button') {
-                return <button key={item.label} className={styles.joinButton}>{item.label}</button>;
+                return (
+                  <button
+                    key={item.label}
+                    className={styles.joinButton}
+                    onClick={(e) => {
+                      if (item.href) {
+                        handleSmoothScroll(e, item.href);
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </button>
+                );
               }
               return null;
             })}
@@ -83,7 +140,12 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
         <div className={`${styles.mobile_menu} ${isMenuOpen ? styles.open : ''}`}>
           <div className={styles.mobile_left_links}>
             {leftItems.map((item) => (
-              <a key={item.label} href={item.href} className={styles.link}>
+              <a
+                key={item.label}
+                href={item.href}
+                className={styles.link}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+              >
                 {item.label}
               </a>
             ))}
@@ -91,9 +153,40 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
           <div className={styles.mobile_right_links}>
             {rightItems.map((item) => {
               if (item.type === 'link') {
-                return <a key={item.label} href={item.href} className={styles.link}>{item.label}</a>;
+                // Logica speciale per "SHOP" anche nel menu mobile
+                if (item.label === 'SHOP') {
+                  return (
+                    <span key={item.label} className={styles.shopLink}>
+                      {item.label}
+                      <FaLock className={styles.lockIcon} />
+                    </span>
+                  );
+                }
+                // Altri link
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className={styles.link}
+                    onClick={(e) => handleSmoothScroll(e, item.href)}
+                  >
+                    {item.label}
+                  </a>
+                );
               } else if (item.type === 'button') {
-                return <button key={item.label} className={styles.joinButton}>{item.label}</button>;
+                return (
+                  <button
+                    key={item.label}
+                    className={styles.joinButton}
+                    onClick={(e) => {
+                      if (item.href) {
+                        handleSmoothScroll(e, item.href);
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </button>
+                );
               }
               return null;
             })}
@@ -104,22 +197,21 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
   );
 }
 
-// Definizione di PropTypes
 Header.propTypes = {
   leftItems: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired, 
-      href: PropTypes.string.isRequired, 
+      label: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
     })
   ),
   rightItems: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired, 
-      href: PropTypes.string, 
-      type: PropTypes.oneOf(['link', 'button']).isRequired, 
+      label: PropTypes.string.isRequired,
+      href: PropTypes.string,
+      type: PropTypes.oneOf(['link', 'button']).isRequired,
     })
   ),
-  logoSrc: PropTypes.string.isRequired, 
+  logoSrc: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {

@@ -1,7 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 html,
 body {
+  font-family: var(--font-family);
   margin: 0;
   padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button {
+  font-family: var(--font-family);
 }
 
 #root {
@@ -10,14 +25,11 @@ body {
 }
 
 :root {
+  --font-family: 'Anton', sans-serif;
+  --font-family-subtitle: 'Luckiest Guy', cursive;
   --header-height: 13vh;
   --title-color: #f1e600;
   --green-main: #61bb83;
   --color-main: #281b44;
   background-color: var(--color-main);
-}
-
-main {
-  /* Rimuovo margin-top per evitare interferenze con il layout flex */
-  /* margin-top: var(--header-height); */
 }

@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 .header_container {
     position: fixed;
     width: 100%;
-    background-color: #fff;
+    color: white;
+    background-color: var(--color-main);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
@@ -35,7 +38,7 @@
 
 .left_links {
     display: flex;
-    gap: 2rem;
+    gap: 8rem;
 }
 
 .logo_container {
@@ -53,28 +56,55 @@
 
 .right_links {
     display: flex;
-    gap: 1rem;
+    gap: 8rem;
     align-items: center;
 }
 
 .link {
     text-decoration: none;
-    color: #333;
+    color: white;
     font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.5dvh;
     transition: color 0.3s;
 }
 
 .joinButton {
-    background-color: #2563eb;
+    background-color: #5e5473;
     color: #fff;
-    border: none;
-    border-radius: 5px;
+    border: solid 1px white;
+    border-radius: 10px;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    font-size: 22px;
+    letter-spacing: 0.5dvh;
     font-weight: 500;
 }
 
-/* Hamburger Menu */
+.joinButton:hover {
+    background-color: #5a4e33;
+}
+
+
+.shopLink {
+    position: relative;
+    color: rgba(255, 255, 255, 0.496);
+
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.5dvh;
+    cursor: not-allowed;
+
+}
+
+.lockIcon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: var(--title-color);
+    font-size: 1.2rem;
+}
+
 .hamburger {
     display: none;
     background: none;
@@ -93,14 +123,11 @@
     transition: all 0.3s ease;
 }
 
-/* Menu Mobile */
 .mobile_menu {
     display: none;
 }
 
-/*------------------------------------------------------- Media Queries --------------------------------------------*/
-
-/*---------------------------------------- Mobile (fino a 768px)--------------------------------------------------- */
+/*-------------------------------- Media Queries --------------------------------------*/
 @media (max-width: 768px) {
 
     .left_links,
@@ -141,9 +168,18 @@
         width: 60%;
         padding: 0.75rem;
     }
+
+    .shopLink {
+        font-size: 20px;
+    }
+
+    .lockIcon {
+        font-size: 1rem;
+        top: -8px;
+        right: -8px;
+    }
 }
 
-/* ------------------------------------------------Tablet (769px - 1024px)------------------------------------------ */
 @media (min-width: 769px) and (max-width: 1024px) {
 
     .left_links,
@@ -154,9 +190,12 @@
     .joinButton {
         padding: 0.4rem 0.8rem;
     }
+
+    .shopLink {
+        font-size: 20px;
+    }
 }
 
-/*----------------------------------------------- Desktop (oltre 1024px)--------------------------------------------- */
 @media (min-width: 1025px) {
     .mobile_menu {
         display: none;

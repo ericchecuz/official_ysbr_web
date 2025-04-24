@@ -1,6 +1,15 @@
 .hero_section {
-    height: 90vh;
-    justify-content: center;
+    height: 86vh;
+    margin-bottom: 2rem;
     display: flex;
+    justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.bg_img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
 }

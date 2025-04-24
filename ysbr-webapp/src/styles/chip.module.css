@@ -3,10 +3,12 @@
     border-radius: 0.5rem;
     border: 1px solid;
     font-size: 0.875rem;
-    font-weight: bold;
     transition: background-color 0.2s ease-in-out;
+    font-size: 22px;
+    letter-spacing: 0.5dvh;
     min-width: 80px;
     width: 120px;
+    cursor: pointer;
     height: 3rem;
     color: white;
 }
