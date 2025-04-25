@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import ScrollingText from './components/ScrollingText';
 import ImageCarousel from './components/AboutUs';
 import NextEvents from './components/NextEvents';
+import logoImage from './assets/ysbr-logo.png'; // Adjust path as needed
+
 
 function App() {
   const responsiveStyle = {
@@ -28,7 +30,7 @@ function App() {
     { label: 'TESSERATI', href: '#joinus', type: 'button', class: 'joinButton' }, 
   ];
 
-  const logoSrc = 'ysbr-logo.png';
+  const logoSrc = logoImage;
   const itemsNextEvents = [
     {
       title: 'YSBR',

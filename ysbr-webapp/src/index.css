@@ -1,6 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
+/* Font Family Body */
+@font-face {
+  font-family: 'ABCROMEXTENDED';
+  src: url('./assets/fonts/ABCROMEXTENDED-LIGHT-TRIAL.OTF') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ABCROMEXTENDED';
+  src: url('./assets/fonts/ABCROMEXTENDED-BOOK-TRIAL.OTF') format('opentype');
+  font-weight: 350;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ABCROMEXTENDED';
+  src: url('./assets/fonts/ABCROMEXTENDED-REGULAR-TRIAL.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ABCROMEXTENDED';
+  src: url('./assets/fonts/ABCROMEXTENDED-MEDIUM-TRIAL.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ABCROMEXTENDED';
+  src: url('./assets/fonts/ABCROMEXTENDED-HEAVY-TRIAL.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ABCROMEXTENDED';
+  src: url('./assets/fonts/ABCROMEXTENDED-BLACK-TRIAL.OTF') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Font Family Titles */
+@font-face {
+  font-family: 'Gliker';
+  src: url('./assets/fonts/GLIKER SEMI BOLD.TTF') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gliker';
+  src: url('./assets/fonts/GLIKER BOLD.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gliker';
+  src: url('./assets/fonts/GLIKER BLACK.TTF') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 html,
 body {
   font-family: var(--font-family);
@@ -25,9 +83,11 @@ button {
 }
 
 :root {
-  --font-family: 'Anton', sans-serif;
+  --font-family: 'ABCROMEXTENDED', sans-serif;
+  --font-family-titles: 'Gliker', sans-serif;
   --font-family-subtitle: 'Luckiest Guy', cursive;
-  --header-height: 13vh;
+  --header-height: 6rem;
+  --accent-color: #E8328A;
   --title-color: #f1e600;
   --green-main: #61bb83;
   --color-main: #281b44;

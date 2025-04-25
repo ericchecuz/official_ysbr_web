@@ -46,7 +46,6 @@
 }
 
 .logo_container img {
-    width: 50px;
 }
 
 .right_container {
@@ -63,10 +62,13 @@
 .link {
     text-decoration: none;
     color: white;
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 0.5dvh;
-    transition: color 0.3s;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.link:hover {
+    color: var(--accent-color);
 }
 
 .joinButton {
@@ -76,25 +78,24 @@
     border-radius: 10px;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    font-size: 22px;
-    letter-spacing: 0.5dvh;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.3s;
 }
 
 .joinButton:hover {
-    background-color: #5a4e33;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: solid 1px var(--accent-color);
+    scale: 1.10;
 }
 
 
 .shopLink {
     position: relative;
     color: rgba(255, 255, 255, 0.496);
-
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 0.5dvh;
-    cursor: not-allowed;
-
+    font-weight: 700;
+    font-size: 1rem;
 }
 
 .lockIcon {

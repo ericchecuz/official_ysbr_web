@@ -33,7 +33,7 @@
     font-size: 4rem;
     font-weight: bold;
     text-align: center;
-    font-family: var(--font-family-subtitle);
+    font-family: var(--font-family-titles);
     color: white;
     margin-bottom: 1.25rem;
     margin-top: 1.5rem;
@@ -44,7 +44,7 @@
     font-weight: bold;
     text-align: center;
     color: var(--title-color);
-    font-family: var(--font-family-subtitle);
+    font-family: var(--font-family-titles);
     margin-bottom: 1.25rem;
     margin-top: 0;
 }
