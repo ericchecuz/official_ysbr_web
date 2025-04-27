@@ -15,7 +15,7 @@
 .carouselContainer {
     display: flex;
     flex-direction: row;
-    padding: 2.5rem;
+    padding: 2.5rem 7.5rem;
     height: 25rem;
     width: 100%;
     box-sizing: border-box;
@@ -40,7 +40,7 @@
 }
 
 .title {
-    font-size: 6rem;
+    font-size: 7rem;
     font-weight: bold;
     text-align: center;
     color: var(--title-color);
@@ -87,21 +87,25 @@
 }
 
 .navButton {
-    background-color: #FF4081;
+    background-color: white;
     border: none;
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     padding: 0;
+    transition: 0.2s;
+}
+
+.navButton:hover {
+    background-color: #FF4081;
+    scale: 1.1;
 }
 
 .arrowIcon {
-    width: 1.5rem;
-    height: 1.5rem;
     color: #FFFFFF;
 }
 

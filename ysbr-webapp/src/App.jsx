@@ -34,26 +34,25 @@ function App() {
   const itemsNextEvents = [
     {
       title: 'YSBR',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       image: 'https://via.placeholder.com/600x300',
       category: 'YSBR',
     },
     {
       title: 'SPORT',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua erat.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       image: 'https://via.placeholder.com/600x300',
       category: 'SPORT',
     },
     {
       title: 'MUSIC',
-      description: 'Another description for the third slide.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       image: 'https://via.placeholder.com/600x300',
       category: 'MUSIC',
     },
     {
       title: 'NATURE',
-      description: 'Another description for the second slide.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       image: 'https://via.placeholder.com/600x300',
       category: 'NATURE',
     },
@@ -62,26 +61,25 @@ function App() {
   const items = [
     {
       title: 'YSBR',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       image: 'https://via.placeholder.com/600x300',
       category: 'YSBR',
     },
     {
       title: 'SPORT',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua erat.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       image: 'https://via.placeholder.com/600x300',
       category: 'SPORT',
     },
     {
       title: 'MUSIC',
-      description: 'Another description for the third slide.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       image: 'https://via.placeholder.com/600x300',
       category: 'MUSIC',
     },
     {
       title: 'NATURE',
-      description: 'Another description for the second slide.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
       image: 'https://via.placeholder.com/600x300',
       category: 'NATURE',
     },

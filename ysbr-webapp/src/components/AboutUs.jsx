@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import styles from '../styles/about_us.module.css';
-import ChipGroup from './commons/ChipGroup';
+import { useState } from "react";
+import styles from "../styles/about_us.module.css";
+import ChipGroup from "./commons/ChipGroup";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-function AboutUs({ items, className = '' }) {
+function AboutUs({ items, className = "" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -10,7 +11,9 @@ function AboutUs({ items, className = '' }) {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + items.length) % items.length
+    );
   };
 
   const goToSlide = (index) => {
@@ -18,62 +21,64 @@ function AboutUs({ items, className = '' }) {
   };
 
   const currentItem = items[currentIndex];
-  const title = "About Us";
+  const title = "ABOUT US";
 
   return (
     <section className={`${styles.sectionAboutUs} ${className}`}>
       <div className={styles.container_main}>
         <h1 className={styles.title_section}>{title}</h1>
         <ChipGroup
-  categories={items.map((item) => item.category)}
-  selectedCategory={currentIndex}
-  onCategoryChange={goToSlide}
-/>
+          categories={items.map((item) => item.category)}
+          selectedCategory={currentIndex}
+          onCategoryChange={goToSlide}
+        />
 
-      <div className={styles.carouselContainer}>
-        {/* Sezione Testo */}
-        <div className={styles.textSection}>
-          <h1 className={styles.title}>{currentItem.title}</h1>
-          <p className={styles.description}>{currentItem.description}</p>
-        </div>
-
-        {/* Sezione Immagine e Navigazione */}
-        <div className={styles.imageWrapper}>
-          {/* Freccia Sinistra */}
-          <div className={styles.arrowContainer}>
-            <button onClick={prevSlide} className={styles.navButton}>
-              &lt;
-            </button>
+        <div className={styles.carouselContainer}>
+          {/* Sezione Testo */}
+          <div className={styles.textSection}>
+            <h1 className={styles.title}>{currentItem.title}</h1>
+            <p className={styles.description}>{currentItem.description}</p>
           </div>
 
-          {/* Contenitore Immagine */}
-          <div className={styles.imageSection}>
-            <img
-              src={currentItem.image}
-              alt={currentItem.title}
-              className={styles.carouselImage}
-            />
-            {/* Indicatori di Scorrimento */}
-            <div className={styles.dotsContainer}>
-              {items.map((_, index) => (
-                <div
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ''}`}
-                />
-              ))}
+          {/* Sezione Immagine e Navigazione */}
+          <div className={styles.imageWrapper}>
+            {/* Freccia Sinistra */}
+            <div className={styles.arrowContainer}>
+              <button onClick={prevSlide} className={styles.navButton}>
+                <FaAngleLeft size="1.5rem" />
+              </button>
+            </div>
+
+            {/* Contenitore Immagine */}
+            <div className={styles.imageSection}>
+              <img
+                src={currentItem.image}
+                alt={currentItem.title}
+                className={styles.carouselImage}
+              />
+              {/* Indicatori di Scorrimento */}
+              <div className={styles.dotsContainer}>
+                {items.map((_, index) => (
+                  <div
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`${styles.dot} ${
+                      index === currentIndex ? styles.activeDot : ""
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Freccia Destra */}
+            <div className={styles.arrowContainer}>
+              <button onClick={nextSlide} className={styles.navButton}>
+                <FaAngleRight size="1.5rem" />
+              </button>
             </div>
           </div>
-
-          {/* Freccia Destra */}
-          <div className={styles.arrowContainer}>
-            <button onClick={nextSlide} className={styles.navButton}>
-              &gt;
-            </button>
-          </div>
         </div>
-        </div>
-        </div>
+      </div>
     </section>
   );
 }

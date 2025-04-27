@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types'; 
 import styles from '../styles/footer.module.css';
 
-import instagramIcon from '../assets/icons8-instagram-64.png';
-import whatsappIcon from '../assets/icons8-whatsapp-48.png';
+import { FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl }) {
   return (
@@ -14,8 +14,6 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
           <div className={styles.logo_container}>
             <img src={logoSrc} alt="YSBR Logo" className={styles.logo} />
           </div>
-
-          <div className={styles.vertical_line}></div>
 
           {/* Informazioni Centrali */}
           <div className={styles.info_container}>
@@ -34,16 +32,18 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Seguici su Instagram"
+            className={styles.social_icon_container_link}
           >
-            <img src={instagramIcon} alt="Instagram" className={styles.social_icon} />
+            <FaInstagram className={styles.social_icon} />
           </a>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contattaci su WhatsApp"
+            className={styles.social_icon_container_link}
           >
-            <img src={whatsappIcon} alt="WhatsApp" className={styles.social_icon} />
+            <FaWhatsapp className={styles.social_icon} />
           </a>
         </div>
       </div>

@@ -1,5 +1,5 @@
 .footer_container {
-    background-color: #f0f0f8;
+    background-color: var(--color-main);
     color: #060000;
     padding: 2rem 1rem;
     width: 100%;
@@ -19,15 +19,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     width: 50%;
-}
-
-.vertical_line {
-    border: 1px solid black;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    background-color: #000000;
-    flex: 0
 }
 
 .logo_container {
@@ -35,12 +28,16 @@
 }
 
 .logo {
-    width: 100px;
+    width: 100%;
 }
 
 .info_container {
     flex: 2;
-    text-align: center;
+    text-align: left;
+    color: white;
+    padding-left: 1rem;
+    margin-left: 1rem;
+    border-left: 1px solid #ff4d94;
 }
 
 .address,
@@ -66,9 +63,27 @@
     gap: 1rem;
 }
 
-.social_icon {
+.social_icon_container_link {
+    border: 1px solid #ff4d94;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
+    background-color: #ff4d943d;
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.social_icon_container_link:hover {
+    background-color: #ff4d94;
+}
+
+.social_icon {
+    width: 25px;
+    height: 25px;
+    color: white;
 }
 
 /*------------------------------------------------- Media Queries -------------------------------------------------*/
