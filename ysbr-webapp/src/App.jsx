@@ -99,12 +99,12 @@ function App() {
       icon: 'https://cdn-icons-png.flaticon.com/512/744/744937.png', 
     },
   ];
-  const scrollingItemsIconSponsor = [
-    {
-      label: 'ICONE SPONSOR',
-      icon: null, 
-    }
-  ];
+  // const scrollingItemsIconSponsor = [
+  //   {
+  //     label: 'ICONE SPONSOR',
+  //     icon: null, 
+  //   }
+  // ];
 
   return (
     <div style={responsiveStyle}>
@@ -133,18 +133,11 @@ function App() {
         <section id="events">
           <NextEvents items={itemsNextEvents} />
         </section>
-        
-        
-        
-        <ScrollingText
-          items={scrollingItemsIconSponsor}
-          speed={28}
-          direction="left"
-          textColor="black"
-          fontSize="2rem"
-          backgroundColor="white"
-        />
-        <section id="joinus">
+        <section id ="partners">
+          <Partners />
+          </section>
+     
+        <section id="joinus" >
           <JoinUs />
         </section>
       </main>

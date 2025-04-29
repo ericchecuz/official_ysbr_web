@@ -1,4 +1,4 @@
-import styles from "../styles/about_us.module.css";
+import styles from "../styles//next_event.module.css";
 import { useState } from "react";
 import ChipGroup from "./commons/ChipGroup";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
@@ -21,11 +21,13 @@ function NextEvents({ items, className = "" }) {
   };
 
   const currentItem = items[currentIndex];
-  const title = "EVENTS";
+  const title = "PROSSIMI EVENTI";
+  const info = "CLICCA SULLA GRAFICA PER MAGGIORI INFORMAZIONI"
   return (
     <section className={`${styles.sectionAboutUs} ${className}`}>
       <div className={styles.container_main}>
         <h1 className={styles.title_section}>{title}</h1>
+        <p className={styles.description}>{currentItem.description}</p>
         <ChipGroup
           categories={items.map((item) => item.category)}
           selectedCategory={currentIndex}
@@ -34,10 +36,7 @@ function NextEvents({ items, className = "" }) {
 
         <div className={styles.carouselContainer}>
           {/* Sezione Testo */}
-          <div className={styles.textSection}>
-            <h1 className={styles.title}>{currentItem.title}</h1>
-            <p className={styles.description}>{currentItem.description}</p>
-          </div>
+          
 
           {/* Sezione Immagine e Navigazione */}
           <div className={styles.imageWrapper}>
@@ -76,6 +75,10 @@ function NextEvents({ items, className = "" }) {
               </button>
             </div>
           </div>
+        </div>
+        <div className={styles.container_info}>
+          <FaAngleLeft size="2.5rem" />
+          <p className={styles.descriptionInfo}>{ info}</p>
         </div>
       </div>
     </section>
