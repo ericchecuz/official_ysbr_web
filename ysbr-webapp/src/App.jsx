@@ -135,9 +135,7 @@ function App() {
         </section>
         
         
-        <section id="joinus">
-          <JoinUs />
-        </section>
+        
         <ScrollingText
           items={scrollingItemsIconSponsor}
           speed={28}
@@ -146,6 +144,9 @@ function App() {
           fontSize="2rem"
           backgroundColor="white"
         />
+        <section id="joinus">
+          <JoinUs />
+        </section>
       </main>
       <Footer
         logoSrc={logoSrc}
