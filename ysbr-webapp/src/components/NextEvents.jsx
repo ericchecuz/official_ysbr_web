@@ -2,6 +2,7 @@ import styles from "../styles//next_event.module.css";
 import { useState } from "react";
 import ChipGroup from "./commons/ChipGroup";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { LuMousePointerClick } from "react-icons/lu";
 
 function NextEvents({ items, className = "" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -77,7 +78,7 @@ function NextEvents({ items, className = "" }) {
           </div>
         </div>
         <div className={styles.container_info}>
-          <FaAngleLeft size="2.5rem" />
+          <LuMousePointerClick size="2.5rem" color="#f1e600"/>
           <p className={styles.descriptionInfo}>{ info}</p>
         </div>
       </div>

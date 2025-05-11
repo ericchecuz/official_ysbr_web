@@ -3,6 +3,8 @@
     justify-content: center;
     display: flex;
     align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .container_main {
@@ -18,6 +20,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    gap: 1rem;
     padding: 2rem;
 }
 
@@ -68,6 +71,7 @@
     word-break: break-word;
     margin: 0 auto;
     max-width: 705px;
+    margin-bottom: 2.5rem;
 }
 
 .descriptionInfo {

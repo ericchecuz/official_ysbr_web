@@ -3,6 +3,8 @@
     justify-content: center;
     display: flex;
     align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .container_main {
@@ -42,7 +44,6 @@
 .title {
     font-size: 7rem;
     font-weight: bold;
-    text-align: center;
     color: var(--title-color);
     font-family: var(--font-family-titles);
     margin-bottom: 1.25rem;
@@ -61,6 +62,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    min-height: 25rem;
 }
 
 .arrowContainer {
@@ -76,11 +78,12 @@
     flex-direction: column;
     align-items: center;
     width: 80%;
+    height: 100%;
 }
 
 .carouselImage {
     width: 100%;
-    height: 18.75rem;
+    height: 100%;
     object-fit: cover;
     border-radius: 1.25rem;
     border: solid red;
