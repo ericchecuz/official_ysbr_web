@@ -1,20 +1,27 @@
 import { useState } from "react";
 import styles from "../styles/about_us.module.css";
 import ChipGroup from "./commons/ChipGroup";
+import Carousel from "./commons/Carousel";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+
+// Importiamo correttamente le immagini
+import slide1 from '../assets/slide1.jpg';
+import slide2 from '../assets/slide2.jpg';
+import slide3 from '../assets/slide3.jpg';
+import slide4 from '../assets/slide4.jpg';
+import slide5 from '../assets/slide5.jpg';
 
 function AboutUs({ items, className = "" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + items.length) % items.length
-    );
-  };
+  // Usiamo i riferimenti diretti alle immagini importate
+  const immagini = [
+    slide1,
+    slide2,
+    slide3,
+    slide4,
+    slide5,
+  ];
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
@@ -40,43 +47,13 @@ function AboutUs({ items, className = "" }) {
             <p className={styles.description}>{currentItem.description}</p>
           </div>
 
-          {/* Sezione Immagine e Navigazione */}
-          <div className={styles.imageWrapper}>
-            {/* Freccia Sinistra */}
-            <div className={styles.arrowContainer}>
-              <button onClick={prevSlide} className={styles.navButton}>
-                <FaAngleLeft size="1.5rem" />
-              </button>
-            </div>
-
-            {/* Contenitore Immagine */}
-            <div className={styles.imageSection}>
-              <img
-                src={currentItem.image}
-                alt={currentItem.title}
-                className={styles.carouselImage}
-              />
-              {/* Indicatori di Scorrimento */}
-              <div className={styles.dotsContainer}>
-                {items.map((_, index) => (
-                  <div
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`${styles.dot} ${
-                      index === currentIndex ? styles.activeDot : ""
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Freccia Destra */}
-            <div className={styles.arrowContainer}>
-              <button onClick={nextSlide} className={styles.navButton}>
-                <FaAngleRight size="1.5rem" />
-              </button>
-            </div>
-          </div>
+          {/* CAROSELLO */}
+          <Carousel 
+            slides={immagini} 
+            height='400px'
+            showInfo={true}
+            infoText="SCORRI LE IMMAGINI PER VEDERE LA GALLERIA"
+          />
         </div>
       </div>
     </section>
