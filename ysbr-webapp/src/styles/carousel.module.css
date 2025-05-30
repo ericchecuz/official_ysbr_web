@@ -1,0 +1,286 @@
+/* Base styles for carousel */
+.carouselWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.slide {
+    min-width: 100%;
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    filter: blur(8px) brightness(0.8);
+    transform: translateZ(-100px);
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+    filter: blur(0) brightness(1);
+    transform: translateZ(0);
+    pointer-events: auto;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+    /* Performance optimization */
+}
+
+/* Nuovi stili per i pulsanti di navigazione */
+.leftArrowContainer {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.rightArrowContainer {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.navButton {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.navButton:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(232, 62, 140, 0.5);
+}
+
+/* Vecchi stili dei nav-btn, mantenuti per compatibilità */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #2a1b3d;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(5px);
+    /* Safari support */
+    backdrop-filter: blur(5px);
+    /* Modern glass effect */
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(232, 62, 140, 0.5);
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+/* Dots navigation */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+    -webkit-backdrop-filter: blur(3px);
+    /* Safari support */
+    backdrop-filter: blur(3px);
+    /* Modern glass effect */
+    padding: 8px 15px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dot.active {
+    background-color: #e83e8c;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #e83e8c;
+}
+
+/* Modern animations for slide transitions */
+@keyframes slideTransition {
+    0% {
+        opacity: 0;
+        transform: translateZ(-100px) scale(1.1) rotateY(5deg);
+        filter: blur(8px) brightness(0.8);
+    }
+
+    20% {
+        opacity: 0.4;
+        transform: translateZ(-50px) scale(1.05) rotateY(3deg);
+        filter: blur(4px) brightness(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateZ(0) scale(1) rotateY(0);
+        filter: blur(0) brightness(1);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateZ(0) scale(1);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateZ(-50px) scale(0.95);
+        filter: blur(5px);
+    }
+}
+
+.slide.active {
+    animation: slideTransition 0.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+.slide:not(.active) {
+    animation: slideOut 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .dots-container {
+        padding: 6px 12px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .dots-container {
+        padding: 4px 10px;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Empty state */
+.carousel-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    background-color: #2a1b3d;
+    color: white;
+    border-radius: 16px;
+    font-family: sans-serif;
+}
+
+/* Container info */
+.container_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 2rem;
+    color: white;
+}
+
+.descriptionInfo {
+    line-height: 1.5;
+    font-size: 1.125rem;
+    color: white;
+    text-align: center;
+    white-space: normal;
+    word-break: break-all;
+    margin: 0 auto;
+    max-width: 322px;
+}
