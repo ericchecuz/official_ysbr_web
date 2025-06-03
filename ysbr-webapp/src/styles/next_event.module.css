@@ -28,10 +28,11 @@
     display: flex;
     flex-direction: row;
     padding: 2.5rem 7.5rem;
-    height: 25rem;
     width: 100%;
     box-sizing: border-box;
     gap: 2.5rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .textSection {
@@ -87,19 +88,18 @@
 }
 
 .imageWrapper {
-    flex: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    width: 50%;
 }
 
 .arrowContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
 }
 
 .imageSection {
@@ -107,22 +107,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
 }
 
 .carouselImage {
-    width: 100%;
-    height: 18.75rem;
+    width: 75%;
     object-fit: cover;
-    border-radius: 1.25rem;
-    border: solid red;
+    border-radius: 10px;
 }
 
 .navButton {
     background-color: white;
     border: none;
     border-radius: 50%;
-    width: 2rem;
+    width: 2.1rem;
     height: 2rem;
     display: flex;
     align-items: center;

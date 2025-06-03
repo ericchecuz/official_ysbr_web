@@ -6,9 +6,11 @@ import Partners from './components/Partners';
 import JoinUs from './components/JoinUs';
 import Footer from './components/Footer';
 import ScrollingText from './components/ScrollingText';
-import ImageCarousel from './components/AboutUs';
 import NextEvents from './components/NextEvents';
 import logoImage from './assets/ysbr-logo.png'; // Adjust path as needed
+
+import eventImage1 from './assets/Events_Carousel-image_1.png';
+import eventImage2 from './assets/Events_Carousel-image_2.png';
 
 
 function App() {
@@ -33,28 +35,18 @@ function App() {
   const logoSrc = logoImage;
   const itemsNextEvents = [
     {
+      id: 1,
       title: 'YSBR',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      image: 'https://via.placeholder.com/600x300',
-      category: 'YSBR',
+      image: eventImage1,
+      url: 'https://instagram.com/ysbr_official/',
     },
     {
+      id: 2,
       title: 'SPORT',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      image: 'https://via.placeholder.com/600x300',
-      category: 'SPORT',
-    },
-    {
-      title: 'MUSIC',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      image: 'https://via.placeholder.com/600x300',
-      category: 'MUSIC',
-    },
-    {
-      title: 'NATURE',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      image: 'https://via.placeholder.com/600x300',
-      category: 'NATURE',
+      image: eventImage2,
+      url: 'https://instagram.com/ysbr_official/',
     },
   ];
 

@@ -1,5 +1,5 @@
 import styles from '../styles/hero.module.css';
-import backgroundVideo from '../assets/hero-video.mp4'; 
+import backgroundVideo from '../assets/hero-video-1.mp4'; 
 
 function Hero() {
   return (

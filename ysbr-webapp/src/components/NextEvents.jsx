@@ -1,6 +1,5 @@
-import styles from "../styles//next_event.module.css";
+import styles from "../styles/next_event.module.css";
 import { useState } from "react";
-import ChipGroup from "./commons/ChipGroup";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { LuMousePointerClick } from "react-icons/lu";
 
@@ -23,22 +22,15 @@ function NextEvents({ items, className = "" }) {
 
   const currentItem = items[currentIndex];
   const title = "PROSSIMI EVENTI";
-  const info = "CLICCA SULLA GRAFICA PER MAGGIORI INFORMAZIONI"
+  const info = "CLICCA SULLA GRAFICA PER MAGGIORI INFORMAZIONI";
+
   return (
     <section className={`${styles.sectionAboutUs} ${className}`}>
       <div className={styles.container_main}>
         <h1 className={styles.title_section}>{title}</h1>
         <p className={styles.description}>{currentItem.description}</p>
-        <ChipGroup
-          categories={items.map((item) => item.category)}
-          selectedCategory={currentIndex}
-          onCategoryChange={goToSlide}
-        />
 
         <div className={styles.carouselContainer}>
-          {/* Sezione Testo */}
-          
-
           {/* Sezione Immagine e Navigazione */}
           <div className={styles.imageWrapper}>
             {/* Freccia Sinistra */}
@@ -55,19 +47,7 @@ function NextEvents({ items, className = "" }) {
                 alt={currentItem.title}
                 className={styles.carouselImage}
               />
-              {/* Indicatori di Scorrimento */}
-              <div className={styles.dotsContainer}>
-                {items.map((_, index) => (
-                  <div
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`${styles.dot} ${
-                      index === currentIndex ? styles.activeDot : ""
-                    }`}
-                  />
-                ))}
               </div>
-            </div>
 
             {/* Freccia Destra */}
             <div className={styles.arrowContainer}>
@@ -77,9 +57,10 @@ function NextEvents({ items, className = "" }) {
             </div>
           </div>
         </div>
+        
         <div className={styles.container_info}>
           <LuMousePointerClick size="2.5rem" color="#f1e600"/>
-          <p className={styles.descriptionInfo}>{ info}</p>
+          <p className={styles.descriptionInfo}>{info}</p>
         </div>
       </div>
     </section>
