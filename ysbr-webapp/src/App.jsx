@@ -37,44 +37,44 @@ function App() {
   const itemsNextEvents = [
     {
       id: 1,
-      title: 'YSBR',
-      description: 'YSBR è un associazione che promuove uno stile di vita attivo e sostenibile attraverso eventi che combinano sport, musica e natura. La nostra missione è creare esperienze uniche che stimolino corpo e mente, in un ambiente di condivisione e divertimento.',
+      title: "YSBR",
+      description: "YSBR è un'associazione che promuove uno stile di vita attivo e sostenibile attraverso eventi che combinano sport, musica e natura. La nostra missione è creare esperienze uniche che stimolino corpo e mente, in un ambiente di condivisione e divertimento.",
       image: eventImage1,
-      url: 'https://instagram.com/ysbr_official/',
+      url: "https://instagram.com/ysbr_official/",
     },
     {
       id: 2,
-      title: 'SPORT',
-      description: 'Dalle balance board alle slack line, passando per yoga e arrampicata: i nostri eventi sportivi sono pensati per tutti i livelli di esperienza. Mettiamo al centro il divertimento e la crescita personale, con istruttori qualificati pronti a guidarti in nuove sfide.',
+      title: "SPORT",
+      description: "Dalle balance board alle slack line, passando per yoga e arrampicata: i nostri eventi sportivi sono pensati per tutti i livelli di esperienza. Mettiamo al centro il divertimento e la crescita personale, con istruttori qualificati pronti a guidarti in nuove sfide.",
       image: eventImage2,
-      url: 'https://instagram.com/ysbr_official/',
+      url: "https://instagram.com/ysbr_official/",
     },
   ];
 
   const items = [
     {
-      title: 'YSBR',
-      description: 'Young, Strong, Brave, Resilient: questi sono i valori che ci guidano. YSBR è un punto di riferimento per chi cerca esperienze autentiche che combinano adrenalina, divertimento e rispetto per l ambiente. La nostra community è in continua crescita e ti aspetta per condividere momenti indimenticabili.',
-      image: 'https://via.placeholder.com/600x300',
-      category: 'YSBR',
+      title: "YSBR",
+      description: "Young, Strong, Brave, Resilient: questi sono i valori che ci guidano. YSBR è un punto di riferimento per chi cerca esperienze autentiche che combinano adrenalina, divertimento e rispetto per l'ambiente. La nostra community è in continua crescita e ti aspetta per condividere momenti indimenticabili.",
+      image: "https://via.placeholder.com/600x300",
+      category: "YSBR",
     },
     {
-      title: 'SPORT',
-      description: 'Lo sport è movimento, sfida e superamento dei propri limiti. Nei nostri eventi potrai sperimentare discipline come balance board, slack line e molto altro, sempre in un contesto inclusivo e non competitivo. Crediamo che l attività fisica sia un potente strumento di benessere e socializzazione.',
-      image: 'https://via.placeholder.com/600x300',
-      category: 'SPORT',
+      title: "SPORT",
+      description: "Lo sport è movimento, sfida e superamento dei propri limiti. Nei nostri eventi potrai sperimentare discipline come balance board, slack line e molto altro, sempre in un contesto inclusivo e non competitivo. Crediamo che l'attività fisica sia un potente strumento di benessere e socializzazione.",
+      image: "https://via.placeholder.com/600x300",
+      category: "SPORT",
     },
     {
-      title: 'MUSIC',
-      description: 'La musica è l anima dei nostri eventi, con DJ set e performance live che creano l atmosfera perfetta per ogni occasione. Dal tramonto all alba, le nostre selezioni musicali accompagnano le attività sportive e i momenti di relax, creando un esperienza sensoriale completa e coinvolgente.',
-      image: 'https://via.placeholder.com/600x300',
-      category: 'MUSIC',
+      title: "MUSIC",
+      description: "La musica è l'anima dei nostri eventi, con DJ set e performance live che creano l'atmosfera perfetta per ogni occasione. Dal tramonto all'alba, le nostre selezioni musicali accompagnano le attività sportive e i momenti di relax, creando un'esperienza sensoriale completa e coinvolgente.",
+      image: "https://via.placeholder.com/600x300",
+      category: "MUSIC",
     },
     {
-      title: 'NATURE',
-      description: 'La natura è il nostro palcoscenico preferito. Organizziamo eventi in location mozzafiato, dal lago alla montagna, promuovendo il rispetto per l ambiente e la sostenibilità. Crediamo che il contatto con la natura sia essenziale per ritrovare equilibrio e ispirazione nella vita quotidiana.',
-      image: 'https://via.placeholder.com/600x300',
-      category: 'NATURE',
+      title: "NATURE",
+      description: "La natura è il nostro palcoscenico preferito. Organizziamo eventi in location mozzafiato, dal lago alla montagna, promuovendo il rispetto per l'ambiente e la sostenibilità. Crediamo che il contatto con la natura sia essenziale per ritrovare equilibrio e ispirazione nella vita quotidiana.",
+      image: "https://via.placeholder.com/600x300",
+      category: "NATURE",
     },
   ];
 

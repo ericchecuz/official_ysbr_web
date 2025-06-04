@@ -17,7 +17,7 @@
     "scrollingText": "ICONE SPONSOR"
   },
   "joinUs": {
-    "title": "ISCRIVITIALL'ASSOCIAZIONE",
+    "title": "ISCRIVITI\nALL'ASSOCIAZIONE",
     "description": "Unisciti alla nostra community di appassionati di sport, musica e natura. Con la tua iscrizione potrai partecipare a tutti i nostri eventi esclusivi, ricevere aggiornamenti in anteprima e contribuire alla crescita di un progetto che unisce passione e divertimento.",
     "button": "COMPILA IL FORM"
   },
@@ -44,11 +44,7 @@
   },
   "scrollingText": {
     "defaultLabel": "NEXT EVENT",
-    "categories": [
-      "Balance Board",
-      "Slack Line",
-      "Dj"
-    ]
+    "categories": ["Balance Board", "Slack Line", "Dj"]
   },
   "categories": {
     "ysbr": "YSBR",
