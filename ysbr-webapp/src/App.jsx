@@ -11,6 +11,7 @@ import logoImage from './assets/ysbr-logo.png'; // Adjust path as needed
 
 import eventImage1 from './assets/Events_Carousel-image_1.png';
 import eventImage2 from './assets/Events_Carousel-image_2.png';
+import labels from './labels.json';
 
 
 function App() {
@@ -23,13 +24,13 @@ function App() {
   };
 
   const leftItems = [
-    { label: 'ABOUT US', href: '#about' },
-    { label: 'EVENTS', href: '#events' },
+    { label: labels.header.navigation.aboutUs, href: '#about' },
+    { label: labels.header.navigation.events, href: '#events' },
   ];
 
   const rightItems = [
-    { label: 'SHOP', href: '#shop', type: 'link' },
-    { label: 'TESSERATI', href: '#joinus', type: 'button', class: 'joinButton' }, 
+    { label: labels.header.shop, href: '#shop', type: 'link' },
+    { label: labels.header.tesserati, href: '#joinus', type: 'button', class: 'joinButton' }, 
   ];
 
   const logoSrc = logoImage;

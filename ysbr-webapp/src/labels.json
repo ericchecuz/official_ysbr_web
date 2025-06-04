@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "title": "SPORT, MUSICA E NATURA",
+    "subtitle": "Un mare di eventi dove dare sfogo alla tua energia!",
+    "button": "SCOPRI DI PIÙ"
+  },
+  "aboutUs": {
+    "title": "ABOUT US",
+    "carouselInfo": "SCORRI LE IMMAGINI PER VEDERE LA GALLERIA"
+  },
+  "nextEvents": {
+    "title": "PROSSIMI EVENTI",
+    "info": "CLICCA SULLA GRAFICA PER MAGGIORI INFORMAZIONI"
+  },
+  "partners": {
+    "title": "PARTNERS",
+    "scrollingText": "ICONE SPONSOR"
+  },
+  "joinUs": {
+    "title": "ISCRIVITI\nALL'ASSOCIAZIONE",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat",
+    "button": "COMPILA IL FORM"
+  },
+  "footer": {
+    "statute": "Statuto dell'Associazione",
+    "social": {
+      "instagram": "Seguici su Instagram",
+      "whatsapp": "Contattaci su WhatsApp"
+    },
+    "address": "YSBR - Via Volta 7, 20836 Briosco (MB)",
+    "piva": "P.IVA 13175720963"
+  },
+  "header": {
+    "shop": "SHOP",
+    "tesserati": "TESSERATI",
+    "navigation": {
+      "aboutUs": "ABOUT US",
+      "events": "EVENTS"
+    }
+  },
+  "events": {
+    "title": "I nostri Eventi",
+    "subtitle": "Qui verranno visualizzati gli eventi in evidenza"
+  },
+  "scrollingText": {
+    "defaultLabel": "NEXT EVENT",
+    "categories": [
+      "Balance Board",
+      "Slack Line",
+      "Dj"
+    ]
+  },
+  "categories": {
+    "ysbr": "YSBR",
+    "sport": "SPORT",
+    "music": "MUSIC",
+    "nature": "NATURE"
+  },
+  "placeholders": {
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+  }
+}

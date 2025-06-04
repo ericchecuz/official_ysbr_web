@@ -1,5 +1,6 @@
 import styles from '../styles/hero.module.css';
 import backgroundVideo from '../assets/hero-video-1.mp4'; 
+import labels from '../labels.json';
 
 function Hero() {
   return (
@@ -14,9 +15,9 @@ function Hero() {
       />
 
       <div className={styles.hero_content}>
-        <h1 className={styles.hero_title}>SPORT, MUSICA E NATURA</h1>
-        <p className={styles.hero_subtitle}>Un mare di eventi dove dare sfogo alla tua energia!</p>
-        <button className={styles.hero_button}>SCOPRI DI PIÙ</button>
+        <h1 className={styles.hero_title}>{labels.hero.title}</h1>
+        <p className={styles.hero_subtitle}>{labels.hero.subtitle}</p>
+        <button className={styles.hero_button}>{labels.hero.button}</button>
       </div>
     </section>
   );

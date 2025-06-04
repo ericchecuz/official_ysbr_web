@@ -2,6 +2,7 @@ import styles from "../styles/next_event.module.css";
 import { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { LuMousePointerClick } from "react-icons/lu";
+import labels from '../labels.json';
 
 function NextEvents({ items, className = "" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,7 +28,7 @@ function NextEvents({ items, className = "" }) {
   return (
     <section className={`${styles.sectionAboutUs} ${className}`}>
       <div className={styles.container_main}>
-        <h1 className={styles.title_section}>{title}</h1>
+        <h1 className={styles.title_section}>{labels.nextEvents.title}</h1>
         <p className={styles.description}>{currentItem.description}</p>
 
         <div className={styles.carouselContainer}>
@@ -47,7 +48,7 @@ function NextEvents({ items, className = "" }) {
                 alt={currentItem.title}
                 className={styles.carouselImage}
               />
-              </div>
+            </div>
 
             {/* Freccia Destra */}
             <div className={styles.arrowContainer}>

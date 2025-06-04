@@ -3,6 +3,7 @@ import styles from "../styles/about_us.module.css";
 import ChipGroup from "./commons/ChipGroup";
 import Carousel from "./commons/Carousel";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import labels from '../labels.json';
 
 // Importiamo correttamente le immagini
 import slide1 from '../assets/slide1.jpg';
@@ -28,12 +29,11 @@ function AboutUs({ items, className = "" }) {
   };
 
   const currentItem = items[currentIndex];
-  const title = "ABOUT US";
 
   return (
     <section className={`${styles.sectionAboutUs} ${className}`}>
       <div className={styles.container_main}>
-        <h1 className={styles.title_section}>{title}</h1>
+        <h1 className={styles.title_section}>{labels.aboutUs.title}</h1>
         <ChipGroup
           categories={items.map((item) => item.category)}
           selectedCategory={currentIndex}
@@ -48,12 +48,15 @@ function AboutUs({ items, className = "" }) {
           </div>
 
           {/* CAROSELLO */}
-          <Carousel 
-            slides={immagini} 
-            height='400px'
-            showInfo={true}
-            infoText="SCORRI LE IMMAGINI PER VEDERE LA GALLERIA"
-          />
+          
+            <Carousel
+              slides={immagini}
+              showArrows={true}
+              showDots={true}
+              autoPlay={true}
+              interval={5000}
+              info={labels.aboutUs.carouselInfo}
+            />
         </div>
       </div>
     </section>
