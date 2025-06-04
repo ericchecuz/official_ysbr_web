@@ -129,7 +129,7 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
             })}
           </div>
           <button
-            className={styles.hamburger}
+            className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} 
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
