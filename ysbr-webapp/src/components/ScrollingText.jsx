@@ -30,7 +30,6 @@ const ScrollingText = ({
         >
           {repeatedItems.map((item, index) => (
             <span key={index} className={styles.textItem}>
-              {item.label}
               {item.icon && (
                 <img
                   src={item.icon}
@@ -38,6 +37,7 @@ const ScrollingText = ({
                   className={styles.icon}
                 />
               )}
+              {item.label}
             </span>
           ))}
         </div>

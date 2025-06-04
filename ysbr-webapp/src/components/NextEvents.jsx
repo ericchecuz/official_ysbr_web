@@ -20,8 +20,15 @@ function NextEvents({ items, className = "" }) {
     setCurrentIndex(index);
   };
 
+  // Get previous and next indices
+  const getPrevIndex = () => (currentIndex - 1 + items.length) % items.length;
+  const getNextIndex = () => (currentIndex + 1) % items.length;
+
   const currentItem = items[currentIndex];
-  const title = "PROSSIMI EVENTI";
+  const prevItem = items[getPrevIndex()];
+  const nextItem = items[getNextIndex()];
+  
+  const title = "EVENTS";
   const info = "CLICCA SULLA GRAFICA PER MAGGIORI INFORMAZIONI";
 
   return (
@@ -40,14 +47,37 @@ function NextEvents({ items, className = "" }) {
               </button>
             </div>
 
-            {/* Contenitore Immagine */}
+            {/* Contenitore Immagini con Preview */}
             <div className={styles.imageSection}>
-              <img
-                src={currentItem.image}
-                alt={currentItem.title}
-                className={styles.carouselImage}
-              />
+              {/* Previous Image (Left) */}
+              <div className={styles.previewImageLeft}>
+                <img
+                  src={prevItem.image}
+                  alt={prevItem.title}
+                  className={styles.previewImage}
+                  onClick={() => goToSlide(getPrevIndex())}
+                />
               </div>
+
+              {/* Current Image (Center) */}
+              <div className={styles.mainImageContainer}>
+                <img
+                  src={currentItem.image}
+                  alt={currentItem.title}
+                  className={styles.carouselImage}
+                />
+              </div>
+
+              {/* Next Image (Right) */}
+              <div className={styles.previewImageRight}>
+                <img
+                  src={nextItem.image}
+                  alt={nextItem.title}
+                  className={styles.previewImage}
+                  onClick={() => goToSlide(getNextIndex())}
+                />
+              </div>
+            </div>
 
             {/* Freccia Destra */}
             <div className={styles.arrowContainer}>
