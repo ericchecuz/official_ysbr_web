@@ -47,7 +47,16 @@
     color: white;
     margin-bottom: 2rem;
     white-space: nowrap;
+    transition: 0.3s ease-in-out;
 }
+
+.joinButton:hover {
+    background-color: #ffffff;
+    border-color: rgba(255, 255, 255, 0);
+    color: var(--accent-color);
+    scale: 1.05;
+}
+
 
 /*-------------------------------------------- Media Queries ---------------------------------------------*/
 @media (max-width: 768px) {

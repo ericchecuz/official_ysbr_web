@@ -13,6 +13,10 @@ import eventImage1 from './assets/Events_Carousel-image_1.png';
 import eventImage2 from './assets/Events_Carousel-image_2.png';
 import labels from './labels.json';
 
+import balanceBoardIcon from './assets/balance-board-icon.png';
+import slackLineIcon from './assets/slack-line-icon.png';
+import djIcon from './assets/dj-icon.png';
+
 
 function App() {
   const responsiveStyle = {
@@ -81,15 +85,15 @@ function App() {
   const scrollingItems = [
     {
       label: 'Balance Board',
-      icon: 'https://cdn-icons-png.flaticon.com/512/744/744929.png', 
+      icon: balanceBoardIcon, 
     },
     {
       label: 'Slack Line',
-      icon: 'https://cdn-icons-png.flaticon.com/512/744/744928.png', 
+      icon: slackLineIcon, 
     },
     {
-      label: 'Dj',
-      icon: 'https://cdn-icons-png.flaticon.com/512/744/744937.png', 
+      label: 'Dj Sets',
+      icon: djIcon, 
     },
   ];
   // const scrollingItemsIconSponsor = [
