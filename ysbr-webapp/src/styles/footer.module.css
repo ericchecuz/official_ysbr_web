@@ -13,26 +13,29 @@
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .footer_content_left {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
-    width: 50%;
+    gap: 2rem;
+    flex: 1;
 }
 
 .logo_container {
-    flex: 1;
+    flex: 0 0 auto;
 }
 
 .logo {
     width: 100%;
+    max-width: 120px;
 }
 
 .info_container {
-    flex: 2;
+    flex: 1;
     text-align: left;
     color: white;
     padding-left: 1rem;
@@ -57,10 +60,10 @@
 }
 
 .social_container {
-    flex: 1;
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
+    flex: 0 0 auto;
 }
 
 .social_icon_container_link {
@@ -91,31 +94,37 @@
 /* Mobile (fino a 768px) */
 @media (max-width: 768px) {
     .footer_content {
+        flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
-        justify-content: space-between;
-    }
-
-    .vertical_line {
-        margin-left: 0;
-        margin-right: 0;
-        display: none;
-    }
-
-    .logo_container,
-    .info_container,
-    .social_container {
-        flex: none;
-        width: 100%;
         text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer_content_left {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .info_container {
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .logo_container {
+        margin-bottom: 1rem;
+    }
+
+    .logo {
+        width: 100px;
     }
 
     .social_container {
         justify-content: center;
-    }
-
-    .logo {
-        width: 80px;
+        width: 100%;
     }
 
     .address,
@@ -131,20 +140,15 @@
 /* Tablet (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .footer_content {
-        flex-direction: row;
-        gap: 1rem;
+        padding: 0 1rem;
     }
 
-    .logo_container {
-        flex: 1;
+    .footer_content_left {
+        gap: 1.5rem;
     }
 
-    .info_container {
-        flex: 2;
-    }
-
-    .social_container {
-        flex: 1;
+    .logo {
+        max-width: 100px;
     }
 
     .address,
@@ -160,6 +164,6 @@
 /* Desktop (oltre 1024px) */
 @media (min-width: 1025px) {
     .footer_content {
-        flex-direction: row;
+        padding: 0 2rem;
     }
 }

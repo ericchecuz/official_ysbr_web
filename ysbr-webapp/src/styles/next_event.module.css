@@ -145,12 +145,12 @@
 }
 
 .previewImageLeft {
-    right: 50%;
+    right: 65%;
     transform: translateY(-50%) translateX(-20%);
 }
 
 .previewImageRight {
-    left: 50%;
+    left: 65%;
     transform: translateY(-50%) translateX(20%);
 }
 
@@ -314,5 +314,6 @@
 
     .mainImageContainer {
         width: 85%;
+        height: 21rem;
     }
 }

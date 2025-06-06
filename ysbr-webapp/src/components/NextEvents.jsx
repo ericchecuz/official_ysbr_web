@@ -29,7 +29,6 @@ function NextEvents({ items, className = "" }) {
   const prevItem = items[getPrevIndex()];
   const nextItem = items[getNextIndex()];
   
-  const title = "EVENTS";
   const info = "CLICCA SULLA GRAFICA PER MAGGIORI INFORMAZIONI";
 
   return (
