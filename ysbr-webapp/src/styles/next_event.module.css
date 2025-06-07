@@ -71,7 +71,7 @@
     word-break: break-word;
     margin: 0 auto;
     max-width: 705px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 4rem;
 }
 
 .descriptionInfo {
@@ -135,7 +135,7 @@
 .previewImageRight {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     z-index: 1;
     width: 45%;
     max-width: 300px;
@@ -146,12 +146,12 @@
 
 .previewImageLeft {
     right: 65%;
-    transform: translateY(-50%) translateX(-20%);
+    /* transform: translateY(-50%) translateX(-20%); */
 }
 
 .previewImageRight {
     left: 65%;
-    transform: translateY(-50%) translateX(20%);
+    /* transform: translateY(-50%) translateX(20%); */
 }
 
 /* Preview image styling */
