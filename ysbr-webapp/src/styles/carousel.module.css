@@ -2,6 +2,7 @@
 .carouselWrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 65%;
 }
 
@@ -169,6 +170,10 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .carouselWrapper {
+        width: 100%;
+    }
+
     .nav-btn {
         width: 40px;
         height: 40px;
@@ -183,6 +188,11 @@
         width: 10px;
         height: 10px;
     }
+
+    .navButton {
+        width: 2rem;
+        height: 2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -192,14 +202,24 @@
         font-size: 14px;
     }
 
+    .carousel-container {
+        width: 95%;
+    }
+
     .dots-container {
         padding: 4px 10px;
         gap: 8px;
+        bottom: 10px;
     }
 
     .dot {
         width: 8px;
         height: 8px;
+    }
+
+    .navButton {
+        width: 1.8rem;
+        height: 1.8rem;
     }
 }
 

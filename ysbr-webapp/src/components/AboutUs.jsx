@@ -3,6 +3,7 @@ import styles from "../styles/about_us.module.css";
 import ChipGroup from "./commons/ChipGroup";
 import Carousel from "./commons/Carousel";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import labels from '../labels.json';
 
 // Importiamo correttamente le immagini
 import slide1 from '../assets/slide1.jpg';
@@ -14,30 +15,41 @@ import slide5 from '../assets/slide5.jpg';
 function AboutUs({ items, className = "" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Usiamo i riferimenti diretti alle immagini importate
-  const immagini = [
-    slide1,
-    slide2,
-    slide3,
-    slide4,
-    slide5,
-  ];
+  // Definiamo le immagini per ogni categoria
+  const categoryImages = {
+    "YSBR": [slide1, slide2],
+    "SPORT": [slide2, slide3],
+    "MUSIC": [slide3, slide4],
+    "NATURE": [slide4, slide5]
+  };
+
+  // Definiamo i colori per ogni categoria
+  const categoryColors = {
+    "YSBR": "var(--color-main)", // Viola scuro
+    "SPORT": "var(--green-main)", // Verde
+    "MUSIC": "var(--accent-color)", // Rosa
+    "NATURE": "#5a4e33" // Marrone (già usato nei chip)
+  };
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
 
   const currentItem = items[currentIndex];
-  const title = "ABOUT US";
+  const currentCategory = currentItem.category;
+  
+  // Otteniamo le immagini per la categoria corrente o usiamo tutte le immagini come fallback
+  const currentImages = categoryImages[currentCategory] || [slide1, slide2, slide3, slide4, slide5];
 
   return (
     <section className={`${styles.sectionAboutUs} ${className}`}>
       <div className={styles.container_main}>
-        <h1 className={styles.title_section}>{title}</h1>
+        <h1 className={styles.title_section}>{labels.aboutUs.title}</h1>
         <ChipGroup
           categories={items.map((item) => item.category)}
           selectedCategory={currentIndex}
           onCategoryChange={goToSlide}
+          categoryColors={categoryColors}
         />
 
         <div className={styles.carouselContainer}>
@@ -48,11 +60,13 @@ function AboutUs({ items, className = "" }) {
           </div>
 
           {/* CAROSELLO */}
-          <Carousel 
-            slides={immagini} 
-            height='400px'
-            showInfo={true}
-            infoText="SCORRI LE IMMAGINI PER VEDERE LA GALLERIA"
+          <Carousel
+            slides={currentImages}
+            showArrows={true}
+            showDots={true}
+            autoPlay={true}
+            interval={5000}
+            info={labels.aboutUs.carouselInfo}
           />
         </div>
       </div>

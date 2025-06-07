@@ -156,6 +156,7 @@
 
     .imageWrapper {
         gap: 0.625rem;
+        min-height: auto;
     }
 
     .arrowContainer {
@@ -178,11 +179,20 @@
 }
 
 @media (max-width: 480px) {
+    .carouselContainer {
+        padding: 1rem 0.5rem;
+    }
+    
     .arrowContainer {
         width: 20%;
     }
 
     .imageSection {
         width: 60%;
+    }
+    
+    .title_section {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
     }
 }

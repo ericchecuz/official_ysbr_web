@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'; 
 import styles from '../styles/footer.module.css';
+import labels from '../labels.json';
 
 import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
@@ -20,7 +21,7 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
             <p className={styles.address}>{address}</p>
             <p className={styles.piva}>{piva}</p>
             <a href={statuteLink} className={styles.statute_link}>
-              Statuto dell'Associazione
+              {labels.footer.statute}
             </a>
           </div>
         </div>
@@ -31,7 +32,7 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Seguici su Instagram"
+            aria-label={labels.footer.social.instagram}
             className={styles.social_icon_container_link}
           >
             <FaInstagram className={styles.social_icon} />
@@ -40,7 +41,7 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Contattaci su WhatsApp"
+            aria-label={labels.footer.social.whatsapp}
             className={styles.social_icon_container_link}
           >
             <FaWhatsapp className={styles.social_icon} />
@@ -58,15 +59,6 @@ Footer.propTypes = {
   statuteLink: PropTypes.string.isRequired,
   instagramUrl: PropTypes.string.isRequired,
   whatsappUrl: PropTypes.string.isRequired,
-};
-
-Footer.defaultProps = {
-  logoSrc: '',
-  address: '',
-  piva: '',
-  statuteLink: '#',
-  instagramUrl: '#',
-  whatsappUrl: '#',
 };
 
 export default Footer;

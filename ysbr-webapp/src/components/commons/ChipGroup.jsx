@@ -2,7 +2,7 @@ import React from 'react';
 import Chip from './Chip';
 import styles from '../../styles/chip_group.module.css';
 
-const ChipGroup = ({ categories = [], selectedCategory, onCategoryChange }) => {
+const ChipGroup = ({ categories = [], selectedCategory, onCategoryChange, categoryColors = {} }) => {
   return (
     <div className={styles.container}>
       {categories.map((category, index) => (
@@ -11,6 +11,7 @@ const ChipGroup = ({ categories = [], selectedCategory, onCategoryChange }) => {
           label={category}
           selected={selectedCategory === index}
           onClick={() => onCategoryChange(index)}
+          color={categoryColors[category]}
         />
       ))}
     </div>

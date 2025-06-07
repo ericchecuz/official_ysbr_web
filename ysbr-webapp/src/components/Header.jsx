@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/header.module.css';
 import { FaLock } from 'react-icons/fa'; 
+import labels from '../labels.json';
 
 function Header({ leftItems = [], rightItems = [], logoSrc }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -128,7 +129,7 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
             })}
           </div>
           <button
-            className={styles.hamburger}
+            className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} 
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
