@@ -61,6 +61,18 @@
 /*-------------------------------------------- Media Queries ---------------------------------------------*/
 @media (max-width: 768px) {
 
+    .sectionJoinUs {
+        height: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: var(--accent-color);
+        padding: 5rem;
+        margin-top: 2rem;
+    }
+
 
     .description {
         font-size: 1rem;
@@ -75,10 +87,11 @@
 
 @media (max-width: 498px) {
     .title_section {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .joinButton {
-        padding: bottom
+        font-size: 1rem;
+        padding: 0px 20px;
     }
 }

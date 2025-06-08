@@ -203,7 +203,7 @@ carouselContainer > div:last-child {
 
 @media (max-width: 480px) {
     .carouselContainer {
-        padding: 1rem 0.5rem;
+        padding: 0rem;
     }
     
     .arrowContainer {
@@ -215,7 +215,15 @@ carouselContainer > div:last-child {
     }
     
     .title_section {
-        font-size: 2.5rem;
         margin-bottom: 0.75rem;
+    }
+
+    .description {
+        margin-top: 0px;
+        padding: 0rem 1rem;
+    }
+
+    .title {
+        margin-top: 2rem;
     }
 }

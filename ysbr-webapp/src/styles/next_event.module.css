@@ -294,12 +294,13 @@
 }
 
 @media (max-width: 480px) {
-    .carouselContainer {
-        padding: 1rem 0.5rem;
+    .sectionAboutUs {
+        padding: 1rem;
     }
 
     .arrowContainer {
-        width: 15%;
+        width: 10%;
+        z-index: 10;
     }
 
     .imageSection {
@@ -308,12 +309,15 @@
 
     .previewImageLeft,
     .previewImageRight {
-        width: 30%;
-        height: 50%;
+        width: 50%;
     }
 
     .mainImageContainer {
-        width: 85%;
-        height: 21rem;
+        width: 100%;
+        height: auto;
+    }
+
+    .container_info {
+        margin-top: 15px;
     }
 }
