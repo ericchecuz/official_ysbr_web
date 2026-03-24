@@ -1,12 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import styles from '../styles/footer.module.css';
-import labels from '../labels.json';
+import { useLanguage } from '../context/LanguageContext';
 
 import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 
 function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl }) {
+  const { t } = useLanguage();
+
   return (
     <footer className={styles.footer_container}>
       <div className={styles.footer_content}>
@@ -21,7 +23,7 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
             <p className={styles.address}>{address}</p>
             <p className={styles.piva}>{piva}</p>
             <a href={statuteLink} target="_blank" rel="noopener noreferrer" className={styles.statute_link}>
-              {labels.footer.statute}
+              {t("footer.statute")}
             </a>
           </div>
         </div>
@@ -32,7 +34,7 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={labels.footer.social.instagram}
+            aria-label={t("footer.instagram")}
             className={styles.social_icon_container_link}
           >
             <FaInstagram className={styles.social_icon} />
@@ -41,7 +43,7 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={labels.footer.social.whatsapp}
+            aria-label={t("footer.whatsapp")}
             className={styles.social_icon_container_link}
           >
             <FaWhatsapp className={styles.social_icon} />

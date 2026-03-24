@@ -4,8 +4,10 @@ import heroVideo1 from '../assets/hero-video-1.mp4';
 import heroVideo2 from '../assets/hero-video-2.mp4';
 import heroVideo3 from '../assets/hero-video-3.mp4';
 import heroVideo4 from '../assets/hero-video-4.mp4';
+import { useLanguage } from '../context/LanguageContext';
 
 function Hero() {
+  const { t } = useLanguage();
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const videoRef = useRef(null);
 
@@ -33,12 +35,12 @@ function Hero() {
           <span className={styles.sport_color}>YSBR FAM</span>
         </h1>
         <div className={styles.hero_subtitles}>
-          <span className={styles.hero_subtitle}>SPORT — MUSICA — NATURA</span>
-          <span className={styles.hero_subtitle_accent}>No filters. Just energy.</span>
+          <span className={styles.hero_subtitle}>{t("hero.subtitle")}</span>
+          <span className={styles.hero_subtitle_accent}>{t("hero.tagline")}</span>
         </div>
       </div>
       <div className={styles.scroll_hint}>
-        <span>Scroll</span>
+        <span>{t("hero.scroll")}</span>
         <div className={styles.scroll_arrow} />
       </div>
     </section>

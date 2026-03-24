@@ -1,11 +1,25 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/header.module.css';
-import { FaLock } from 'react-icons/fa'; 
-import labels from '../labels.json';
+import { FaLock } from 'react-icons/fa';
+import { IoGlobeOutline } from 'react-icons/io5';
+import { useLanguage } from '../context/LanguageContext';
 
 function Header({ leftItems = [], rightItems = [], logoSrc }) {
+  const { lang, changeLang } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const langRef = React.useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -128,8 +142,34 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
               return null;
             })}
           </div>
+          <div className={styles.langDropdown} ref={langRef}>
+            <button
+              className={`${styles.langToggle} ${isLangOpen ? styles.langToggleActive : ""}`}
+              onClick={() => setIsLangOpen(!isLangOpen)}
+              aria-label="Select language"
+            >
+              {lang.toUpperCase()}
+              <IoGlobeOutline size="1.4rem" />
+            </button>
+            {isLangOpen && (
+              <div className={styles.langMenu}>
+                <button
+                  className={`${styles.langOption} ${lang === "it" ? styles.langOptionActive : ""}`}
+                  onClick={() => { changeLang("it"); setIsLangOpen(false); }}
+                >
+                  IT
+                </button>
+                <button
+                  className={`${styles.langOption} ${lang === "en" ? styles.langOptionActive : ""}`}
+                  onClick={() => { changeLang("en"); setIsLangOpen(false); }}
+                >
+                  EN
+                </button>
+              </div>
+            )}
+          </div>
           <button
-            className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} 
+            className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >

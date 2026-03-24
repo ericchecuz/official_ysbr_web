@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoClose, IoCalendarOutline, IoLocationOutline } from "react-icons/io5";
 import styles from "../styles/events_modal.module.css";
+import { useLanguage } from "../context/LanguageContext";
 
 const currentYear = new Date().getFullYear();
 
@@ -9,7 +10,6 @@ const eventsData = [
   {
     id: 1,
     month: 1,
-    date: "28 Febbraio",
     endDate: `${currentYear}-02-28`,
     title: "Snow'N'Funky Trip",
     location: "Madesimo (SO)",
@@ -18,7 +18,6 @@ const eventsData = [
   {
     id: 2,
     month: 2,
-    date: "7 Marzo",
     endDate: `${currentYear}-03-07`,
     title: "EDS Skatepark",
     location: "Milano Bicocca (MI)",
@@ -27,7 +26,6 @@ const eventsData = [
   {
     id: 3,
     month: 2,
-    date: "22 Marzo",
     endDate: `${currentYear}-03-22`,
     title: "THE MELTDOWN",
     location: "Madesimo (SO)",
@@ -36,7 +34,6 @@ const eventsData = [
   {
     id: 4,
     month: 3,
-    date: "12 Aprile",
     endDate: `${currentYear}-04-12`,
     title: "MICELIUM SOUND",
     location: "LUME - Milano (MI)",
@@ -46,7 +43,6 @@ const eventsData = [
   {
     id: 5,
     month: 3,
-    date: "25 Aprile — 3 Maggio",
     endDate: `${currentYear}-05-03`,
     title: "Kite'N'Funky Trip",
     location: "Marina di Grosseto (GR)",
@@ -55,7 +51,6 @@ const eventsData = [
   {
     id: 6,
     month: 4,
-    date: "16 Maggio",
     endDate: `${currentYear}-05-16`,
     title: "BUKA",
     location: "Milano (MI)",
@@ -66,7 +61,6 @@ const eventsData = [
   {
     id: 7,
     month: 5,
-    date: "4 — 7 Giugno",
     endDate: `${currentYear}-06-07`,
     title: "MILANO SUD FESTIVAL",
     location: "Parco Ravizza - Milano (MI)",
@@ -76,7 +70,6 @@ const eventsData = [
   {
     id: 8,
     month: 5,
-    date: "13 — 15 Giugno",
     endDate: `${currentYear}-06-15`,
     title: "SAVE THE LAKE",
     location: "Valmadrera (CO)",
@@ -87,7 +80,6 @@ const eventsData = [
   {
     id: 9,
     month: 5,
-    date: "27 Giugno",
     endDate: `${currentYear}-06-27`,
     title: "BUKA",
     location: "Milano (MI)",
@@ -98,7 +90,6 @@ const eventsData = [
   {
     id: 10,
     month: 6,
-    date: "4 Luglio",
     endDate: `${currentYear}-07-04`,
     title: "Wake'N'Funky Trip",
     location: "Pavia (PV)",
@@ -107,7 +98,6 @@ const eventsData = [
   {
     id: 11,
     month: 8,
-    date: "4 — 6 Settembre",
     endDate: `${currentYear}-09-06`,
     title: "KOMOREBI",
     location: "Cuneo (CN)",
@@ -117,7 +107,6 @@ const eventsData = [
   {
     id: 12,
     month: 8,
-    date: "11 — 13 Settembre",
     endDate: `${currentYear}-09-13`,
     title: "ULTIMA FESTA",
     location: "Marina di Grosseto (GR)",
@@ -126,17 +115,11 @@ const eventsData = [
   {
     id: 13,
     month: 11,
-    date: "4 — 8 Dicembre",
     endDate: `${currentYear}-12-08`,
     title: "SANTAMBRO",
     location: "Montgenèvre (FR)",
     tags: ["snowboard", "chalet", "private party", "ski"],
   },
-];
-
-const MONTHS = [
-  "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-  "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre",
 ];
 
 const ALL_TAGS = [...new Set(eventsData.flatMap((e) => e.tags))].sort();
@@ -148,7 +131,9 @@ function isPast(endDate) {
 }
 
 function EventsModal({ isOpen, onClose }) {
+  const { t } = useLanguage();
   const [activeTags, setActiveTags] = useState([]);
+  const months = t("eventsModal.months");
 
   useEffect(() => {
     if (isOpen) {
@@ -171,7 +156,7 @@ function EventsModal({ isOpen, onClose }) {
     ? eventsData.filter((e) => activeTags.every((tag) => e.tags.includes(tag)))
     : eventsData;
 
-  const eventsByMonth = MONTHS.map((name, i) => ({
+  const eventsByMonth = months.map((name, i) => ({
     name,
     events: filtered.filter((e) => e.month === i),
   })).filter((m) => m.events.length > 0);
@@ -201,11 +186,11 @@ function EventsModal({ isOpen, onClose }) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className={styles.modalHeader}>
-              <h2 className={styles.modalTitle}>STAGIONE {currentYear}</h2>
+              <h2 className={styles.modalTitle}>{t("eventsModal.title")} {currentYear}</h2>
               <button
                 className={styles.closeBtn}
                 onClick={handleClose}
-                aria-label="Chiudi"
+                aria-label={t("eventsModal.closeLabel")}
               >
                 <IoClose size="1.4rem" />
               </button>
@@ -216,7 +201,7 @@ function EventsModal({ isOpen, onClose }) {
                 className={`${styles.tagChip} ${activeTags.length === 0 ? styles.tagChipActive : ""}`}
                 onClick={() => setActiveTags([])}
               >
-                Tutti
+                {t("eventsModal.all")}
               </button>
               {ALL_TAGS.map((tag) => (
                 <button
@@ -242,13 +227,13 @@ function EventsModal({ isOpen, onClose }) {
                         <div className={styles.eventCardHeader}>
                           <h4 className={styles.eventTitle}>
                             {event.title}
-                            {event.collab && <span className={styles.collabBadge}>collab</span>}
-                            {event.tbc && <span className={styles.tbcBadge}>TBC</span>}
+                            {event.collab && <span className={styles.collabBadge}>{t("eventsModal.collab")}</span>}
+                            {event.tbc && <span className={styles.tbcBadge}>{t("eventsModal.tbc")}</span>}
                           </h4>
                         </div>
                         <p className={styles.eventDate}>
                           <IoCalendarOutline className={styles.inlineIcon} />
-                          {event.date}
+                          {t(`eventsModal.dates.${event.id}`)}
                         </p>
                         <p className={styles.eventLocation}>
                           <IoLocationOutline className={styles.inlineIcon} />
@@ -260,7 +245,7 @@ function EventsModal({ isOpen, onClose }) {
                           ))}
                         </div>
                         {isPast(event.endDate) && (
-                          <span className={styles.pastLabel}>Concluso</span>
+                          <span className={styles.pastLabel}>{t("eventsModal.past")}</span>
                         )}
                       </div>
                     ))}
@@ -269,7 +254,7 @@ function EventsModal({ isOpen, onClose }) {
               ))}
 
               {eventsByMonth.length === 0 && (
-                <p className={styles.emptyState}>Nessun evento trovato per questo filtro.</p>
+                <p className={styles.emptyState}>{t("eventsModal.empty")}</p>
               )}
             </div>
           </motion.div>

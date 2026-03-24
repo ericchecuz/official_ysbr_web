@@ -106,6 +106,79 @@
     font-size: 1rem;
 }
 
+.langDropdown {
+    position: relative;
+    margin-left: 1.5rem;
+}
+
+.langToggle {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.langToggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.langToggleActive {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.langMenu {
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    right: 0;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 100;
+    min-width: 100%;
+}
+
+.langOption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.langOption:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.langOptionActive {
+    color: #fff;
+}
+
+.langOptionActive:hover {
+    color: #fff;
+}
+
 .hamburger {
     display: none;
     background: none;
@@ -194,6 +267,15 @@
         font-size: 1rem;
         top: -8px;
         right: -8px;
+    }
+
+    .langDropdown {
+        margin-left: 0;
+    }
+
+    .langToggle {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.75rem;
     }
 
     .hamburger.open .hamburger_line:nth-child(1) {

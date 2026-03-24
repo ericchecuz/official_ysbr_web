@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import styles from '../../styles/carousel.module.css';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { useLanguage } from '../../context/LanguageContext';
 
 /**
  * Componente Carousel - Un carosello React moderno, responsive e personalizzabile
@@ -33,8 +34,7 @@ const Carousel = ({
   showDots = true,
   height = '450px',
 }) => {
-  // --- STATI ---
-  // Indice della slide corrente (0-based)
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   // Stato dell'autoplay (attivo/disattivo)
   const [isPlaying, setIsPlaying] = useState(true);
@@ -155,7 +155,7 @@ const Carousel = ({
   if (slides.length === 0) {
     return (
       <div className={styles['carousel-empty']}>
-        Nessuna slide fornita al carosello
+        {t("aboutUs.carousel.empty")}
       </div>
     );
   }
@@ -201,7 +201,7 @@ const Carousel = ({
                   resetAutoPlay();
                   prevSlide();
                 }}
-                aria-label="Slide precedente"
+                aria-label={t("aboutUs.carousel.prevSlide")}
               >
                 <FaAngleLeft size="1.5rem" />
               </button>
@@ -214,7 +214,7 @@ const Carousel = ({
                   resetAutoPlay();
                   nextSlide();
                 }}
-                aria-label="Slide successiva"
+                aria-label={t("aboutUs.carousel.nextSlide")}
               >
                 <FaAngleRight size="1.5rem" />
               </button>
@@ -233,7 +233,7 @@ const Carousel = ({
                   resetAutoPlay();
                   setCurrentIndex(index);
                 }}
-                aria-label={`Vai alla slide ${index + 1}`}
+                aria-label={`${t("aboutUs.carousel.goToSlide")} ${index + 1}`}
                 role="button"
                 tabIndex={0}
               />

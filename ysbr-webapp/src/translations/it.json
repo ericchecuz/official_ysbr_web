@@ -1,0 +1,97 @@
+{
+  "header": {
+    "aboutUs": "ABOUT US",
+    "events": "EVENTI",
+    "shop": "SHOP",
+    "joinButton": "UNISCITI ALLA FAM"
+  },
+  "hero": {
+    "subtitle": "SPORT — MUSICA — NATURA",
+    "tagline": "No filters. Just energy.",
+    "scroll": "Scroll"
+  },
+  "nextEvents": {
+    "title": "EVENTI",
+    "description": "Gli eventi YSBR non sono solo intrattenimento: sono esperienze che si vivono. Momenti in cui sport, musica e natura si incontrano, creando connessioni reali tra persone e territorio. Dai festival agli eventi outdoor, ogni progetto nasce per valorizzare la community, sostenere la scena indipendente e vivere ogni spazio in modo attivo e consapevole. Eventi unici ma uniti dalla stessa energia: condividere, muoversi, vivere.",
+    "cta": "PROSSIMI EVENTI"
+  },
+  "joinUs": {
+    "title": "UNISCITI ALLA FAM",
+    "intro": "Tesserarti con la YSBR Fam significa far parte di una community che condivide valori, passioni ed esperienze autentiche.",
+    "benefits_intro": "Essere parte della Fam ti permette di:",
+    "benefit1": "· Partecipare ad attività ed eventi riservati ai soci",
+    "benefit2": "· Sostenere i progetti dell'associazione",
+    "benefit3": "· Contribuire alla crescita di una realtà indipendente e autentica",
+    "outro": "Unisciti a noi!",
+    "ctaPrimary": "DIVENTA SOCIO/A",
+    "ctaSecondary": "FOLLOW US",
+    "ctaDisabled": "SOSTIENICI — 5x1000 (coming soon)"
+  },
+  "aboutUs": {
+    "title": "ABOUT US",
+    "carouselInfo": "SCORRI LE IMMAGINI PER VEDERE LA GALLERIA",
+    "categoryLabels": {
+      "FAM": "FAM",
+      "SPORT": "SPORT",
+      "MUSICA": "MUSICA",
+      "NATURA": "NATURA"
+    },
+    "carousel": {
+      "empty": "Nessuna slide fornita al carosello",
+      "prevSlide": "Slide precedente",
+      "nextSlide": "Slide successiva",
+      "goToSlide": "Vai alla slide"
+    },
+    "items": {
+      "FAM": {
+        "title": "FAM",
+        "description": "YESBRO ASD (YSBR) è un'Associazione Sportiva Dilettantistica nata nel 2022. Uniamo sport non convenzionali, musica e natura in esperienze autentiche e inclusive. Dallo snowboard al kitesurf, dalla slackline all'animal flow: muoversi, scoprire e condividere è il nostro mantra. Una community aperta, sostenibile e consapevole. Fai spazio all'avventura. Entra nella Fam."
+      },
+      "SPORT": {
+        "title": "SPORT",
+        "description": "Per YSBR, lo sport non è performance, ma espressione personale e collettiva. Promuoviamo discipline outdoor e attività sportive come strumenti di aggregazione, crescita e libertà. Che sia sull'acqua, sulla terra o immersi nella natura, lo sport diventa un modo per conoscersi, superare limiti e condividere esperienze autentiche. Non importa il livello: conta l'attitudine. Partecipare, spingersi oltre, farlo insieme. Lo sport è il nostro linguaggio universale. È ciò che ci muove, sempre."
+      },
+      "MUSICA": {
+        "title": "MUSICA",
+        "description": "La musica è connessione, cultura, vibrazione e identità. Attraverso eventi, DJ set e progetti sonori, creiamo spazi in cui le persone possono incontrarsi, ballare e sentirsi parte di qualcosa di unico. YSBR supporta la scena underground e indipendente, valorizzando artisti, crew e realtà che condividono la nostra visione. Ogni evento è un'esperienza: suoni, energia e libertà che si fondono in un momento indimenticabile. La musica è il battito della nostra community e ciò che accende tutto il resto."
+      },
+      "NATURA": {
+        "title": "NATURA",
+        "description": "YSBR nasce e cresce con un legame profondo con l'ambiente, il mare, la montagna e gli spazi aperti. Crediamo in uno stile di vita attivo e consapevole, che rispetta il territorio e ne celebra la bellezza. Perchè per noi la natura è casa è parte fondamentale della nostra identità. È equilibrio, libertà e ispirazione. Le nostre attività outdoor sono un invito a rallentare, respirare e vivere esperienze autentiche, lontano dal rumore."
+      }
+    }
+  },
+  "eventsModal": {
+    "title": "STAGIONE",
+    "closeLabel": "Chiudi",
+    "all": "Tutti",
+    "collab": "collab",
+    "tbc": "TBC",
+    "past": "Concluso",
+    "empty": "Nessun evento trovato per questo filtro.",
+    "months": [
+      "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
+      "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
+    ],
+    "dates": {
+      "1": "28 Febbraio",
+      "2": "7 Marzo",
+      "3": "22 Marzo",
+      "4": "12 Aprile",
+      "5": "25 Aprile — 3 Maggio",
+      "6": "16 Maggio",
+      "7": "4 — 7 Giugno",
+      "8": "13 — 15 Giugno",
+      "9": "27 Giugno",
+      "10": "4 Luglio",
+      "11": "4 — 6 Settembre",
+      "12": "11 — 13 Settembre",
+      "13": "4 — 8 Dicembre"
+    }
+  },
+  "footer": {
+    "statute": "Statuto dell'Associazione",
+    "instagram": "Seguici su Instagram",
+    "whatsapp": "Contattaci su WhatsApp"
+  }
+}

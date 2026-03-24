@@ -1,21 +1,24 @@
 import styles from "../styles/join_us.module.css";
 import { FaInstagram } from "react-icons/fa";
+import { useLanguage } from "../context/LanguageContext";
 
 function JoinUs() {
+  const { t } = useLanguage();
+
   return (
     <section className={styles.sectionJoinUs} id="join">
-      <h1 className={styles.title_section}>UNISCITI ALLA FAM</h1>
+      <h1 className={styles.title_section}>{t("joinUs.title")}</h1>
       <div className={styles.descriptionBlock}>
         <p className={styles.description}>
-          Tesserarti con la YSBR Fam significa far parte di una community che condivide valori, passioni ed esperienze autentiche.
+          {t("joinUs.intro")}
         </p>
-        <p className={styles.description}>Essere parte della Fam ti permette di:</p>
+        <p className={styles.description}>{t("joinUs.benefits_intro")}</p>
         <div className={styles.benefitsBlock}>
-          <p className={styles.benefitItem}>· Partecipare ad attività ed eventi riservati ai soci</p>
-          <p className={styles.benefitItem}>· Sostenere i progetti dell'associazione</p>
-          <p className={styles.benefitItem}>· Contribuire alla crescita di una realtà indipendente e autentica</p>
+          <p className={styles.benefitItem}>{t("joinUs.benefit1")}</p>
+          <p className={styles.benefitItem}>{t("joinUs.benefit2")}</p>
+          <p className={styles.benefitItem}>{t("joinUs.benefit3")}</p>
         </div>
-        <p className={styles.description}>Unisciti a noi!</p>
+        <p className={styles.description}>{t("joinUs.outro")}</p>
       </div>
       <div className={styles.ctaContainer}>
         <a
@@ -24,7 +27,7 @@ function JoinUs() {
           rel="noopener noreferrer"
           className={styles.ctaPrimary}
         >
-          DIVENTA SOCIO/A
+          {t("joinUs.ctaPrimary")}
         </a>
         <a
           href="https://instagram.com/ysbrfam/"
@@ -33,10 +36,10 @@ function JoinUs() {
           className={styles.ctaSecondary}
         >
           <FaInstagram style={{ marginRight: "0.5rem", verticalAlign: "-2px" }} />
-          FOLLOW US
+          {t("joinUs.ctaSecondary")}
         </a>
         <button className={styles.ctaOutline} disabled>
-          SOSTIENICI — 5x1000 (coming soon)
+          {t("joinUs.ctaDisabled")}
         </button>
       </div>
     </section>

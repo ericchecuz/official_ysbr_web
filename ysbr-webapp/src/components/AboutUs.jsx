@@ -3,7 +3,7 @@ import styles from "../styles/about_us.module.css";
 import ChipGroup from "./commons/ChipGroup";
 import Carousel from "./commons/Carousel";
 import { motion, AnimatePresence } from "framer-motion";
-import labels from "../labels.json";
+import { useLanguage } from "../context/LanguageContext";
 
 import slide1 from "../assets/slide1.jpg";
 import slide2 from "../assets/slide2.jpg";
@@ -12,6 +12,7 @@ import slide4 from "../assets/slide4.jpg";
 import slide5 from "../assets/slide5.jpg";
 
 function AboutUs({ items, className = "" }) {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const textVariants = {
@@ -109,9 +110,10 @@ function AboutUs({ items, className = "" }) {
   return (
     <section className={`${styles.sectionAboutUs} ${className}`}>
       <div className={styles.container_main}>
-        <h1 className={styles.title_section}>{labels.aboutUs.title}</h1>
+        <h1 className={styles.title_section}>{t("aboutUs.title")}</h1>
         <ChipGroup
           categories={items.map((item) => item.category)}
+          categoryLabels={items.map((item) => t(`aboutUs.categoryLabels.${item.category}`))}
           selectedCategory={currentIndex}
           onCategoryChange={goToSlide}
           categoryColors={categoryColors}
@@ -150,7 +152,7 @@ function AboutUs({ items, className = "" }) {
                 showDots={true}
                 autoPlay={true}
                 interval={5000}
-                info={labels.aboutUs.carouselInfo}
+                info={t("aboutUs.carouselInfo")}
               />
         </div>
       </div>

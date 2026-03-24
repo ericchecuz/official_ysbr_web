@@ -1,0 +1,97 @@
+{
+  "header": {
+    "aboutUs": "ABOUT US",
+    "events": "EVENTS",
+    "shop": "SHOP",
+    "joinButton": "JOIN THE FAM"
+  },
+  "hero": {
+    "subtitle": "SPORT — MUSIC — NATURE",
+    "tagline": "No filters. Just energy.",
+    "scroll": "Scroll"
+  },
+  "nextEvents": {
+    "title": "EVENTS",
+    "description": "YSBR events are not just entertainment: they are experiences to be lived. Moments where sport, music and nature come together, creating real connections between people and places. From festivals to outdoor events, every project is born to empower the community, support the independent scene and experience every space in an active and mindful way. Unique events united by the same energy: sharing, moving, living.",
+    "cta": "UPCOMING EVENTS"
+  },
+  "joinUs": {
+    "title": "JOIN THE FAM",
+    "intro": "Becoming a member of the YSBR Fam means being part of a community that shares values, passions and authentic experiences.",
+    "benefits_intro": "Being part of the Fam allows you to:",
+    "benefit1": "· Participate in activities and events reserved for members",
+    "benefit2": "· Support the association's projects",
+    "benefit3": "· Contribute to the growth of an independent and authentic community",
+    "outro": "Join us!",
+    "ctaPrimary": "BECOME A MEMBER",
+    "ctaSecondary": "FOLLOW US",
+    "ctaDisabled": "SUPPORT US — 5x1000 (coming soon)"
+  },
+  "aboutUs": {
+    "title": "ABOUT US",
+    "carouselInfo": "SWIPE THROUGH THE GALLERY",
+    "categoryLabels": {
+      "FAM": "FAM",
+      "SPORT": "SPORT",
+      "MUSICA": "MUSIC",
+      "NATURA": "NATURE"
+    },
+    "carousel": {
+      "empty": "No slides available",
+      "prevSlide": "Previous slide",
+      "nextSlide": "Next slide",
+      "goToSlide": "Go to slide"
+    },
+    "items": {
+      "FAM": {
+        "title": "FAM",
+        "description": "YESBRO ASD (YSBR) is an Amateur Sports Association founded in 2022. We combine unconventional sports, music and nature into authentic and inclusive experiences. From snowboarding to kitesurfing, from slacklining to animal flow: moving, discovering and sharing is our mantra. An open, sustainable and mindful community. Make room for adventure. Join the Fam."
+      },
+      "SPORT": {
+        "title": "SPORT",
+        "description": "For YSBR, sport is not about performance, but personal and collective expression. We promote outdoor disciplines and sports activities as tools for connection, growth and freedom. Whether on water, land or immersed in nature, sport becomes a way to know yourself, push your limits and share authentic experiences. The level doesn't matter: it's the attitude that counts. Participate, push further, do it together. Sport is our universal language. It's what moves us, always."
+      },
+      "MUSICA": {
+        "title": "MUSIC",
+        "description": "Music is connection, culture, vibration and identity. Through events, DJ sets and sound projects, we create spaces where people can meet, dance and feel part of something unique. YSBR supports the underground and independent scene, empowering artists, crews and communities that share our vision. Every event is an experience: sounds, energy and freedom merging into an unforgettable moment. Music is the heartbeat of our community and what ignites everything else."
+      },
+      "NATURA": {
+        "title": "NATURE",
+        "description": "YSBR was born and grows with a deep bond with the environment, the sea, the mountains and open spaces. We believe in an active and mindful lifestyle that respects the land and celebrates its beauty. Because for us, nature is home — a fundamental part of our identity. It's balance, freedom and inspiration. Our outdoor activities are an invitation to slow down, breathe and live authentic experiences, away from the noise."
+      }
+    }
+  },
+  "eventsModal": {
+    "title": "SEASON",
+    "closeLabel": "Close",
+    "all": "All",
+    "collab": "collab",
+    "tbc": "TBC",
+    "past": "Past",
+    "empty": "No events found for this filter.",
+    "months": [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ],
+    "dates": {
+      "1": "February 28",
+      "2": "March 7",
+      "3": "March 22",
+      "4": "April 12",
+      "5": "April 25 — May 3",
+      "6": "May 16",
+      "7": "June 4 — 7",
+      "8": "June 13 — 15",
+      "9": "June 27",
+      "10": "July 4",
+      "11": "September 4 — 6",
+      "12": "September 11 — 13",
+      "13": "December 4 — 8"
+    }
+  },
+  "footer": {
+    "statute": "Association Statute",
+    "instagram": "Follow us on Instagram",
+    "whatsapp": "Contact us on WhatsApp"
+  }
+}
