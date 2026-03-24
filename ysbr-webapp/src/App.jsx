@@ -1,22 +1,16 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Events from './components/Events';
 import AboutUs from './components/AboutUs';
-import Partners from './components/Partners';
 import JoinUs from './components/JoinUs';
 import Footer from './components/Footer';
-import ScrollingText from './components/ScrollingText';
 import NextEvents from './components/NextEvents';
-import logoImage from './assets/ysbr-logo.png'; // Adjust path as needed
-
-import eventImage1 from './assets/Events_Carousel-image_1.png';
-import eventImage2 from './assets/Events_Carousel-image_2.png';
+import logoImage from './assets/ysbr-logo.png';
 import labels from './labels.json';
 
-import balanceBoardIcon from './assets/balance-board-icon.png';
-import slackLineIcon from './assets/slack-line-icon.png';
-import djIcon from './assets/dj-icon.png';
-
+import slide1 from './assets/slide1.jpg';
+import slide2 from './assets/slide2.jpg';
+import slide3 from './assets/slide3.jpg';
+import slide4 from './assets/slide4.jpg';
 
 function App() {
   const responsiveStyle = {
@@ -34,117 +28,60 @@ function App() {
 
   const rightItems = [
     { label: labels.header.shop, href: '#shop', type: 'link' },
-    { label: labels.header.tesserati, href: '#joinus', type: 'button', class: 'joinButton' }, 
+    { label: labels.header.tesserati, href: '#joinus', type: 'button', class: 'joinButton' },
   ];
 
   const logoSrc = logoImage;
-  const itemsNextEvents = [
-    {
-      id: 1,
-      title: "YSBR",
-      description: "YSBR è un'associazione che promuove uno stile di vita attivo e sostenibile attraverso eventi che combinano sport, musica e natura. La nostra missione è creare esperienze uniche che stimolino corpo e mente, in un ambiente di condivisione e divertimento.",
-      image: eventImage1,
-      url: "https://instagram.com/ysbr_official/",
-    },
-    {
-      id: 2,
-      title: "SPORT",
-      description: "Dalle balance board alle slack line, passando per yoga e arrampicata: i nostri eventi sportivi sono pensati per tutti i livelli di esperienza. Mettiamo al centro il divertimento e la crescita personale, con istruttori qualificati pronti a guidarti in nuove sfide.",
-      image: eventImage2,
-      url: "https://instagram.com/ysbr_official/",
-    },
-  ];
 
   const items = [
     {
-      title: "YSBR",
-      description: "Young, Strong, Brave, Resilient: questi sono i valori che ci guidano. YSBR è un punto di riferimento per chi cerca esperienze autentiche che combinano adrenalina, divertimento e rispetto per l'ambiente. La nostra community è in continua crescita e ti aspetta per condividere momenti indimenticabili.",
-      image: "https://via.placeholder.com/600x300",
-      category: "YSBR",
+      title: "FAM",
+      description: "YESBRO ASD (YSBR) è un'Associazione Sportiva Dilettantistica nata nel 2022. Uniamo sport non convenzionali, musica e natura in esperienze autentiche e inclusive. Dallo snowboard al kitesurf, dalla slackline all'animal flow: muoversi, scoprire e condividere è il nostro mantra. Una community aperta, sostenibile e consapevole. Fai spazio all'avventura. Entra nella Fam.",
+      image: slide1,
+      category: "FAM",
     },
     {
       title: "SPORT",
-      description: "Lo sport è movimento, sfida e superamento dei propri limiti. Nei nostri eventi potrai sperimentare discipline come balance board, slack line e molto altro, sempre in un contesto inclusivo e non competitivo. Crediamo che l'attività fisica sia un potente strumento di benessere e socializzazione.",
-      image: "https://via.placeholder.com/600x300",
+      description: "Per YSBR, lo sport non è performance, ma espressione personale e collettiva. Promuoviamo discipline outdoor e attività sportive come strumenti di aggregazione, crescita e libertà. Che sia sull'acqua, sulla terra o immersi nella natura, lo sport diventa un modo per conoscersi, superare limiti e condividere esperienze autentiche. Non importa il livello: conta l'attitudine. Partecipare, spingersi oltre, farlo insieme. Lo sport è il nostro linguaggio universale. È ciò che ci muove, sempre.",
+      image: slide2,
       category: "SPORT",
     },
     {
-      title: "MUSIC",
-      description: "La musica è l'anima dei nostri eventi, con DJ set e performance live che creano l'atmosfera perfetta per ogni occasione. Dal tramonto all'alba, le nostre selezioni musicali accompagnano le attività sportive e i momenti di relax, creando un'esperienza sensoriale completa e coinvolgente.",
-      image: "https://via.placeholder.com/600x300",
-      category: "MUSIC",
+      title: "MUSICA",
+      description: "La musica è connessione, cultura, vibrazione e identità. Attraverso eventi, DJ set e progetti sonori, creiamo spazi in cui le persone possono incontrarsi, ballare e sentirsi parte di qualcosa di unico. YSBR supporta la scena underground e indipendente, valorizzando artisti, crew e realtà che condividono la nostra visione. Ogni evento è un'esperienza: suoni, energia e libertà che si fondono in un momento indimenticabile. La musica è il battito della nostra community e ciò che accende tutto il resto.",
+      image: slide3,
+      category: "MUSICA",
     },
     {
-      title: "NATURE",
-      description: "La natura è il nostro palcoscenico preferito. Organizziamo eventi in location mozzafiato, dal lago alla montagna, promuovendo il rispetto per l'ambiente e la sostenibilità. Crediamo che il contatto con la natura sia essenziale per ritrovare equilibrio e ispirazione nella vita quotidiana.",
-      image: "https://via.placeholder.com/600x300",
-      category: "NATURE",
+      title: "NATURA",
+      description: "YSBR nasce e cresce con un legame profondo con l'ambiente, il mare, la montagna e gli spazi aperti. Crediamo in uno stile di vita attivo e consapevole, che rispetta il territorio e ne celebra la bellezza. Perchè per noi la natura è casa è parte fondamentale della nostra identità. È equilibrio, libertà e ispirazione. Le nostre attività outdoor sono un invito a rallentare, respirare e vivere esperienze autentiche, lontano dal rumore.",
+      image: slide4,
+      category: "NATURA",
     },
   ];
-
-  const scrollingItems = [
-    {
-      label: 'Balance Board',
-      icon: balanceBoardIcon, 
-    },
-    {
-      label: 'Slack Line',
-      icon: slackLineIcon, 
-    },
-    {
-      label: 'Dj Sets',
-      icon: djIcon, 
-    },
-  ];
-  // const scrollingItemsIconSponsor = [
-  //   {
-  //     label: 'ICONE SPONSOR',
-  //     icon: null, 
-  //   }
-  // ];
 
   return (
     <div style={responsiveStyle}>
       <Header leftItems={leftItems} rightItems={rightItems} logoSrc={logoSrc} />
       <main>
         <Hero />
-        <ScrollingText
-          text="Next Events"
-          speed={28}
-          direction="left"
-          textColor="black"
-          fontSize="2rem"
-          backgroundColor="var(--title-color)"
-        />
+        <section id="events">
+          <NextEvents />
+        </section>
+        <section id="joinus">
+          <JoinUs />
+        </section>
         <section id="about">
           <AboutUs items={items} />
-        </section>
-        <ScrollingText
-          items={scrollingItems}
-          speed={90}
-          direction="left"
-          textColor="black"
-          fontSize="2rem"
-          backgroundColor="var(--green-main)"
-        />
-        <section id="events">
-          <NextEvents items={itemsNextEvents} />
-        </section>
-        <section id ="partners">
-          <Partners />
-          </section>
-     
-        <section id="joinus" >
-          <JoinUs />
         </section>
       </main>
       <Footer
         logoSrc={logoSrc}
-        address="YSBR - Via Volta 7, 20836 Briosco (MB)"
-        piva="P.IVA 13175720963"
-        statuteLink="#statute"
-        instagramUrl="https://instagram.com"
-        whatsappUrl="https://whatsapp.com"
+        address="YESBRO ASD - Via Carlo Cicogna Mozzoni 7, 20161 Milano (MI)"
+        piva="P.IVA 13630240961 - C.F. 97970190159"
+        statuteLink="https://drive.google.com/file/d/1HyP37VaJhP5icf5Lhzn9VnSTPaMV18nV/view?usp=drivesdk"
+        instagramUrl="https://instagram.com/ysbrfam/"
+        whatsappUrl="https://wa.me/393421545885"
       />
     </div>
   );

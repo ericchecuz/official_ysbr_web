@@ -5,7 +5,6 @@ import Carousel from "./commons/Carousel";
 import { motion, AnimatePresence } from "framer-motion";
 import labels from "../labels.json";
 
-// Importiamo correttamente le immagini
 import slide1 from "../assets/slide1.jpg";
 import slide2 from "../assets/slide2.jpg";
 import slide3 from "../assets/slide3.jpg";
@@ -15,7 +14,6 @@ import slide5 from "../assets/slide5.jpg";
 function AboutUs({ items, className = "" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Varianti di animazione per il testo e il carosello
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -27,7 +25,7 @@ function AboutUs({ items, className = "" }) {
       transition: {
         duration: 0.6,
         ease: "easeInOut",
-        staggerChildren: 0.6, // Stagger title and description
+        staggerChildren: 0.6,
       },
     },
     exit: {
@@ -55,60 +53,30 @@ function AboutUs({ items, className = "" }) {
     },
   };
 
-  // Definiamo le immagini per ogni categoria
   const categoryImages = {
-    YSBR: [slide1, slide2],
+    FAM: [slide1, slide2],
     SPORT: [slide2, slide3],
-    MUSIC: [slide3, slide4],
-    NATURE: [slide4, slide5],
+    MUSICA: [slide3, slide4],
+    NATURA: [slide4, slide5],
   };
 
-  // Definiamo i colori per ogni categoria
+  const chipColorScheme = {
+    primary: "#ffffff",
+    selectedBg: "var(--accent-color)",
+    selectedBorder: "var(--accent-color)",
+    selectedText: "#ffffff",
+    defaultBg: "rgba(232, 50, 138, 0.15)",
+    defaultBorder: "var(--accent-color)",
+    defaultText: "#ffffff",
+    hoverBg: "var(--accent-color)",
+    hoverText: "#ffffff",
+  };
+
   const categoryColors = {
-    YSBR: {
-      primary: "#ffffff", // White
-      selectedBg: "#ffffff", // White background when selected
-      selectedBorder: "#ffffff", // White border when selected
-      selectedText: "var(--color-main)", // Dark purple text when selected
-      defaultBg: "transparent", // Transparent background when not selected
-      defaultBorder: "#ffffff", // White border when not selected
-      defaultText: "#ffffff", // White text when not selected
-      hoverBg: "#ffffff", // White background on hover
-      hoverText: "var(--color-main)", // Dark purple text on hover
-    },
-    SPORT: {
-      primary: "var(--title-color)", // Yellow (#f1e600)
-      selectedBg: "var(--title-color)", // Yellow background when selected
-      selectedBorder: "var(--title-color)", // Yellow border when selected
-      selectedText: "var(--color-main)", // Dark purple text when selected
-      defaultBg: "transparent", // Transparent background when not selected
-      defaultBorder: "var(--title-color)", // Yellow border when not selected
-      defaultText: "var(--title-color)", // Yellow text when not selected
-      hoverBg: "var(--title-color)", // Yellow background on hover
-      hoverText: "var(--color-main)", // Dark purple text on hover
-    },
-    MUSIC: {
-      primary: "var(--accent-color)", // Pink (#E8328A)
-      selectedBg: "var(--accent-color)", // Pink background when selected
-      selectedBorder: "var(--accent-color)", // Pink border when selected
-      selectedText: "var(--color-main)", // Dark purple text when selected
-      defaultBg: "transparent", // Transparent background when not selected
-      defaultBorder: "var(--accent-color)", // Pink border when not selected
-      defaultText: "var(--accent-color)", // Pink text when not selected
-      hoverBg: "var(--accent-color)", // Pink background on hover
-      hoverText: "var(--color-main)", // Dark purple text on hover
-    },
-    NATURE: {
-      primary: "var(--green-main)", // Green (#61bb83)
-      selectedBg: "var(--green-main)", // Green background when selected
-      selectedBorder: "var(--green-main)", // Green border when selected
-      selectedText: "var(--color-main)", // Dark purple text when selected
-      defaultBg: "transparent", // Transparent background when not selected
-      defaultBorder: "var(--green-main)", // Green border when not selected
-      defaultText: "var(--green-main)", // Green text when not selected
-      hoverBg: "var(--green-main)", // Green background on hover
-      hoverText: "var(--color-main)", // Dark purple text on hover
-    },
+    FAM: chipColorScheme,
+    SPORT: chipColorScheme,
+    MUSICA: chipColorScheme,
+    NATURA: chipColorScheme,
   };
 
   const goToSlide = (index) => {
@@ -122,15 +90,14 @@ function AboutUs({ items, className = "" }) {
     return {
       color: colors.primary,
       textShadow: `0 0 20px ${colors.primary}30`,
-      transition: "all 0.5s ease-in-out", // Add smooth transition
-      transform: "translateY(0)", // For smooth repositioning
+      transition: "all 0.5s ease-in-out",
+      transform: "translateY(0)",
     };
   };
 
   const currentItem = items[currentIndex];
   const currentCategory = currentItem.category;
 
-  // Otteniamo le immagini per la categoria corrente o usiamo tutte le immagini come fallback
   const currentImages = categoryImages[currentCategory] || [
     slide1,
     slide2,
@@ -151,7 +118,6 @@ function AboutUs({ items, className = "" }) {
         />
 
         <div className={styles.carouselContainer}>
-          {/* Animated Text Section */}
           <AnimatePresence mode="wait">
             <motion.div
               key={`text-${currentCategory}`}
@@ -164,22 +130,21 @@ function AboutUs({ items, className = "" }) {
               <motion.h1
                 className={styles.title}
                 style={getTitleStyle(currentCategory)}
-                variants={childVariants} // Add this
+                variants={childVariants}
               >
                 {currentItem.title}
               </motion.h1>
-              <motion.p 
+              <motion.p
                 className={styles.description}
-                variants={childVariants} // Add this
+                variants={childVariants}
               >
                 {currentItem.description}
               </motion.p>
             </motion.div>
           </AnimatePresence>
 
-          {/* Animated Carousel */}
-              <Carousel
-                key={currentCategory} // This key triggers the animation
+          <Carousel
+                key={currentCategory}
                 slides={currentImages}
                 showArrows={true}
                 showDots={true}

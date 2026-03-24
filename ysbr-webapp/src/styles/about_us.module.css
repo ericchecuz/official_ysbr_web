@@ -3,15 +3,14 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    padding: 5rem 0;
+    background-color: #000;
 }
 
 .container_main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: var(--color-main);
 }
 
 .carouselContainer {
@@ -22,29 +21,22 @@
     width: 100%;
     box-sizing: border-box;
     gap: 10rem;
-}
-
-carouselContainer > div:last-child {
-  transition: all 0.5s ease-in-out;
-}
-
-.carouselContainer {
-  position: relative;
+    position: relative;
 }
 
 .carouselContainer > div:last-child {
-  animation: slideInFromRight 0.6s ease-out;
+    animation: slideInFromRight 0.6s ease-out;
 }
 
 @keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .textSection {
@@ -62,13 +54,13 @@ carouselContainer > div:last-child {
     font-family: var(--font-family-titles);
     color: white;
     margin-bottom: 1.25rem;
-    margin-top: 1.5rem;
+    margin-top: 0;
 }
 
 .title {
     font-size: 7rem;
     font-weight: bold;
-    color: var(--title-color);
+    color: #fff;
     font-family: var(--font-family-titles);
     margin-bottom: 1.25rem;
     margin-top: 0;
@@ -108,7 +100,6 @@ carouselContainer > div:last-child {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: solid red;
 }
 
 .navButton {
@@ -126,7 +117,7 @@ carouselContainer > div:last-child {
 }
 
 .navButton:hover {
-    background-color: #FF4081;
+    background-color: rgba(255, 255, 255, 0.6);
     scale: 1.1;
 }
 
@@ -149,10 +140,9 @@ carouselContainer > div:last-child {
 }
 
 .activeDot {
-    background-color: #FF4081;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
-/*-------------------------------------------- Media Queries ---------------------------------------------*/
 @media (max-width: 768px) {
     .carouselContainer {
         flex-direction: column;
@@ -199,13 +189,17 @@ carouselContainer > div:last-child {
         width: 1.125rem;
         height: 1.125rem;
     }
+
+    .title_section {
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 480px) {
     .carouselContainer {
-        padding: 0rem;
+        padding: 0;
     }
-    
+
     .arrowContainer {
         width: 20%;
     }
@@ -213,17 +207,18 @@ carouselContainer > div:last-child {
     .imageSection {
         width: 60%;
     }
-    
+
     .title_section {
         margin-bottom: 0.75rem;
     }
 
     .description {
-        margin-top: 0px;
-        padding: 0rem 1rem;
+        margin-top: 0;
+        padding: 0 1rem;
     }
 
     .title {
         margin-top: 2rem;
+        font-size: 2rem;
     }
 }

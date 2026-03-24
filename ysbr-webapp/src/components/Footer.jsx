@@ -20,7 +20,7 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
           <div className={styles.info_container}>
             <p className={styles.address}>{address}</p>
             <p className={styles.piva}>{piva}</p>
-            <a href={statuteLink} className={styles.statute_link}>
+            <a href={statuteLink} target="_blank" rel="noopener noreferrer" className={styles.statute_link}>
               {labels.footer.statute}
             </a>
           </div>

@@ -1,6 +1,6 @@
 .footer_container {
-    background-color: var(--color-main);
-    color: #060000;
+    background-color: #fff;
+    color: #000;
     padding: 2rem 1rem;
     width: 100%;
     box-sizing: border-box;
@@ -37,10 +37,10 @@
 .info_container {
     flex: 1;
     text-align: left;
-    color: white;
+    color: #000;
     padding-left: 1rem;
     margin-left: 1rem;
-    border-left: 1px solid #ff4d94;
+    border-left: 1px solid var(--accent-color);
 }
 
 .address,
@@ -50,9 +50,10 @@
 }
 
 .statute_link {
-    color: #ff4d94;
+    color: var(--accent-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    transition: 0.2s;
 }
 
 .statute_link:hover {
@@ -67,31 +68,32 @@
 }
 
 .social_icon_container_link {
-    border: 1px solid #ff4d94;
+    border: 1px solid var(--accent-color);
     display: flex;
     justify-content: center;
     align-items: center;
     width: 30px;
     height: 30px;
-    background-color: #ff4d943d;
+    background-color: transparent;
     border-radius: 50%;
     padding: 5px;
     transition: 0.3s;
 }
 
 .social_icon_container_link:hover {
-    background-color: #ff4d94;
+    background-color: var(--accent-color);
+}
+
+.social_icon_container_link:hover .social_icon {
+    color: #fff;
 }
 
 .social_icon {
     width: 25px;
     height: 25px;
-    color: white;
+    color: black;
 }
 
-/*------------------------------------------------- Media Queries -------------------------------------------------*/
-
-/* Mobile (fino a 768px) */
 @media (max-width: 768px) {
     .footer_content {
         flex-direction: column;
@@ -137,7 +139,6 @@
     }
 }
 
-/* Tablet (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .footer_content {
         padding: 0 1rem;
@@ -161,7 +162,6 @@
     }
 }
 
-/* Desktop (oltre 1024px) */
 @media (min-width: 1025px) {
     .footer_content {
         padding: 0 2rem;

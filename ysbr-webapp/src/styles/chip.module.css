@@ -3,9 +3,8 @@
     padding: 10px 15px;
     border-radius: 0.5rem;
     border: 1px solid;
-    font-size: 1rem;
-    transition: background-color 0.2s ease-in-out;
     font-size: 22px;
+    transition: 0.2s ease-in-out;
     cursor: pointer;
     height: 3rem;
     color: white;
@@ -18,16 +17,16 @@
 }
 
 .selected {
-    background-color: #5a4e33;
-    border-color: #facc15;
-    color: var(--title-color);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
 }
 
 .default {
-    background-color: #5e5473;
-    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(232, 50, 138, 0.15);
+    border-color: var(--accent-color);
 }
 
 .default:hover {
-    background-color: #5a4e33;
+    background-color: var(--accent-color);
 }

@@ -71,6 +71,7 @@ body {
   font-family: var(--font-family);
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 h1,
@@ -94,9 +95,7 @@ button {
   --font-family-titles: 'Gliker', sans-serif;
   --font-family-subtitle: 'Luckiest Guy', cursive;
   --header-height: 6rem;
+  --color-main: #000000;
   --accent-color: #E8328A;
-  --title-color: #f1e600;
-  --green-main: #61bb83;
-  --color-main: #281b44;
   background-color: var(--color-main);
 }

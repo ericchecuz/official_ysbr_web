@@ -9,7 +9,7 @@
     "carouselInfo": "SCORRI LE IMMAGINI PER VEDERE LA GALLERIA"
   },
   "nextEvents": {
-    "title": "EVENTS",
+    "title": "EVENTI",
     "info": "CLICCA SULLA GRAFICA PER MAGGIORI INFORMAZIONI"
   },
   "partners": {
@@ -17,9 +17,7 @@
     "scrollingText": "ICONE SPONSOR"
   },
   "joinUs": {
-    "title": "ISCRIVITI\nALL'ASSOCIAZIONE",
-    "description": "Unisciti alla nostra community di appassionati di sport, musica e natura. Con la tua iscrizione potrai partecipare a tutti i nostri eventi esclusivi, ricevere aggiornamenti in anteprima e contribuire alla crescita di un progetto che unisce passione e divertimento.",
-    "button": "COMPILA IL FORM"
+    "title": "UNISCITI ALLA FAM"
   },
   "footer": {
     "statute": "Statuto dell'Associazione",
@@ -27,15 +25,15 @@
       "instagram": "Seguici su Instagram",
       "whatsapp": "Contattaci su WhatsApp"
     },
-    "address": "YSBR - Via Volta 7, 20836 Briosco (MB)",
-    "piva": "P.IVA 13175720963"
+    "address": "YESBRO ASD - Via Carlo Cicogna Mozzoni 7, 20161 Milano (MI)",
+    "piva": "P.IVA 13630240961 - C.F. 97970190159"
   },
   "header": {
     "shop": "SHOP",
-    "tesserati": "TESSERATI",
+    "tesserati": "UNISCITI ALLA FAM",
     "navigation": {
       "aboutUs": "ABOUT US",
-      "events": "EVENTS"
+      "events": "EVENTI"
     }
   },
   "events": {
