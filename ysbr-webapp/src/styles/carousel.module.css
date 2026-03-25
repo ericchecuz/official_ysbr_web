@@ -74,54 +74,24 @@
 }
 
 .navButton {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: white;
     border: none;
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     padding: 0;
     transition: all 0.3s ease;
-    color: #2a1b3d;
+    color: black;
 }
 
 .navButton:hover {
     background-color: rgb(232, 62, 140);
     transform: scale(1.1);
     color: white;
-}
-
-/* Vecchi stili dei nav-btn, mantenuti per compatibilità */
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: #2a1b3d;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    -webkit-backdrop-filter: blur(5px);
-    /* Safari support */
-    backdrop-filter: blur(5px);
-    /* Modern glass effect */
-}
-
-.nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 0 15px rgba(232, 62, 140, 0.5);
 }
 
 .prev-btn {
@@ -141,13 +111,11 @@
     display: flex;
     gap: 12px;
     z-index: 10;
-    -webkit-backdrop-filter: blur(3px);
     /* Safari support */
-    backdrop-filter: blur(3px);
     /* Modern glass effect */
     padding: 8px 15px;
     border-radius: 25px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: black;
 }
 
 .dot {

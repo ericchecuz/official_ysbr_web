@@ -13,7 +13,6 @@
 
 .header_nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -36,28 +35,27 @@
         visibility 0s 0.5s;
 }
 
-.left_links {
-    display: flex;
-    gap: 8rem;
-}
-
 .logo_container {
     flex: 0 0 auto;
 }
 
-.logo_container img{
+.logo_container img {
     max-width: 200px;
+    margin-right: 1rem;
 }
 
-.right_container {
+.nav_items {
     display: flex;
     align-items: center;
+    gap: 2.5rem;
+    flex: 1;
+    justify-content: space-evenly;
 }
 
-.right_links {
+.right_actions {
     display: flex;
-    gap: 8rem;
     align-items: center;
+    gap: 1rem;
 }
 
 .link {
@@ -69,7 +67,7 @@
 }
 
 .link:hover {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--accent-color);
 }
 
 .joinButton {
@@ -108,7 +106,7 @@
 
 .langDropdown {
     position: relative;
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 .langToggle {
@@ -202,8 +200,7 @@
 }
 
 @media (max-width: 768px) {
-    .left_links,
-    .right_links {
+    .nav_items {
         display: none;
     }
 
@@ -292,8 +289,7 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .left_links,
-    .right_links {
+    .nav_items {
         gap: 1.5rem;
     }
 

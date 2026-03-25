@@ -85,7 +85,10 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
       }`}
     >
       <nav className={styles.header_nav}>
-        <div className={styles.left_links}>
+        <div className={styles.logo_container}>
+          <img src={logoSrc} alt="Logo" />
+        </div>
+        <div className={styles.nav_items}>
           {leftItems.map((item) => (
             <a
               key={item.label}
@@ -96,35 +99,21 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
               {item.label}
             </a>
           ))}
-        </div>
-        <div className={styles.logo_container}>
-          <img src={logoSrc} alt="Logo" />
-        </div>
-        <div className={styles.right_container}>
-          <div className={`${styles.right_links} ${isMenuOpen ? styles.open : ''}`}>
+          {rightItems.map((item) => {
+            if (item.type === 'link' && item.label === 'SHOP') {
+              return (
+                <span key={item.label} className={styles.shopLink}>
+                  {item.label}
+                  <FaLock className={styles.lockIcon} />
+                </span>
+              );
+            }
+            return null;
+          })}
+          
+          <div className={styles.right_actions}>
             {rightItems.map((item) => {
-              if (item.type === 'link') {
-                // Logica speciale per "SHOP"
-                if (item.label === 'SHOP') {
-                  return (
-                    <span key={item.label} className={styles.shopLink}>
-                      {item.label}
-                      <FaLock className={styles.lockIcon} />
-                    </span>
-                  );
-                }
-                // Altri link
-                return (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className={styles.link}
-                    onClick={(e) => handleSmoothScroll(e, item.href)}
-                  >
-                    {item.label}
-                  </a>
-                );
-              } else if (item.type === 'button') {
+              if (item.type === 'button') {
                 return (
                   <button
                     key={item.label}
@@ -141,43 +130,44 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
               }
               return null;
             })}
+            
+            <div className={styles.langDropdown} ref={langRef}>
+              <button
+                className={`${styles.langToggle} ${isLangOpen ? styles.langToggleActive : ""}`}
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                aria-label="Select language"
+              >
+                {lang.toUpperCase()}
+                <IoGlobeOutline size="1.4rem" />
+              </button>
+              {isLangOpen && (
+                <div className={styles.langMenu}>
+                  <button
+                    className={`${styles.langOption} ${lang === "it" ? styles.langOptionActive : ""}`}
+                    onClick={() => { changeLang("it"); setIsLangOpen(false); }}
+                  >
+                    IT
+                  </button>
+                  <button
+                    className={`${styles.langOption} ${lang === "en" ? styles.langOptionActive : ""}`}
+                    onClick={() => { changeLang("en"); setIsLangOpen(false); }}
+                  >
+                    EN
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-          <div className={styles.langDropdown} ref={langRef}>
-            <button
-              className={`${styles.langToggle} ${isLangOpen ? styles.langToggleActive : ""}`}
-              onClick={() => setIsLangOpen(!isLangOpen)}
-              aria-label="Select language"
-            >
-              {lang.toUpperCase()}
-              <IoGlobeOutline size="1.4rem" />
-            </button>
-            {isLangOpen && (
-              <div className={styles.langMenu}>
-                <button
-                  className={`${styles.langOption} ${lang === "it" ? styles.langOptionActive : ""}`}
-                  onClick={() => { changeLang("it"); setIsLangOpen(false); }}
-                >
-                  IT
-                </button>
-                <button
-                  className={`${styles.langOption} ${lang === "en" ? styles.langOptionActive : ""}`}
-                  onClick={() => { changeLang("en"); setIsLangOpen(false); }}
-                >
-                  EN
-                </button>
-              </div>
-            )}
-          </div>
-          <button
-            className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span className={styles.hamburger_line}></span>
-            <span className={styles.hamburger_line}></span>
-            <span className={styles.hamburger_line}></span>
-          </button>
         </div>
+        <button
+          className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span className={styles.hamburger_line}></span>
+          <span className={styles.hamburger_line}></span>
+          <span className={styles.hamburger_line}></span>
+        </button>
         <div className={`${styles.mobile_menu} ${isMenuOpen ? styles.open : ''}`}>
           <div className={styles.mobile_left_links}>
             {leftItems.map((item) => (

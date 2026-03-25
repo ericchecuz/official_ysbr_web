@@ -23,7 +23,7 @@
     align-items: center;
     gap: 2rem;
     flex: 1;
-}
+} 
 
 .logo_container {
     flex: 0 0 auto;
@@ -78,20 +78,17 @@
     border-radius: 50%;
     padding: 5px;
     transition: 0.3s;
+    color: black;
 }
 
 .social_icon_container_link:hover {
     background-color: var(--accent-color);
-}
-
-.social_icon_container_link:hover .social_icon {
-    color: #fff;
+    color: white;
 }
 
 .social_icon {
     width: 25px;
     height: 25px;
-    color: black;
 }
 
 @media (max-width: 768px) {
