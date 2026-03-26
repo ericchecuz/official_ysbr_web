@@ -14,6 +14,7 @@
 .header_nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -183,7 +184,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    margin-left: 1rem;
+    margin-left: auto;
 }
 
 .hamburger_line {
@@ -200,6 +201,15 @@
 }
 
 @media (max-width: 768px) {
+    .header_nav {
+        height: 4rem;
+        padding: 0 16px;
+    }
+
+    .logo_container img {
+        max-width: 120px;
+    }
+
     .nav_items {
         display: none;
     }
@@ -209,20 +219,29 @@
     }
 
     .mobile_menu {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         position: absolute;
-        top: 75px;
+        top: 4rem;
         left: 0;
         width: 100%;
         background-color: #000;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        padding: 1.5rem 0;
+        padding: 0 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.35s ease;
+        pointer-events: none;
     }
 
     .mobile_menu.open {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        max-height: 500px;
+        opacity: 1;
+        padding: 1.5rem 0;
+        pointer-events: auto;
     }
 
     .mobile_left_links,

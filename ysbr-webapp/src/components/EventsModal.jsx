@@ -174,14 +174,14 @@ function EventsModal({ isOpen, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={handleClose}
         >
           <motion.div
             className={styles.panel}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 60 }}
+            exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
           >

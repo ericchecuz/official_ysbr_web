@@ -15,42 +15,15 @@ function AboutUs({ items, className = "" }) {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const textVariants = {
-    hidden: {
-      opacity: 0,
-      x: -100,
-    },
+  const contentVariants = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeInOut",
-        staggerChildren: 0.6,
-      },
+      transition: { duration: 0.4, ease: "easeOut" },
     },
     exit: {
       opacity: 0,
-      x: -100,
-      transition: {
-        duration: 0.4,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const childVariants = {
-    hidden: {
-      opacity: 0,
-      x: -50,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.25, ease: "easeIn" },
     },
   };
 
@@ -119,42 +92,34 @@ function AboutUs({ items, className = "" }) {
           categoryColors={categoryColors}
         />
 
-        <div className={styles.carouselContainer}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`text-${currentCategory}`}
-              className={styles.textSection}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              <motion.h1
-                className={styles.title}
-                style={getTitleStyle(currentCategory)}
-                variants={childVariants}
-              >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentCategory}
+            className={styles.carouselContainer}
+            variants={contentVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <div className={styles.textSection}>
+              <h1 className={styles.title} style={getTitleStyle(currentCategory)}>
                 {currentItem.title}
-              </motion.h1>
-              <motion.p
-                className={styles.description}
-                variants={childVariants}
-              >
+              </h1>
+              <p className={styles.description}>
                 {currentItem.description}
-              </motion.p>
-            </motion.div>
-          </AnimatePresence>
+              </p>
+            </div>
 
-          <Carousel
-                key={currentCategory}
-                slides={currentImages}
-                showArrows={true}
-                showDots={true}
-                autoPlay={true}
-                interval={5000}
-                info={t("aboutUs.carouselInfo")}
-              />
-        </div>
+            <Carousel
+              slides={currentImages}
+              showArrows={true}
+              showDots={true}
+              autoPlay={true}
+              interval={5000}
+              info={t("aboutUs.carouselInfo")}
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
