@@ -69,6 +69,8 @@
     "tbc": "TBC",
     "past": "Concluso",
     "empty": "Nessun evento trovato per questo filtro.",
+    "filterByActivity": "Attività",
+    "filterByMonth": "Mese",
     "months": [
       "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
       "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
