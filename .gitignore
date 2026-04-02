@@ -2,3 +2,7 @@ node_modules/
 dist/
 .env
 .DS_Store
+
+# Large video/media files (use local only, don't push)
+*.mov
+ysbr-webapp/src/assets/bassUpNorth2.mp4
