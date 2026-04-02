@@ -25,11 +25,13 @@
     "outro": "Join us!",
     "ctaPrimary": "BECOME A MEMBER",
     "ctaSecondary": "FOLLOW US",
-    "ctaDisabled": "SUPPORT US — 5x1000 (coming soon)"
+    "ctaDisabled": "SUPPORT US — 5x1000 (coming soon)",
+    "ctaCollab": "JOIN THE CREW"
   },
   "aboutUs": {
     "title": "ABOUT US",
     "carouselInfo": "SWIPE THROUGH THE GALLERY",
+    "servicesCta": "WHAT WE OFFER",
     "categoryLabels": {
       "FAM": "FAM",
       "SPORT": "SPORT",
@@ -95,7 +97,41 @@
     "statute": "Association Statute",
     "instagram": "Follow us on Instagram",
     "whatsapp": "Contact us on WhatsApp",
-    "privacy": "Privacy & Cookie Policy"
+    "privacy": "Privacy & Cookie Policy",
+    "safeguarding": "Safeguarding"
+  },
+  "collab": {
+    "title": "COLLABORATE WITH US",
+    "intro": "Do you like the YSBR project? Are you a videomaker, photographer, DJ, artist, or simply someone who wants to get involved and collaborate with us? Write to us! We're always looking for creative and motivated people.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Tell us who you are and how you'd like to collaborate...",
+    "send": "SEND EMAIL",
+    "emailName": "Name",
+    "emailFrom": "Email"
+  },
+  "services": {
+    "titles": {
+      "SPORT": "WHAT WE OFFER — SPORT",
+      "MUSICA": "WHAT WE OFFER — MUSIC"
+    },
+    "SPORT": [
+      "Kitesurf Lessons",
+      "Snowboard Lessons",
+      "Slackline & Balance Board Sessions",
+      "Animal Flow Sessions",
+      "Outdoor Yoga",
+      "Wakeboard & Wakesurf",
+      "Hikes & Nature Activities"
+    ],
+    "MUSICA": [
+      "Audio / Lighting Service",
+      "DJ Sets & Live Performances",
+      "Artistic Consulting for Events",
+      "Music Event Organization",
+      "Support for Crews & Independent Artists",
+      "Sound Design for Festivals & Open-Air Events"
+    ]
   },
   "privacy": {
     "title": "PRIVACY & COOKIE POLICY",

@@ -27,6 +27,15 @@ function Footer({ logoSrc, address, piva, statuteLink, instagramUrl, whatsappUrl
                 {t("footer.statute")}
               </a>
               <span className={styles.link_separator}>·</span>
+              <a
+                href="https://drive.google.com/file/d/1xUyJE6UVR3h7eXEJSrmVU2qfyQArD6rd/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.statute_link}
+              >
+                {t("footer.safeguarding")}
+              </a>
+              <span className={styles.link_separator}>·</span>
               <button className={styles.privacy_link} onClick={() => setPrivacyOpen(true)}>
                 {t("footer.privacy")}
               </button>

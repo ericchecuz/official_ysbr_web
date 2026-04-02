@@ -49,11 +49,18 @@
 
 .ctaContainer {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.ctaRow {
+    display: flex;
     gap: 1rem;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 0.5rem;
 }
 
 .ctaPrimary {
@@ -127,9 +134,13 @@
     }
 
     .ctaContainer {
-        flex-direction: column;
         width: 100%;
         max-width: 320px;
+    }
+
+    .ctaRow {
+        flex-direction: column;
+        width: 100%;
     }
 
     .ctaPrimary,

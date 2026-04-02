@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/about_us.module.css";
 import ChipGroup from "./commons/ChipGroup";
 import Carousel from "./commons/Carousel";
+import ServicesModal from "./ServicesModal";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -14,6 +15,15 @@ import slide5 from "../assets/slide5.jpg";
 function AboutUs({ items, className = "" }) {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [servicesCategory, setServicesCategory] = useState(null);
+
+  const CATEGORIES_WITH_SERVICES = ["SPORT", "MUSICA"];
+
+  const openServices = (category) => {
+    setServicesCategory(category);
+    setServicesOpen(true);
+  };
 
   const contentVariants = {
     hidden: { opacity: 0 },
@@ -108,6 +118,14 @@ function AboutUs({ items, className = "" }) {
               <p className={styles.description}>
                 {currentItem.description}
               </p>
+              {CATEGORIES_WITH_SERVICES.includes(currentCategory) && (
+                <button
+                  className={styles.servicesCta}
+                  onClick={() => openServices(currentCategory)}
+                >
+                  {t("aboutUs.servicesCta")}
+                </button>
+              )}
             </div>
 
             <Carousel
@@ -121,6 +139,11 @@ function AboutUs({ items, className = "" }) {
           </motion.div>
         </AnimatePresence>
       </div>
+      <ServicesModal
+        isOpen={servicesOpen}
+        onClose={() => setServicesOpen(false)}
+        category={servicesCategory}
+      />
     </section>
   );
 }
