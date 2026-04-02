@@ -46,17 +46,48 @@
 .address,
 .piva {
     margin: 0.2rem 0;
-    font-size: 1rem;
+    font-size: 0.75rem;
 }
 
 .statute_link {
     color: var(--accent-color);
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
     transition: 0.2s;
 }
 
 .statute_link:hover {
+    text-decoration: underline;
+}
+
+.links_row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.link_separator {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 1rem;
+}
+
+.privacy_link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: var(--font-family);
+}
+
+.privacy_link:hover {
     text-decoration: underline;
 }
 
@@ -79,6 +110,7 @@
     padding: 5px;
     transition: 0.3s;
     color: black;
+    cursor: pointer;
 }
 
 .social_icon_container_link:hover {
@@ -128,11 +160,16 @@
 
     .address,
     .piva {
-        font-size: 0.9rem;
+        font-size: 0.75rem;
     }
 
-    .statute_link {
-        font-size: 0.9rem;
+    .statute_link,
+    .privacy_link {
+        font-size: 0.75rem;
+    }
+
+    .links_row {
+        justify-content: center;
     }
 }
 
@@ -151,11 +188,12 @@
 
     .address,
     .piva {
-        font-size: 0.95rem;
+        font-size: 0.75rem;
     }
 
-    .statute_link {
-        font-size: 0.95rem;
+    .statute_link,
+    .privacy_link {
+        font-size: 0.75rem;
     }
 }
 

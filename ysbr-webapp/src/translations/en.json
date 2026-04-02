@@ -94,6 +94,41 @@
   "footer": {
     "statute": "Association Statute",
     "instagram": "Follow us on Instagram",
-    "whatsapp": "Contact us on WhatsApp"
+    "whatsapp": "Contact us on WhatsApp",
+    "privacy": "Privacy & Cookie Policy"
+  },
+  "privacy": {
+    "title": "PRIVACY & COOKIE POLICY",
+    "lastUpdate": "Last updated: March 2026",
+    "sections": [
+      {
+        "title": "Data Controller",
+        "body": "YESBRO ASD (YSBR)\nVia Carlo Cicogna Mozzoni 7, 20161 Milano (MI), Italy\nVAT: 13630240961 — Tax Code: 97970190159\nEmail: info@ysbr.it"
+      },
+      {
+        "title": "Data collected",
+        "body": "This website does not directly collect any personal data from users. There are no contact forms, registration areas, or proprietary tracking systems.\n\nThe association membership form is managed by Cognitoforms, a third-party service subject to its own privacy policy."
+      },
+      {
+        "title": "Cookies",
+        "body": "This site does not use profiling or marketing cookies. Only technical cookies strictly necessary for the hosting server (Aruba S.p.A.) operation may be present. These do not require user consent under Art. 122 of the Italian Privacy Code."
+      },
+      {
+        "title": "Third-party services",
+        "body": "The site uses the following external services:\n\n• Google Fonts — for loading web fonts. Google may collect the user's IP address (Google Privacy Policy: https://policies.google.com/privacy)\n• Cognitoforms — for the membership registration form\n• Instagram and WhatsApp — external links to the association's profiles"
+      },
+      {
+        "title": "Server logs",
+        "body": "The hosting server (Aruba S.p.A.) may automatically collect browsing data such as IP address, date and time of access, and pages visited. This data is processed anonymously and in aggregate form for statistical and security purposes."
+      },
+      {
+        "title": "User rights",
+        "body": "Under EU Regulation 2016/679 (GDPR), users have the right to access their personal data, request its rectification or deletion, restrict its processing, and object to its processing. To exercise these rights, please contact the Data Controller at the email address indicated above."
+      },
+      {
+        "title": "Changes to this policy",
+        "body": "The Data Controller reserves the right to modify this policy at any time, notifying users on this page."
+      }
+    ]
   }
 }

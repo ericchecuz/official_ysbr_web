@@ -94,6 +94,41 @@
   "footer": {
     "statute": "Statuto dell'Associazione",
     "instagram": "Seguici su Instagram",
-    "whatsapp": "Contattaci su WhatsApp"
+    "whatsapp": "Contattaci su WhatsApp",
+    "privacy": "Privacy & Cookie Policy"
+  },
+  "privacy": {
+    "title": "PRIVACY & COOKIE POLICY",
+    "lastUpdate": "Ultimo aggiornamento: marzo 2026",
+    "sections": [
+      {
+        "title": "Titolare del trattamento",
+        "body": "YESBRO ASD (YSBR)\nVia Carlo Cicogna Mozzoni 7, 20161 Milano (MI)\nP.IVA 13630240961 — C.F. 97970190159\nEmail: info@ysbr.it"
+      },
+      {
+        "title": "Dati raccolti",
+        "body": "Il presente sito web non raccoglie direttamente dati personali degli utenti. Non sono presenti moduli di contatto, aree di registrazione o sistemi di tracciamento proprietari.\n\nIl modulo di iscrizione all'associazione è gestito da Cognitoforms, servizio di terze parti soggetto alla propria informativa privacy."
+      },
+      {
+        "title": "Cookie",
+        "body": "Questo sito non utilizza cookie di profilazione o di marketing. Potrebbero essere presenti esclusivamente cookie tecnici necessari al funzionamento del server di hosting (Aruba S.p.A.), che non richiedono il consenso dell'utente ai sensi dell'art. 122 del Codice Privacy."
+      },
+      {
+        "title": "Servizi di terze parti",
+        "body": "Il sito utilizza i seguenti servizi esterni:\n\n• Google Fonts — per il caricamento dei font tipografici. Google potrebbe raccogliere l'indirizzo IP dell'utente (Informativa Google: https://policies.google.com/privacy)\n• Cognitoforms — per il modulo di iscrizione soci\n• Instagram e WhatsApp — link esterni ai profili dell'associazione"
+      },
+      {
+        "title": "Log del server",
+        "body": "Il server di hosting (Aruba S.p.A.) potrebbe raccogliere automaticamente dati di navigazione quali indirizzo IP, data e ora di accesso, pagine visitate. Questi dati sono trattati in forma anonima e aggregata per finalità statistiche e di sicurezza."
+      },
+      {
+        "title": "Diritti dell'utente",
+        "body": "Ai sensi del Regolamento UE 2016/679 (GDPR), l'utente ha il diritto di accedere ai propri dati personali, richiederne la rettifica o la cancellazione, limitarne il trattamento e opporsi al trattamento stesso. Per esercitare tali diritti è possibile contattare il Titolare all'indirizzo email indicato sopra."
+      },
+      {
+        "title": "Modifiche alla presente informativa",
+        "body": "Il Titolare si riserva il diritto di apportare modifiche alla presente informativa in qualsiasi momento, dandone pubblicità agli utenti su questa pagina."
+      }
+    ]
   }
 }
