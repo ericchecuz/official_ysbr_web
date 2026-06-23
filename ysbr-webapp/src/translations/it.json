@@ -2,12 +2,15 @@
   "header": {
     "aboutUs": "ABOUT US",
     "events": "EVENTI",
+    "projects": "PROGETTI",
+    "courses": "CORSI",
+    "faq": "FAQ",
     "shop": "SHOP",
     "joinButton": "UNISCITI ALLA FAM"
   },
   "hero": {
-    "subtitle": "SPORT — MUSICA — NATURA",
-    "tagline": "No filters. Just energy.",
+    "subtitle": "SPORT - MUSICA - NATURA",
+    "tagline": "RIDE WITH US",
     "scroll": "Scroll"
   },
   "nextEvents": {
@@ -67,12 +70,15 @@
     "title": "STAGIONE",
     "closeLabel": "Chiudi",
     "all": "Tutti",
+    "upcoming": "Prossimi eventi",
+    "pastEvents": "Eventi passati",
     "collab": "collab",
     "tbc": "TBC",
     "past": "Concluso",
     "empty": "Nessun evento trovato per questo filtro.",
     "filterByActivity": "Attività",
     "filterByMonth": "Mese",
+    "filterByPeriod": "Periodo",
     "months": [
       "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
       "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
@@ -135,7 +141,7 @@
   },
   "privacy": {
     "title": "PRIVACY & COOKIE POLICY",
-    "lastUpdate": "Ultimo aggiornamento: marzo 2026",
+    "lastUpdate": "Ultimo aggiornamento: giugno 2026",
     "sections": [
       {
         "title": "Titolare del trattamento",
@@ -143,7 +149,7 @@
       },
       {
         "title": "Dati raccolti",
-        "body": "Il presente sito web non raccoglie direttamente dati personali degli utenti. Non sono presenti moduli di contatto, aree di registrazione o sistemi di tracciamento proprietari.\n\nIl modulo di iscrizione all'associazione è gestito da Cognitoforms, servizio di terze parti soggetto alla propria informativa privacy."
+        "body": "Il presente sito web non raccoglie direttamente dati personali degli utenti tramite sistemi di tracciamento proprietari o aree di registrazione.\n\nIl modulo di iscrizione all'associazione è gestito da Cognitoforms, servizio di terze parti soggetto alla propria informativa privacy.\n\nÈ inoltre disponibile un modulo \"Collabora\" che consente di inviare un messaggio (nome, email e testo) tramite il proprio programma di posta elettronica: i dati inseriti vengono trasmessi esclusivamente via email all'associazione e non sono memorizzati dal sito."
       },
       {
         "title": "Cookie",

@@ -69,12 +69,13 @@
 }
 
 .hero_subtitle_accent {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--accent-color);
     text-shadow: 0px 2px 20px rgba(0, 0, 0, 0.4);
-    font-style: italic;
     letter-spacing: 0.05em;
+    margin-top: 25px;
+    font-family: var(--font-family-titles);
 }
 
 .scroll_hint {

@@ -12,6 +12,27 @@ import slide3 from "../assets/slide3.jpg";
 import slide4 from "../assets/slide4.jpg";
 import slide5 from "../assets/slide5.jpg";
 
+import slide1Fam from "../assets/image-fam-1.jpg";
+import slide2Fam from "../assets/image-fam-2.jpg";
+
+import slide1Music from "../assets/image-music-1.jpg";
+import slide2Music from "../assets/image-music-2.jpg";
+import slide3Music from "../assets/image-music-3.jpg";
+import slide4Music from "../assets/image-music-4.jpg";
+
+import slide1Sport from "../assets/image-sport-1.jpg";
+import slide2Sport from "../assets/image-sport-2.jpg";
+import slide3Sport from "../assets/image-sport-3.jpg";
+import slide4Sport from "../assets/image-sport-4.jpg";
+import slide5Sport from "../assets/image-sport-5.jpg";
+
+import slide1Nature from "../assets/image-nature-1.jpg";
+import slide2Nature from "../assets/image-nature-2.jpg";
+import slide3Nature from "../assets/image-nature-3.jpg";
+import slide4Nature from "../assets/image-nature-4.jpg";
+import slide5Nature from "../assets/image-nature-5.jpg";
+import slide6Nature from "../assets/image-nature-6.jpg";
+
 function AboutUs({ items, className = "" }) {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,10 +59,17 @@ function AboutUs({ items, className = "" }) {
   };
 
   const categoryImages = {
-    FAM: [slide1, slide2],
-    SPORT: [slide2, slide3],
-    MUSICA: [slide3, slide4],
-    NATURA: [slide4, slide5],
+    FAM: [slide1Fam, slide2Fam],
+    SPORT: [slide1Sport, slide2Sport, slide3Sport, slide4Sport, slide5Sport],
+    MUSICA: [slide1Music, slide2Music, slide3Music, slide4Music],
+    NATURA: [
+      slide1Nature,
+      slide2Nature,
+      slide3Nature,
+      slide4Nature,
+      slide5Nature,
+      slide6Nature,
+    ],
   };
 
   const chipColorScheme = {

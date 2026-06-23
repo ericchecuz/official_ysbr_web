@@ -100,7 +100,7 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
             </a>
           ))}
           {rightItems.map((item) => {
-            if (item.type === 'link' && item.label === 'SHOP') {
+            if (item.type === 'link' && item.locked) {
               return (
                 <span key={item.label} className={styles.shopLink}>
                   {item.label}
@@ -184,8 +184,8 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
           <div className={styles.mobile_right_links}>
             {rightItems.map((item) => {
               if (item.type === 'link') {
-                // Logica speciale per "SHOP" anche nel menu mobile
-                if (item.label === 'SHOP') {
+                // Voci bloccate (es. SHOP, Progetti, Corsi, FAQ) anche nel menu mobile
+                if (item.locked) {
                   return (
                     <span key={item.label} className={styles.shopLink}>
                       {item.label}

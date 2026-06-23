@@ -2,12 +2,15 @@
   "header": {
     "aboutUs": "ABOUT US",
     "events": "EVENTS",
+    "projects": "PROJECTS",
+    "courses": "COURSES",
+    "faq": "FAQ",
     "shop": "SHOP",
     "joinButton": "JOIN THE FAM"
   },
   "hero": {
-    "subtitle": "SPORT — MUSIC — NATURE",
-    "tagline": "No filters. Just energy.",
+    "subtitle": "SPORT - MUSIC - NATURE",
+    "tagline": "RIDE WITH US",
     "scroll": "Scroll"
   },
   "nextEvents": {
@@ -67,12 +70,15 @@
     "title": "SEASON",
     "closeLabel": "Close",
     "all": "All",
+    "upcoming": "Upcoming events",
+    "pastEvents": "Past events",
     "collab": "collab",
     "tbc": "TBC",
     "past": "Past",
     "empty": "No events found for this filter.",
     "filterByActivity": "Activity",
     "filterByMonth": "Month",
+    "filterByPeriod": "Period",
     "months": [
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
@@ -135,7 +141,7 @@
   },
   "privacy": {
     "title": "PRIVACY & COOKIE POLICY",
-    "lastUpdate": "Last updated: March 2026",
+    "lastUpdate": "Last updated: June 2026",
     "sections": [
       {
         "title": "Data Controller",
@@ -143,7 +149,7 @@
       },
       {
         "title": "Data collected",
-        "body": "This website does not directly collect any personal data from users. There are no contact forms, registration areas, or proprietary tracking systems.\n\nThe association membership form is managed by Cognitoforms, a third-party service subject to its own privacy policy."
+        "body": "This website does not directly collect personal data from users through proprietary tracking systems or registration areas.\n\nThe association membership form is managed by Cognitoforms, a third-party service subject to its own privacy policy.\n\nThe site also provides a \"Collaborate\" form that lets you send a message (name, email and text) through your own email client: the data entered is sent only via email to the association and is not stored by the site."
       },
       {
         "title": "Cookies",

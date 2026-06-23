@@ -32,7 +32,9 @@ function AppContent() {
   ];
 
   const rightItems = [
-    { label: t("header.shop"), href: '#shop', type: 'link' },
+    { label: t("header.projects"), href: '#projects', type: 'link', locked: true },
+    { label: t("header.courses"), href: '#courses', type: 'link', locked: true },
+  //  { label: t("header.shop"), href: '#shop', type: 'link', locked: true },
     { label: t("header.joinButton"), href: '#joinus', type: 'button', class: 'joinButton' },
   ];
 

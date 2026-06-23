@@ -90,14 +90,14 @@ const Carousel = ({
   }, [currentIndex, isPlaying, nextSlide, autoPlayDelay]);
   
   /**
-   * Resetta l'autoplay quando l'utente interagisce col carosello
-   * Utile per dare più tempo all'utente di vedere la slide corrente
+   * Ferma l'autoplay quando l'utente interagisce col carosello.
+   * L'utente ha preso controllo: rispettiamo la sua scelta e non riavviamo il timer.
    */
-  const resetAutoPlay = useCallback(() => {
+  const stopAutoPlay = useCallback(() => {
     if (autoPlayRef.current) {
       clearTimeout(autoPlayRef.current);
     }
-    setIsPlaying(true);
+    setIsPlaying(false);
   }, []);
   
   /**
@@ -105,7 +105,7 @@ const Carousel = ({
    */
   useEffect(() => {
     const handleKeyDown = (e) => {
-      resetAutoPlay();
+      stopAutoPlay();
       if (e.key === 'ArrowLeft') {
         prevSlide();
       } else if (e.key === 'ArrowRight') {
@@ -120,7 +120,7 @@ const Carousel = ({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [prevSlide, nextSlide, resetAutoPlay]);
+  }, [prevSlide, nextSlide, stopAutoPlay]);
   
   /**
    * Gestione degli eventi touch (per dispositivi mobili)
@@ -138,7 +138,7 @@ const Carousel = ({
   
   // Determina la direzione dello swipe e cambia slide
   const handleSwipe = () => {
-    resetAutoPlay();
+    stopAutoPlay();
     const threshold = 50; // Soglia in pixel per considerare uno swipe valido
     if (touchEndXRef.current < touchStartXRef.current - threshold) {
       // Swipe verso sinistra - slide successiva
@@ -198,7 +198,7 @@ const Carousel = ({
               <button 
                 className={styles.navButton}
                 onClick={() => {
-                  resetAutoPlay();
+                  stopAutoPlay();
                   prevSlide();
                 }}
                 aria-label={t("aboutUs.carousel.prevSlide")}
@@ -211,7 +211,7 @@ const Carousel = ({
               <button 
                 className={styles.navButton}
                 onClick={() => {
-                  resetAutoPlay();
+                  stopAutoPlay();
                   nextSlide();
                 }}
                 aria-label={t("aboutUs.carousel.nextSlide")}
@@ -230,7 +230,7 @@ const Carousel = ({
                 key={index} 
                 className={`${styles.dot} ${index === currentIndex ? styles.active : ''}`}
                 onClick={() => {
-                  resetAutoPlay();
+                  stopAutoPlay();
                   setCurrentIndex(index);
                 }}
                 aria-label={`${t("aboutUs.carousel.goToSlide")} ${index + 1}`}

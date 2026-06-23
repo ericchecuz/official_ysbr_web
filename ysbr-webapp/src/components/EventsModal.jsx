@@ -141,11 +141,20 @@ function EventsModal({ isOpen, onClose }) {
   const { t } = useLanguage();
   const [activeTags, setActiveTags] = useState([]);
   const [activeMonths, setActiveMonths] = useState([]);
+  const [timeFilter, setTimeFilter] = useState("upcoming"); // "all" | "upcoming" | "past"
   const [isTagsOpen, setIsTagsOpen] = useState(false);
   const [isMonthsOpen, setIsMonthsOpen] = useState(false);
+  const [isPeriodOpen, setIsPeriodOpen] = useState(false);
   const tagsDropdownRef = useRef(null);
   const monthsDropdownRef = useRef(null);
+  const periodDropdownRef = useRef(null);
   const months = t("eventsModal.months");
+
+  const PERIOD_OPTIONS = [
+    { value: "all", label: t("eventsModal.all") },
+    { value: "upcoming", label: t("eventsModal.upcoming") },
+    { value: "past", label: t("eventsModal.pastEvents") },
+  ];
 
   useEffect(() => {
     if (isOpen) {
@@ -187,6 +196,9 @@ function EventsModal({ isOpen, onClose }) {
       if (monthsDropdownRef.current && !monthsDropdownRef.current.contains(e.target)) {
         setIsMonthsOpen(false);
       }
+      if (periodDropdownRef.current && !periodDropdownRef.current.contains(e.target)) {
+        setIsPeriodOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -207,12 +219,18 @@ function EventsModal({ isOpen, onClose }) {
   const resetAll = () => {
     setActiveTags([]);
     setActiveMonths([]);
+    setTimeFilter("upcoming");
   };
 
   const filtered = eventsData.filter((e) => {
     const passTag = activeTags.length === 0 || activeTags.every((tag) => e.tags.includes(tag));
     const passMonth = activeMonths.length === 0 || activeMonths.includes(e.month);
-    return passTag && passMonth;
+    const past = isPast(e.endDate);
+    const passTime =
+      timeFilter === "all" ||
+      (timeFilter === "upcoming" && !past) ||
+      (timeFilter === "past" && past);
+    return passTag && passMonth && passTime;
   });
 
   const eventsByMonth = months.map((name, i) => ({
@@ -225,9 +243,8 @@ function EventsModal({ isOpen, onClose }) {
     resetAll();
     setIsTagsOpen(false);
     setIsMonthsOpen(false);
+    setIsPeriodOpen(false);
   };
-
-  const hasFilters = activeTags.length > 0 || activeMonths.length > 0;
 
   return (
     <AnimatePresence>
@@ -259,104 +276,84 @@ function EventsModal({ isOpen, onClose }) {
               </button>
             </div>
 
-            {/* Desktop filters */}
-            <div className={styles.desktopFilters}>
-              <div className={styles.tagsBar}>
+            {/* Filters */}
+            <div className={styles.filtersBar}>
+              <div className={`${styles.filterDropdown} ${styles.filterDropdownLg}`} ref={periodDropdownRef}>
                 <button
-                  className={`${styles.tagChip} ${!hasFilters ? styles.tagChipActive : ""}`}
-                  onClick={resetAll}
+                  className={`${styles.filterToggle} ${isPeriodOpen ? styles.filterToggleOpen : ""} ${timeFilter !== "all" ? styles.filterToggleHasSelection : ""}`}
+                  onClick={() => { setIsPeriodOpen(!isPeriodOpen); setIsTagsOpen(false); setIsMonthsOpen(false); }}
                 >
-                  {t("eventsModal.all")}
+                  <span className={styles.filterToggleLabel}>{t("eventsModal.filterByPeriod")}</span>
+                  <IoChevronDown className={`${styles.chevron} ${isPeriodOpen ? styles.chevronOpen : ""}`} />
                 </button>
-                {ALL_TAGS.map((tag) => (
-                  <button
-                    key={tag}
-                    className={`${styles.tagChip} ${activeTags.includes(tag) ? styles.tagChipActive : ""}`}
-                    onClick={() => toggleTag(tag)}
-                  >
-                    {tag}
-                  </button>
-                ))}
+                <div className={`${styles.filterList} ${isPeriodOpen ? styles.filterListOpen : ""}`}>
+                  {PERIOD_OPTIONS.map((opt) => (
+                    <label key={opt.value} className={styles.filterItem}>
+                      <span className={`${styles.checkbox} ${timeFilter === opt.value ? styles.checkboxChecked : ""}`} />
+                      <span className={styles.filterLabel}>{opt.label}</span>
+                      <input
+                        type="radio"
+                        name="timeFilter"
+                        checked={timeFilter === opt.value}
+                        onChange={() => { setTimeFilter(opt.value); setIsPeriodOpen(false); }}
+                        className={styles.hiddenInput}
+                      />
+                    </label>
+                  ))}
+                </div>
               </div>
-              <div className={styles.monthsBar}>
-                {ACTIVE_MONTH_INDICES.map((mi) => {
-                  const pastOnly = PAST_ONLY_MONTHS.has(mi);
-                  return (
-                    <button
-                      key={mi}
-                      className={`${styles.monthChip} ${activeMonths.includes(mi) ? styles.monthChipActive : ""} ${pastOnly ? styles.monthChipDisabled : ""}`}
-                      onClick={() => !pastOnly && toggleMonth(mi)}
-                      disabled={pastOnly}
-                    >
-                      {months[mi]}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
 
-            {/* Mobile filters */}
-            <div className={styles.mobileFilters}>
-              <div className={styles.mobileFilterRow}>
+              <div className={styles.filterDropdown} ref={tagsDropdownRef}>
                 <button
-                  className={`${styles.resetBtn} ${!hasFilters ? styles.resetBtnActive : ""}`}
-                  onClick={resetAll}
+                  className={`${styles.filterToggle} ${isTagsOpen ? styles.filterToggleOpen : ""} ${activeTags.length > 0 ? styles.filterToggleHasSelection : ""}`}
+                  onClick={() => { setIsTagsOpen(!isTagsOpen); setIsMonthsOpen(false); setIsPeriodOpen(false); }}
                 >
-                  {t("eventsModal.all")}
+                  <span className={styles.filterToggleLabel}>{t("eventsModal.filterByActivity")}</span>
+                  {activeTags.length > 0 && <span className={styles.filterCount}>{activeTags.length}</span>}
+                  <IoChevronDown className={`${styles.chevron} ${isTagsOpen ? styles.chevronOpen : ""}`} />
                 </button>
+                <div className={`${styles.filterList} ${isTagsOpen ? styles.filterListOpen : ""}`}>
+                  {ALL_TAGS.map((tag) => (
+                    <label key={tag} className={styles.filterItem}>
+                      <span className={`${styles.checkbox} ${activeTags.includes(tag) ? styles.checkboxChecked : ""}`} />
+                      <span className={styles.filterLabel}>{tag}</span>
+                      <input
+                        type="checkbox"
+                        checked={activeTags.includes(tag)}
+                        onChange={() => toggleTag(tag)}
+                        className={styles.hiddenInput}
+                      />
+                    </label>
+                  ))}
+                </div>
+              </div>
 
-                <div className={styles.filterDropdown} ref={tagsDropdownRef}>
-                  <button
-                    className={`${styles.filterToggle} ${isTagsOpen ? styles.filterToggleOpen : ""} ${activeTags.length > 0 ? styles.filterToggleHasSelection : ""}`}
-                    onClick={() => { setIsTagsOpen(!isTagsOpen); setIsMonthsOpen(false); }}
-                  >
-                    {t("eventsModal.filterByActivity")}
-                    {activeTags.length > 0 && <span className={styles.filterCount}>{activeTags.length}</span>}
-                    <IoChevronDown className={`${styles.chevron} ${isTagsOpen ? styles.chevronOpen : ""}`} />
-                  </button>
-                  <div className={`${styles.filterList} ${isTagsOpen ? styles.filterListOpen : ""}`}>
-                    {ALL_TAGS.map((tag) => (
-                      <label key={tag} className={styles.filterItem}>
-                        <span className={`${styles.checkbox} ${activeTags.includes(tag) ? styles.checkboxChecked : ""}`} />
-                        <span className={styles.filterLabel}>{tag}</span>
+              <div className={`${styles.filterDropdown} ${styles.filterDropdownSm}`} ref={monthsDropdownRef}>
+                <button
+                  className={`${styles.filterToggle} ${isMonthsOpen ? styles.filterToggleOpen : ""} ${activeMonths.length > 0 ? styles.filterToggleHasSelection : ""}`}
+                  onClick={() => { setIsMonthsOpen(!isMonthsOpen); setIsTagsOpen(false); setIsPeriodOpen(false); }}
+                >
+                  <span className={styles.filterToggleLabel}>{t("eventsModal.filterByMonth")}</span>
+                  {activeMonths.length > 0 && <span className={styles.filterCount}>{activeMonths.length}</span>}
+                  <IoChevronDown className={`${styles.chevron} ${isMonthsOpen ? styles.chevronOpen : ""}`} />
+                </button>
+                <div className={`${styles.filterList} ${isMonthsOpen ? styles.filterListOpen : ""}`}>
+                  {ACTIVE_MONTH_INDICES.map((mi) => {
+                    const pastOnly = PAST_ONLY_MONTHS.has(mi);
+                    return (
+                      <label key={mi} className={`${styles.filterItem} ${pastOnly ? styles.filterItemDisabled : ""}`}>
+                        <span className={`${styles.checkbox} ${activeMonths.includes(mi) ? styles.checkboxChecked : ""} ${pastOnly ? styles.checkboxDisabled : ""}`} />
+                        <span className={styles.filterLabel}>{months[mi]}</span>
                         <input
                           type="checkbox"
-                          checked={activeTags.includes(tag)}
-                          onChange={() => toggleTag(tag)}
+                          checked={activeMonths.includes(mi)}
+                          onChange={() => !pastOnly && toggleMonth(mi)}
+                          disabled={pastOnly}
                           className={styles.hiddenInput}
                         />
                       </label>
-                    ))}
-                  </div>
-                </div>
-
-                <div className={styles.filterDropdown} ref={monthsDropdownRef}>
-                  <button
-                    className={`${styles.filterToggle} ${isMonthsOpen ? styles.filterToggleOpen : ""} ${activeMonths.length > 0 ? styles.filterToggleHasSelection : ""}`}
-                    onClick={() => { setIsMonthsOpen(!isMonthsOpen); setIsTagsOpen(false); }}
-                  >
-                    {t("eventsModal.filterByMonth")}
-                    {activeMonths.length > 0 && <span className={styles.filterCount}>{activeMonths.length}</span>}
-                    <IoChevronDown className={`${styles.chevron} ${isMonthsOpen ? styles.chevronOpen : ""}`} />
-                  </button>
-                  <div className={`${styles.filterList} ${isMonthsOpen ? styles.filterListOpen : ""}`}>
-                    {ACTIVE_MONTH_INDICES.map((mi) => {
-                      const pastOnly = PAST_ONLY_MONTHS.has(mi);
-                      return (
-                        <label key={mi} className={`${styles.filterItem} ${pastOnly ? styles.filterItemDisabled : ""}`}>
-                          <span className={`${styles.checkbox} ${activeMonths.includes(mi) ? styles.checkboxChecked : ""} ${pastOnly ? styles.checkboxDisabled : ""}`} />
-                          <span className={styles.filterLabel}>{months[mi]}</span>
-                          <input
-                            type="checkbox"
-                            checked={activeMonths.includes(mi)}
-                            onChange={() => !pastOnly && toggleMonth(mi)}
-                            disabled={pastOnly}
-                            className={styles.hiddenInput}
-                          />
-                        </label>
-                      );
-                    })}
-                  </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
