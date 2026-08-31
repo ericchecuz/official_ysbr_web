@@ -4,6 +4,7 @@ import AboutUs from './components/AboutUs';
 import JoinUs from './components/JoinUs';
 import Footer from './components/Footer';
 import NextEvents from './components/NextEvents';
+import Courses from './components/Courses';
 import logoImage from './assets/ysbr-logo.png';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -29,11 +30,11 @@ function AppContent() {
   const leftItems = [
     { label: t("header.aboutUs"), href: '#about' },
     { label: t("header.events"), href: '#events' },
+    { label: t("header.courses"), href: '#courses' },
   ];
 
   const rightItems = [
     { label: t("header.projects"), href: '#projects', type: 'link', locked: true },
-    { label: t("header.courses"), href: '#courses', type: 'link', locked: true },
   //  { label: t("header.shop"), href: '#shop', type: 'link', locked: true },
     { label: t("header.joinButton"), href: '#joinus', type: 'button', class: 'joinButton' },
   ];
@@ -52,14 +53,17 @@ function AppContent() {
       <Header leftItems={leftItems} rightItems={rightItems} logoSrc={logoSrc} />
       <main>
         <Hero />
-        <section id="events">
-          <NextEvents />
+        <section id="about">
+          <AboutUs items={items} />
         </section>
         <section id="joinus">
           <JoinUs />
         </section>
-        <section id="about">
-          <AboutUs items={items} />
+        <section id="events">
+          <NextEvents />
+        </section>
+        <section id="courses">
+          <Courses />
         </section>
       </main>
       <Footer

@@ -34,7 +34,7 @@
   "aboutUs": {
     "title": "ABOUT US",
     "carouselInfo": "SCORRI LE IMMAGINI PER VEDERE LA GALLERIA",
-    "servicesCta": "COSA OFFRIAMO",
+    "servicesCta": "COSA TI ASPETTA",
     "categoryLabels": {
       "FAM": "FAM",
       "SPORT": "SPORT",
@@ -93,7 +93,7 @@
       "7": "4 — 7 Giugno",
       "8": "13 — 15 Giugno",
       "9": "27 Giugno",
-      "10": "4 Luglio",
+      "10": "3 — 5 Luglio",
       "11": "4 — 6 Settembre",
       "12": "11 — 13 Settembre",
       "13": "4 — 8 Dicembre"
@@ -118,26 +118,81 @@
   },
   "services": {
     "titles": {
-      "SPORT": "COSA OFFRIAMO — SPORT",
-      "MUSICA": "COSA OFFRIAMO — MUSICA"
+      "SPORT": "COSA TI ASPETTA — SPORT",
+      "MUSICA": "COSA TI ASPETTA — MUSICA"
     },
     "SPORT": [
-      "Lezioni di Kitesurf",
-      "Lezioni di Snowboard",
-      "Sessioni di Slackline & Balance Board",
-      "Sessioni di Animal Flow",
-      "Yoga outdoor",
-      "Wakeboard & Wakesurf",
-      "Escursioni e attività natura"
+      "Lezioni di kitesurf",
+      "Sessioni di Ski e snowboard",
+      "Sessioni di slackline e Balance Games",
+      "Corsi di Yoga e Animal Flow",
+      "Sessioni di Wakeboard e Wakesurf",
+      "Trekking, arrampicata, bivaccate e attività in natura"
     ],
     "MUSICA": [
-      "Service Audio / Luci",
-      "DJ Set & Live Performance",
+      "Dj set & performance Live",
       "Consulenza artistica per eventi",
       "Organizzazione eventi musicali",
       "Supporto a crew e artisti indipendenti",
-      "Sound design per festival e open-air"
+      "Produzione e allestimento festival outdoor"
     ]
+  },
+  "courses": {
+    "title": "CORSI",
+    "priceListTitle": "LISTINO PREZZI",
+    "categoryLabels": {
+      "KITE": "KITE SURF",
+      "YOGA": "YOGA"
+    },
+    "items": {
+      "KITE": {
+        "title": "KITE SURF",
+        "description": "Impara a volare sull'acqua con i corsi di kitesurf YSBR sul Lago di Como. I nostri istruttori ti seguono passo dopo passo, dalla gestione del kite a terra fino alle prime planate, con attrezzatura e barca sempre incluse. Che tu parta da zero o voglia perfezionare la tua tecnica, ti aspetta un ambiente sicuro, inclusivo e pieno di energia: vieni a provare, la fam ti aspetta in acqua!",
+        "location": "Lago di Como",
+        "priceSections": [
+          {
+            "title": "Lezioni principianti",
+            "entries": [
+              { "price": "75 €/h", "note": "Attrezzatura + barca incluse" },
+              { "price": "290 €", "note": "Pacchetto 4 ore — attrezzatura + barca incluse" }
+            ]
+          },
+          {
+            "title": "Per kiter indipendenti",
+            "entries": [
+              { "price": "45 €", "note": "Boat lift — per rider indipendenti che necessitano solo del trasporto in barca" }
+            ]
+          },
+          {
+            "title": "Tesseramento YSBR",
+            "entries": [
+              { "price": "10 €", "note": "Tutte le attività sono riservate ai soci YSBR" }
+            ]
+          }
+        ]
+      },
+      "YOGA": {
+        "title": "YOGA",
+        "description": "Riconnettiti con corpo e respiro grazie alle sessioni di yoga YSBR: pratiche outdoor immerse nella natura, adatte a tutti i livelli. Un percorso che unisce movimento, equilibrio e consapevolezza, per ricaricare le energie e condividere benessere con la community. Porta il tappetino, al resto pensiamo noi!",
+        "location": "",
+        "priceSections": [
+          {
+            "title": "Lezioni",
+            "entries": [
+              { "price": "15 €", "note": "Lezione singola (60 min)" },
+              { "price": "65 €", "note": "Pacchetto 5 lezioni" },
+              { "price": "120 €", "note": "Pacchetto 10 lezioni" }
+            ]
+          },
+          {
+            "title": "Tesseramento YSBR",
+            "entries": [
+              { "price": "10 €", "note": "Tutte le attività sono riservate ai soci YSBR" }
+            ]
+          }
+        ]
+      }
+    }
   },
   "privacy": {
     "title": "PRIVACY & COOKIE POLICY",

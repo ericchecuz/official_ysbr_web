@@ -222,22 +222,10 @@ const Carousel = ({
           </>
         )}
         
-        {/* Indicatori a punti (condizionali) */}
+        {/* Indicatore di posizione: contatore compatto "N / totale" */}
         {showDots && (
-          <div className={styles['dots-container']}>
-            {slides.map((_, index) => (
-              <span 
-                key={index} 
-                className={`${styles.dot} ${index === currentIndex ? styles.active : ''}`}
-                onClick={() => {
-                  stopAutoPlay();
-                  setCurrentIndex(index);
-                }}
-                aria-label={`${t("aboutUs.carousel.goToSlide")} ${index + 1}`}
-                role="button"
-                tabIndex={0}
-              />
-            ))}
+          <div className={styles['counter-container']} aria-live="polite">
+            <span className={styles.counter}>{currentIndex + 1} / {slides.length}</span>
           </div>
         )}
       </div>

@@ -102,39 +102,25 @@
     right: 15px;
 }
 
-/* Dots navigation */
-.dots-container {
+/* Contatore di posizione "N / totale" */
+.counter-container {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
     z-index: 10;
-    /* Safari support */
-    /* Modern glass effect */
-    padding: 8px 15px;
+    padding: 6px 14px;
     border-radius: 25px;
     background-color: black;
+    line-height: 1;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.dot.active {
-    background-color: #e83e8c;
-    transform: scale(1.2);
-    box-shadow: 0 0 10px #e83e8c;
+.counter {
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-variant-numeric: tabular-nums;
 }
 
 /* Responsive design */
@@ -149,13 +135,8 @@
         font-size: 16px;
     }
 
-    .dots-container {
-        padding: 6px 12px;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
+    .counter-container {
+        padding: 5px 12px;
     }
 
     .navButton {
@@ -175,10 +156,13 @@
         width: 95%;
     }
 
-    .dots-container {
-        padding: 4px 10px;
-        gap: 8px;
+    .counter-container {
         bottom: 10px;
+        padding: 4px 10px;
+    }
+
+    .counter {
+        font-size: 0.75rem;
     }
 
     .dot {

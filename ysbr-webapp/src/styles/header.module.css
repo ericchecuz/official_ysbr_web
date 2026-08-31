@@ -216,6 +216,7 @@
 
     .hamburger {
         display: block;
+        margin-left: 0;
     }
 
     .mobile_menu {
@@ -285,8 +286,10 @@
         right: -8px;
     }
 
+    /* Selettore lingua accanto all'hamburger, spinto a destra */
     .langDropdown {
-        margin-left: 0;
+        margin-left: auto;
+        margin-right: 0.9rem;
     }
 
     .langToggle {

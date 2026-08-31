@@ -21,7 +21,7 @@ const eventsData = [
     endDate: `${currentYear}-03-07`,
     title: "EDS Skatepark",
     location: "Milano Bicocca (MI)",
-    tags: ["skateboard", "balance game", "stand"],
+    tags: ["skateboard", "balance game", "markets"],
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const eventsData = [
     title: "MICELIUM SOUND",
     location: "LUME - Milano (MI)",
     collab: true,
-    tags: ["party", "balance game", "stand"],
+    tags: ["party indoor", "balance game", "markets"],
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const eventsData = [
     location: "Milano (MI)",
     collab: true,
     tbc: true,
-    tags: ["party", "balance game", "stand"],
+    tags: ["party indoor", "balance game", "markets"],
   },
   {
     id: 7,
@@ -65,7 +65,7 @@ const eventsData = [
     title: "MILANO SUD FESTIVAL",
     location: "Parco Ravizza - Milano (MI)",
     collab: true,
-    tags: ["stand", "party open-air", "balance game"],
+    tags: ["markets", "party open-air", "balance game"],
   },
   {
     id: 8,
@@ -75,7 +75,7 @@ const eventsData = [
     location: "Valmadrera (CO)",
     collab: true,
     tbc: true,
-    tags: ["kitesurf", "festival", "stand", "party open-air", "yoga", "camping"],
+    tags: ["kitesurf", "festival", "markets", "party open-air", "yoga", "camping"],
   },
   {
     id: 9,
@@ -85,12 +85,12 @@ const eventsData = [
     location: "Milano (MI)",
     collab: true,
     tbc: true,
-    tags: ["party", "balance game", "stand"],
+    tags: ["party indoor", "balance game", "markets"],
   },
   {
     id: 10,
     month: 6,
-    endDate: `${currentYear}-07-04`,
+    endDate: `${currentYear}-07-05`,
     title: "Wake'N'Funky Trip",
     location: "Pavia (PV)",
     tags: ["wakesurf", "camping", "party open-air", "yoga"],
@@ -102,7 +102,7 @@ const eventsData = [
     title: "KOMOREBI",
     location: "Cuneo (CN)",
     collab: true,
-    tags: ["festival", "stand", "party open-air", "yoga", "camping"],
+    tags: ["festival", "markets", "party open-air", "yoga", "camping", "balance game"],
   },
   {
     id: 12,
@@ -110,7 +110,7 @@ const eventsData = [
     endDate: `${currentYear}-09-13`,
     title: "ULTIMA FESTA",
     location: "Marina di Grosseto (GR)",
-    tags: ["kitesurf", "festival", "stand", "party open-air"],
+    tags: ["kitesurf", "festival", "markets", "party open-air", "balance game", "camping", "yoga"],
   },
   {
     id: 13,

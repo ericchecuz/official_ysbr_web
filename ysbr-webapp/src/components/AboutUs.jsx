@@ -12,19 +12,10 @@ import slide3 from "../assets/slide3.jpg";
 import slide4 from "../assets/slide4.jpg";
 import slide5 from "../assets/slide5.jpg";
 
-import slide1Fam from "../assets/image-fam-1.jpg";
-import slide2Fam from "../assets/image-fam-2.jpg";
-
 import slide1Music from "../assets/image-music-1.jpg";
 import slide2Music from "../assets/image-music-2.jpg";
 import slide3Music from "../assets/image-music-3.jpg";
 import slide4Music from "../assets/image-music-4.jpg";
-
-import slide1Sport from "../assets/image-sport-1.jpg";
-import slide2Sport from "../assets/image-sport-2.jpg";
-import slide3Sport from "../assets/image-sport-3.jpg";
-import slide4Sport from "../assets/image-sport-4.jpg";
-import slide5Sport from "../assets/image-sport-5.jpg";
 
 import slide1Nature from "../assets/image-nature-1.jpg";
 import slide2Nature from "../assets/image-nature-2.jpg";
@@ -32,6 +23,20 @@ import slide3Nature from "../assets/image-nature-3.jpg";
 import slide4Nature from "../assets/image-nature-4.jpg";
 import slide5Nature from "../assets/image-nature-5.jpg";
 import slide6Nature from "../assets/image-nature-6.jpg";
+
+// Le foto delle gallerie FAM e SPORT vengono auto-importate e ordinate
+// numericamente: basta aggiungere image-fam-N.jpg / image-sport-N.jpg in assets.
+const importSorted = (glob) =>
+  Object.keys(glob)
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    .map((key) => glob[key]);
+
+const famImages = importSorted(
+  import.meta.glob("../assets/image-fam-*.jpg", { eager: true, import: "default" })
+);
+const sportImages = importSorted(
+  import.meta.glob("../assets/image-sport-*.jpg", { eager: true, import: "default" })
+);
 
 function AboutUs({ items, className = "" }) {
   const { t } = useLanguage();
@@ -59,8 +64,8 @@ function AboutUs({ items, className = "" }) {
   };
 
   const categoryImages = {
-    FAM: [slide1Fam, slide2Fam],
-    SPORT: [slide1Sport, slide2Sport, slide3Sport, slide4Sport, slide5Sport],
+    FAM: famImages,
+    SPORT: sportImages,
     MUSICA: [slide1Music, slide2Music, slide3Music, slide4Music],
     NATURA: [
       slide1Nature,

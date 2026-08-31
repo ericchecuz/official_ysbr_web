@@ -130,34 +130,34 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
               }
               return null;
             })}
-            
-            <div className={styles.langDropdown} ref={langRef}>
-              <button
-                className={`${styles.langToggle} ${isLangOpen ? styles.langToggleActive : ""}`}
-                onClick={() => setIsLangOpen(!isLangOpen)}
-                aria-label="Select language"
-              >
-                {lang.toUpperCase()}
-                <IoGlobeOutline size="1.4rem" />
-              </button>
-              {isLangOpen && (
-                <div className={styles.langMenu}>
-                  <button
-                    className={`${styles.langOption} ${lang === "it" ? styles.langOptionActive : ""}`}
-                    onClick={() => { changeLang("it"); setIsLangOpen(false); }}
-                  >
-                    IT
-                  </button>
-                  <button
-                    className={`${styles.langOption} ${lang === "en" ? styles.langOptionActive : ""}`}
-                    onClick={() => { changeLang("en"); setIsLangOpen(false); }}
-                  >
-                    EN
-                  </button>
-                </div>
-              )}
-            </div>
           </div>
+        </div>
+        {/* Selettore lingua: fuori da nav_items così resta visibile anche su mobile */}
+        <div className={styles.langDropdown} ref={langRef}>
+          <button
+            className={`${styles.langToggle} ${isLangOpen ? styles.langToggleActive : ""}`}
+            onClick={() => setIsLangOpen(!isLangOpen)}
+            aria-label="Select language"
+          >
+            {lang.toUpperCase()}
+            <IoGlobeOutline size="1.4rem" />
+          </button>
+          {isLangOpen && (
+            <div className={styles.langMenu}>
+              <button
+                className={`${styles.langOption} ${lang === "it" ? styles.langOptionActive : ""}`}
+                onClick={() => { changeLang("it"); setIsLangOpen(false); }}
+              >
+                IT
+              </button>
+              <button
+                className={`${styles.langOption} ${lang === "en" ? styles.langOptionActive : ""}`}
+                onClick={() => { changeLang("en"); setIsLangOpen(false); }}
+              >
+                EN
+              </button>
+            </div>
+          )}
         </div>
         <button
           className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`}
