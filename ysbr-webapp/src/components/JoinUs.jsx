@@ -3,6 +3,8 @@ import styles from "../styles/join_us.module.css";
 import { FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import CollabModal from "./CollabModal";
+import RollingNumber from "./commons/RollingNumber";
+import { MEMBERS_COUNT } from "../data/stats";
 
 function JoinUs() {
   const { t } = useLanguage();
@@ -22,6 +24,10 @@ function JoinUs() {
           <p className={styles.benefitItem}>{t("joinUs.benefit3")}</p>
         </div>
         <p className={styles.description}>{t("joinUs.outro")}</p>
+      </div>
+      <div className={styles.membersCounter}>
+        <RollingNumber value={MEMBERS_COUNT} className={styles.membersNumber} />
+        <span className={styles.membersLabel}>{t("joinUs.membersLabel")}</span>
       </div>
       <div className={styles.ctaContainer}>
         <div className={styles.ctaRow}>

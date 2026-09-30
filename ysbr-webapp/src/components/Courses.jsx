@@ -1,11 +1,20 @@
 import { useState } from "react";
 import styles from "../styles/courses.module.css";
 import ChipGroup from "./commons/ChipGroup";
-import { motion, AnimatePresence } from "framer-motion";
-import { IoLocationOutline } from "react-icons/io5";
+import CrossfadeStack from "./commons/CrossfadeStack";
+import CourseDetails from "./CourseDetails";
+import { IoArrowForward } from "react-icons/io5";
 import { useLanguage } from "../context/LanguageContext";
 
 const CATEGORIES = ["KITE", "YOGA"];
+
+// Categorie annunciate ma non ancora prenotabili: il chip resta grigio e bloccato
+const DISABLED_CATEGORIES = ["YOGA"];
+
+// Corsi che hanno una pagina dedicata (vedi kitesurf/index.html)
+const COURSE_PAGES = {
+  KITE: "/kitesurf/",
+};
 
 // Sezione a sfondo chiaro: chip con testo nero di default, pieni in accent quando selezionati
 const chipColorScheme = {
@@ -25,25 +34,11 @@ const categoryColors = {
   YOGA: chipColorScheme,
 };
 
-const contentVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.25, ease: "easeIn" },
-  },
-};
-
 function Courses({ className = "" }) {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const currentCategory = CATEGORIES[currentIndex];
-  const priceSections = t(`courses.items.${currentCategory}.priceSections`);
-  const location = t(`courses.items.${currentCategory}.location`);
+  const coursePage = COURSE_PAGES[currentCategory];
 
   return (
     <section className={`${styles.sectionCourses} ${className}`}>
@@ -55,48 +50,21 @@ function Courses({ className = "" }) {
           selectedCategory={currentIndex}
           onCategoryChange={setCurrentIndex}
           categoryColors={categoryColors}
+          disabledCategories={DISABLED_CATEGORIES}
+          disabledTitle={t("courses.comingSoon")}
         />
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentCategory}
-            className={styles.contentContainer}
-            variants={contentVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            <div className={styles.textSection}>
-              <h1 className={styles.title}>
-                {t(`courses.items.${currentCategory}.title`)}
-              </h1>
-              <p className={styles.description}>
-                {t(`courses.items.${currentCategory}.description`)}
-              </p>
-              {location && (
-                <span className={styles.location}>
-                  <IoLocationOutline className={styles.locationIcon} />
-                  {location}
-                </span>
-              )}
-            </div>
+        <CrossfadeStack activeKey={currentCategory}>
+          <CourseDetails category={currentCategory} />
+        </CrossfadeStack>
 
-            <div className={styles.priceCard}>
-              <h3 className={styles.priceCardTitle}>{t("courses.priceListTitle")}</h3>
-              {priceSections.map((section, i) => (
-                <div key={i} className={styles.priceSection}>
-                  <span className={styles.priceSectionTitle}>{section.title}</span>
-                  {section.entries.map((entry, j) => (
-                    <div key={j} className={styles.priceEntry}>
-                      <span className={styles.priceNote}>{entry.note}</span>
-                      <span className={styles.price}>{entry.price}</span>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+        {/* In fondo alla sezione, ben visibile: porta alla pagina completa del corso */}
+        {coursePage && (
+          <a className={styles.moreButton} href={coursePage}>
+            {t(`courses.items.${currentCategory}.moreLink`)}
+            <IoArrowForward className={styles.moreIcon} />
+          </a>
+        )}
       </div>
     </section>
   );

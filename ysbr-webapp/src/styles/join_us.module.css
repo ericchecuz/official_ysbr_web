@@ -47,6 +47,28 @@
     text-align: center;
 }
 
+/* Contatore dei tesserati, subito sopra il bottone per iscriversi */
+.membersCounter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.membersNumber {
+    font-family: var(--font-family-titles);
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    color: var(--accent-color);
+}
+
+.membersLabel {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #000;
+}
+
 .ctaContainer {
     display: flex;
     flex-direction: column;

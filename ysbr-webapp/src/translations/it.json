@@ -1,4 +1,14 @@
 {
+  "meta": {
+    "home": {
+      "title": "YSBR Fam | Eventi, sport e corsi di kitesurf – YESBRO ASD",
+      "description": "YSBR è la community di YESBRO ASD tra Milano e il Lago di Como: eventi, musica, sport outdoor e corsi di kitesurf con istruttore IKO. Unisciti alla FAM!"
+    },
+    "kitesurf": {
+      "title": "Corsi di kitesurf sul Lago di Como | YSBR Kitesurf School",
+      "description": "Lezioni di kitesurf sul Lago di Como per principianti e avanzati, con istruttore IKO e attrezzatura Ventum Kiteboarding. Prenota su WhatsApp con YSBR."
+    }
+  },
   "header": {
     "aboutUs": "ABOUT US",
     "events": "EVENTI",
@@ -26,6 +36,7 @@
     "benefit2": "· Sostenere i progetti dell'associazione",
     "benefit3": "· Contribuire alla crescita di una realtà indipendente e autentica",
     "outro": "Unisciti a noi!",
+    "membersLabel": "Tesserati nella FAM",
     "ctaPrimary": "DIVENTA SOCIO/A",
     "ctaSecondary": "FOLLOW US",
     "ctaDisabled": "SOSTIENICI — 5x1000 (coming soon)",
@@ -140,6 +151,8 @@
   "courses": {
     "title": "CORSI",
     "priceListTitle": "LISTINO PREZZI",
+    "bookCta": "Prenota su WhatsApp",
+    "comingSoon": "Prossimamente",
     "categoryLabels": {
       "KITE": "KITE SURF",
       "YOGA": "YOGA"
@@ -147,52 +160,177 @@
     "items": {
       "KITE": {
         "title": "KITE SURF",
-        "description": "Impara a volare sull'acqua con i corsi di kitesurf YSBR sul Lago di Como. I nostri istruttori ti seguono passo dopo passo, dalla gestione del kite a terra fino alle prime planate, con attrezzatura e barca sempre incluse. Che tu parta da zero o voglia perfezionare la tua tecnica, ti aspetta un ambiente sicuro, inclusivo e pieno di energia: vieni a provare, la fam ti aspetta in acqua!",
+        "description": [
+          "Alessandro e Ben si sono conosciuti in acqua: una vela rotta, una mano tesa senza esitare, e in pochi minuti un'amicizia vera.",
+          "Ben ti segue passo dopo passo: dalle prime planate, se parti da zero, fino a salti e freestyle, se sai già andare. In acqua usiamo attrezzatura Ventum Kiteboarding, un brand nuovo e super conveniente.",
+          "Il corso è solo l'inizio: entri in un gruppo che condivide la stessa passione, tra uscite e viaggi. Il sogno? La YESBRO Surf House."
+        ],
+        "people": [
+          {
+            "name": "Alessandro",
+            "role": "Presidente YESBRO ASD",
+            "note": "Kite dal 2017 e mille altri sport."
+          },
+          {
+            "name": "Ben",
+            "role": "Istruttore IKO",
+            "note": "Giornate intere in acqua, con ogni vento."
+          }
+        ],
+        "closing": "Vieni a provare: la FAM ti aspetta in acqua!",
+        "moreLink": "Scopri il corso completo di kitesurf",
         "location": "Lago di Como",
         "priceSections": [
           {
             "title": "Lezioni principianti",
             "entries": [
-              { "price": "75 €/h", "note": "Attrezzatura + barca incluse" },
-              { "price": "290 €", "note": "Pacchetto 4 ore — attrezzatura + barca incluse" }
+              { "icon": "time", "price": "85 €/h", "note": "Attrezzatura + barca incluse" },
+              { "icon": "package", "price": "320 €", "note": "Pacchetto 4 ore — attrezzatura + barca incluse" }
             ]
           },
           {
             "title": "Per kiter indipendenti",
             "entries": [
-              { "price": "45 €", "note": "Boat lift — per rider indipendenti che necessitano solo del trasporto in barca" }
+              { "icon": "boat", "price": "45 €", "note": "Boat lift — per rider indipendenti che necessitano solo del trasporto in barca" }
             ]
           },
           {
             "title": "Tesseramento YSBR",
+            "membership": true,
             "entries": [
-              { "price": "10 €", "note": "Tutte le attività sono riservate ai soci YSBR" }
+              { "icon": "card", "price": "10 €", "note": "Tutte le attività sono riservate ai soci YSBR" }
             ]
           }
         ]
       },
       "YOGA": {
         "title": "YOGA",
-        "description": "Riconnettiti con corpo e respiro grazie alle sessioni di yoga YSBR: pratiche outdoor immerse nella natura, adatte a tutti i livelli. Un percorso che unisce movimento, equilibrio e consapevolezza, per ricaricare le energie e condividere benessere con la community. Porta il tappetino, al resto pensiamo noi!",
+        "description": [
+          "Riconnettiti con corpo e respiro: pratiche outdoor immerse nella natura, adatte a tutti i livelli.",
+          "Un percorso che unisce movimento, equilibrio e consapevolezza, per ricaricare le energie e condividere benessere con la community."
+        ],
+        "closing": "Porta il tappetino, al resto pensiamo noi!",
         "location": "",
         "priceSections": [
           {
             "title": "Lezioni",
             "entries": [
-              { "price": "15 €", "note": "Lezione singola (60 min)" },
-              { "price": "65 €", "note": "Pacchetto 5 lezioni" },
-              { "price": "120 €", "note": "Pacchetto 10 lezioni" }
+              { "icon": "body", "price": "15 €", "note": "Lezione singola (60 min)" },
+              { "icon": "package", "price": "65 €", "note": "Pacchetto 5 lezioni" },
+              { "icon": "package", "price": "120 €", "note": "Pacchetto 10 lezioni" }
             ]
           },
           {
             "title": "Tesseramento YSBR",
+            "membership": true,
             "entries": [
-              { "price": "10 €", "note": "Tutte le attività sono riservate ai soci YSBR" }
+              { "icon": "card", "price": "10 €", "note": "Tutte le attività sono riservate ai soci YSBR" }
             ]
           }
         ]
       }
     }
+  },
+  "kitesurfPage": {
+    "kicker": "YSBR Kitesurf School",
+    "title": "CORSI DI KITESURF",
+    "subtitle": "sul Lago di Como",
+    "lead": "Lezioni per principianti e avanzati con istruttore IKO: dalle prime planate fino a salti e freestyle, passo dopo passo, con attrezzatura Ventum Kiteboarding.",
+    "highlights": ["Istruttore IKO", "Principianti e avanzati", "Attrezzatura Ventum", "Barca inclusa"],
+    "ctaPrices": "Prezzi e prenotazioni",
+    "ctaSteps": "Come funziona",
+    "gallery": ["Kitesurfer in planata tra gli spruzzi", "Salto con il kite", "Kitesurfer in curva sull'onda"],
+    "storyTitle": "COME È NATO TUTTO",
+    "story": [
+      "Il progetto di Alessandro e Ben nasce da un incontro speciale.",
+      "Una giornata di kite, la vela di Alessandro che finisce in acqua per la rottura di un pezzo, e Ben che arriva senza esitare, chiedendogli se serve una mano."
+    ],
+    "storyQuote": "Bastano pochi minuti in acqua e nasce un'amicizia vera, di quelle che non si spiegano.",
+    "storyOutro": [
+      "Alessandro, presidente della YESBRO ASD, fa kite dal 2017 insieme a mille altri sport, perché fermo proprio non ci sa stare: la sua energia è contagiosa, e con lui è impossibile annoiarsi.",
+      "Da quell'incontro è nato il progetto che oggi è la YSBR Kitesurf School: la stessa passione, messa a disposizione di chi vuole iniziare."
+    ],
+    "storyImageAlt": "Kiter in spiaggia con la barra in mano",
+    "peopleTitle": "CHI TI SEGUE IN ACQUA",
+    "people": [
+      {
+        "name": "Ben",
+        "role": "Istruttore della FAM",
+        "fact": "Certificato IKO",
+        "bio": "Giovane atleta con la passione di chi non si ferma mai: viaggiando, provando spot diversi e passando giornate intere in acqua con ogni condizione di vento. Oggi ha un livello alto e una sicurezza che sa trasmettere a chi impara con lui: la certificazione IKO è solo il punto di partenza, il resto è esperienza vera, vissuta sul campo."
+      }
+    ],
+    "stepsTitle": "COME FUNZIONA",
+    "stepsIntro": "Sul Lago di Como sarai seguit* passo dopo passo: dalla gestione del kite a terra fino ai salti e al freestyle. Per chi inizia, attrezzatura e barca sono sempre incluse.",
+    "steps": [
+      {
+        "title": "A terra",
+        "text": "Montaggio dell'attrezzatura, regole di sicurezza e gestione del kite: le basi, prima di entrare in acqua."
+      },
+      {
+        "title": "In acqua",
+        "text": "Impari a controllare il kite in acqua e a farti trainare, con l'istruttore e la barca sempre vicini."
+      },
+      {
+        "title": "Sulla tavola",
+        "text": "Partenza dall'acqua e prime planate: il momento in cui inizi davvero a volare."
+      },
+      {
+        "title": "In aria",
+        "text": "Progredisci con stile. Impari manovre di freestyle, jumps e tutto quello che ti farà essere super stilos*, sempre in sicurezza."
+      }
+    ],
+    "pricesTitle": "LISTINO PREZZI",
+    "communityTitle": "IL CORSO È SOLO L'INIZIO",
+    "community": "Entri in un gruppo che condivide la stessa passione, con uscite, viaggi ed esperienze da vivere insieme: è la cosa che ci fa stare meglio.",
+    "communityImageAlt": "La FAM in spiaggia",
+    "dreamKicker": "Il sogno",
+    "dreamTitle": "YESBRO SURF HOUSE",
+    "dreamText": "Una base fissa sul lago ancora non c'è, ma ci stiamo lavorando. Fino ad allora siamo itineranti: carichiamo il van e ci spostiamo dove soffia il vento giusto.",
+    "faqTitle": "DOMANDE FREQUENTI",
+    "faq": [
+      {
+        "question": "Serve esperienza per iniziare?",
+        "answer": "No. Le lezioni per principianti partono da zero: dalla gestione del kite a terra fino alle prime planate."
+      },
+      {
+        "question": "Fate lezioni anche per chi sa già andare?",
+        "answer": "Sì. Con le lezioni avanzate progredisci con salti e manovre di freestyle, sempre in sicurezza. Scrivici e le organizziamo insieme."
+      },
+      {
+        "question": "Cosa è incluso nel prezzo?",
+        "answer": "Nelle lezioni per principianti attrezzatura e barca sono sempre incluse, sia nella lezione singola sia nel pacchetto da 4 ore."
+      },
+      {
+        "question": "Che attrezzatura usate?",
+        "answer": "Attrezzatura Ventum Kiteboarding: un brand nuovo e super conveniente."
+      },
+      {
+        "question": "Quanto costa un corso di kitesurf?",
+        "answer": "Trovi tutti i prezzi nel listino qui sopra: lezione singola, pacchetto da 4 ore e boat lift. Per le lezioni avanzate scrivici su WhatsApp. A ogni attività si aggiunge il tesseramento YSBR."
+      },
+      {
+        "question": "Ho già la mia attrezzatura: posso uscire con voi?",
+        "answer": "Sì: per i rider indipendenti c'è il boat lift, cioè solo il trasporto in barca, senza lezione."
+      },
+      {
+        "question": "Perché serve il tesseramento?",
+        "answer": "YSBR è un'associazione sportiva dilettantistica (YESBRO ASD) e tutte le attività sono riservate ai soci. Con il tesseramento entri nella FAM e puoi partecipare anche agli eventi dell'associazione."
+      },
+      {
+        "question": "Dove si svolgono le lezioni?",
+        "answer": "Sul Lago di Como. Una base fissa ancora non c'è, ma ci stiamo lavorando: scrivici e ti diciamo dove usciamo."
+      },
+      {
+        "question": "Chi è l'istruttore?",
+        "answer": "Ti segue Ben, istruttore della FAM certificato IKO."
+      },
+      {
+        "question": "Come prenoto?",
+        "answer": "Scrivi su WhatsApp ad Alessandro o a Ben: trovi i numeri qui sotto e nel listino."
+      }
+    ],
+    "closing": "Vieni a provare: la FAM ti aspetta in acqua!"
   },
   "privacy": {
     "title": "PRIVACY & COOKIE POLICY",

@@ -182,7 +182,8 @@ const Carousel = ({
             >
               {typeof slide === 'string' ? (
                 // Se la slide è una stringa, trattala come URL immagine
-                <img src={slide} alt={`Slide ${index + 1}`} />
+                // decoding async: la decodifica delle foto grandi non blocca le animazioni
+                <img src={slide} alt={`Slide ${index + 1}`} decoding="async" />
               ) : (
                 // Altrimenti, renderizza il contenuto JSX passato
                 slide

@@ -1,13 +1,16 @@
 import React from 'react';
+import { FaLock } from 'react-icons/fa';
 import styles from '../../styles/chip.module.css';
 
-const Chip = ({ label, selected = false, onClick, className = '', color }) => {
-  const chipClass = `${styles.chip} ${selected ? styles.selected : styles.default} ${className}`;
-  
+const Chip = ({ label, selected = false, onClick, className = '', color, disabled = false, title }) => {
+  const stateClass = disabled ? styles.disabled : selected ? styles.selected : styles.default;
+  const chipClass = `${styles.chip} ${stateClass} ${className}`;
+
   // Handle both simple color strings and color config objects
   const customStyle = {};
-  
-  if (color) {
+
+  // Una voce disabilitata resta grigia: i colori della categoria non si applicano
+  if (color && !disabled) {
     if (typeof color === 'object') {
       // Color is a config object (like your YSBR config)
       if (selected) {
@@ -32,31 +35,34 @@ const Chip = ({ label, selected = false, onClick, className = '', color }) => {
       }
     }
   }
-  
+
   // Handle hover effects for color objects
   const handleMouseEnter = (e) => {
-    if (color && typeof color === 'object' && !selected) {
-      e.target.style.backgroundColor = color.hoverBg;
-      e.target.style.color = color.hoverText;
+    if (!disabled && color && typeof color === 'object' && !selected) {
+      e.currentTarget.style.backgroundColor = color.hoverBg;
+      e.currentTarget.style.color = color.hoverText;
     }
   };
-  
+
   const handleMouseLeave = (e) => {
-    if (color && typeof color === 'object' && !selected) {
-      e.target.style.backgroundColor = color.defaultBg;
-      e.target.style.color = color.defaultText;
+    if (!disabled && color && typeof color === 'object' && !selected) {
+      e.currentTarget.style.backgroundColor = color.defaultBg;
+      e.currentTarget.style.color = color.defaultText;
     }
   };
-  
+
   return (
-    <button 
-      onClick={onClick} 
-      className={chipClass} 
+    <button
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
+      title={title}
+      className={chipClass}
       style={customStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {label}
+      {disabled && <FaLock className={styles.lockIcon} />}
     </button>
   );
 };

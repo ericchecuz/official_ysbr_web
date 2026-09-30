@@ -2,7 +2,8 @@
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(4px);
+    /* Niente backdrop-filter: sfocare tutta la pagina a ogni fotogramma della
+       dissolvenza faceva scattare l'animazione, e sotto il nero all'80% non si vedeva */
     z-index: 1000;
     display: flex;
     align-items: center;

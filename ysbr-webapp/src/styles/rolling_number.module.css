@@ -1,0 +1,39 @@
+.number {
+    /* Altezza di una cifra: un filo più di 1em perché i font da titolo
+       tendono a uscire dal riquadro e verrebbero tagliati dalla finestra */
+    --cell: 1.15em;
+    position: relative;
+    display: inline-flex;
+    line-height: var(--cell);
+}
+
+/* Finestra da cui si vede una sola cifra del rullo */
+.window {
+    display: inline-block;
+    height: var(--cell);
+    overflow: hidden;
+}
+
+.strip {
+    display: flex;
+    flex-direction: column;
+    transition-property: transform;
+    /* Parte veloce e rallenta molto alla fine, come un rullo che si ferma */
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.cell {
+    display: block;
+    height: var(--cell);
+    text-align: center;
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}

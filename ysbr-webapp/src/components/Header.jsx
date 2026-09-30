@@ -4,6 +4,7 @@ import styles from '../styles/header.module.css';
 import { FaLock } from 'react-icons/fa';
 import { IoGlobeOutline } from 'react-icons/io5';
 import { useLanguage } from '../context/LanguageContext';
+import { scrollToSection } from '../utils/sections';
 
 function Header({ leftItems = [], rightItems = [], logoSrc }) {
   const { lang, changeLang } = useLanguage();
@@ -61,21 +62,23 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
 
   const handleSmoothScroll = (e, href) => {
     e.preventDefault();
-    const targetId = href.replace('#', ''); 
-    const targetElement = document.getElementById(targetId);
+    setIsMenuOpen(false);
 
-    if (targetElement) {
-      const header = document.querySelector(`.${styles.header_container}`);
-      const headerHeight = header ? header.offsetHeight : 0;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth',
-      });
-
-      setIsMenuOpen(false);
+    // L'hash lo aggiorna lo scrollspy mentre la pagina scorre (vedi useSectionUrl).
+    // Se la sezione non è in questa pagina (es. /kitesurf/) si torna alla home,
+    // che all'apertura scorre da sola fino alla sezione indicata dall'hash.
+    if (!scrollToSection(href.replace('#', ''))) {
+      window.location.assign(`/${window.location.search}${href}`);
     }
+  };
+
+  // Sulla home il logo riporta in cima senza ricaricare, altrove porta alla home
+  const handleLogoClick = (e) => {
+    if (window.location.pathname !== '/') return;
+
+    e.preventDefault();
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -85,9 +88,9 @@ function Header({ leftItems = [], rightItems = [], logoSrc }) {
       }`}
     >
       <nav className={styles.header_nav}>
-        <div className={styles.logo_container}>
-          <img src={logoSrc} alt="Logo" />
-        </div>
+        <a href="/" className={styles.logo_container} onClick={handleLogoClick}>
+          <img src={logoSrc} alt="YSBR" />
+        </a>
         <div className={styles.nav_items}>
           {leftItems.map((item) => (
             <a

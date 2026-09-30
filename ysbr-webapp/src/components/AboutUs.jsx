@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/about_us.module.css";
 import ChipGroup from "./commons/ChipGroup";
 import Carousel from "./commons/Carousel";
+import CrossfadeStack from "./commons/CrossfadeStack";
 import ServicesModal from "./ServicesModal";
-import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 
 import slide1 from "../assets/slide1.jpg";
@@ -49,18 +49,6 @@ function AboutUs({ items, className = "" }) {
   const openServices = (category) => {
     setServicesCategory(category);
     setServicesOpen(true);
-  };
-
-  const contentVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-    exit: {
-      opacity: 0,
-      transition: { duration: 0.25, ease: "easeIn" },
-    },
   };
 
   const categoryImages = {
@@ -112,6 +100,16 @@ function AboutUs({ items, className = "" }) {
     };
   };
 
+  // Precarica la prima foto di ogni categoria: al cambio il carosello nuovo
+  // entra già con l'immagine pronta, invece che vuoto mentre la scarica
+  useEffect(() => {
+    Object.values(categoryImages).forEach((images) => {
+      if (images[0]) new Image().src = images[0];
+    });
+    // categoryImages è ricostruito a ogni render ma il contenuto è fisso
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const currentItem = items[currentIndex];
   const currentCategory = currentItem.category;
 
@@ -135,15 +133,8 @@ function AboutUs({ items, className = "" }) {
           categoryColors={categoryColors}
         />
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentCategory}
-            className={styles.carouselContainer}
-            variants={contentVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
+        <CrossfadeStack activeKey={currentCategory}>
+          <div className={styles.carouselContainer}>
             <div className={styles.textSection}>
               <h1 className={styles.title} style={getTitleStyle(currentCategory)}>
                 {currentItem.title}
@@ -169,8 +160,8 @@ function AboutUs({ items, className = "" }) {
               interval={5000}
               info={t("aboutUs.carouselInfo")}
             />
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        </CrossfadeStack>
       </div>
       <ServicesModal
         isOpen={servicesOpen}

@@ -1,0 +1,83 @@
+/* Stessi bordi dei riquadri del listino */
+.item {
+    border: 2px solid #000;
+    border-radius: 16px;
+    background: #fff;
+    transition: background-color 0.3s ease, border-color 0.2s ease;
+}
+
+.item:hover,
+.open {
+    border-color: var(--accent-color);
+}
+
+.open {
+    background: rgba(232, 50, 138, 0.06);
+}
+
+.heading {
+    margin: 0;
+    font: inherit;
+}
+
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.15rem 1.4rem;
+    border: 0;
+    background: none;
+    font-family: var(--font-family);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+    color: #000;
+    cursor: pointer;
+}
+
+.question:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+/* "+" che ruota fino a diventare "×" quando la risposta è aperta */
+.icon {
+    flex-shrink: 0;
+    font-family: var(--font-family-titles);
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--accent-color);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.open .icon {
+    transform: rotate(45deg);
+}
+
+/* L'altezza la anima framer: qui basta tagliare il testo mentre si apre */
+.answerWrap {
+    overflow: hidden;
+}
+
+.answer {
+    margin: 0;
+    padding: 0 1.4rem 1.3rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 480px) {
+    .question {
+        padding: 1rem 1.1rem;
+        font-size: 0.98rem;
+    }
+
+    .answer {
+        padding: 0 1.1rem 1.1rem;
+    }
+}

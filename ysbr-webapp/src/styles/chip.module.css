@@ -1,4 +1,8 @@
 .chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     font-weight: 700;
     padding: 10px 15px;
     border-radius: 0.5rem;
@@ -29,4 +33,17 @@
 
 .default:hover {
     background-color: var(--accent-color);
+}
+
+/* Categoria non ancora attiva: tarata sulle sezioni a sfondo chiaro */
+.disabled {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.18);
+    color: rgba(0, 0, 0, 0.35);
+    cursor: not-allowed;
+}
+
+.lockIcon {
+    font-size: 0.7em;
+    flex-shrink: 0;
 }
