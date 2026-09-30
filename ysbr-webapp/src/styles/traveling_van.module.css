@@ -1,8 +1,24 @@
-/* Striscia di strada su cui passa il van, larga quanto il riquadro */
+/*
+ * Un giro completo dura --cycle ed è diviso in fasi, sulle stesse percentuali
+ * per tutte le animazioni:
+ *   0%  - 40%  arriva da sinistra a velocità di crociera e frena deciso al centro
+ *   40% - 50%  rimbalzo della frenata sulle sospensioni
+ *   50% - 56%  saluto: due colpi di clacson con lampeggio del faro
+ *   56% - 60%  sgasata
+ *   60% - 94%  riparte dolcemente ed esce a destra senza accelerare troppo
+ *   94% - 100% pausa fuori scena prima del giro successivo
+ *
+ * Dentro i keyframes i valori sono scritti per esteso (niente var()), perché
+ * Safari ha avuto problemi con le variabili nelle animazioni:
+ *   van largo 134px (67px è metà)
+ *   arrivo   cubic-bezier(0.33, 0.4, 0.62, 1)   tiene l'andatura, poi frena deciso
+ *   partenza cubic-bezier(0.55, 0, 0.7, 0.65)  da fermo a un'andatura tranquilla
+ */
 .track {
+    --cycle: 16s;
     position: relative;
     width: 100%;
-    height: 72px;
+    height: 76px;
     margin-top: 1.5rem;
     overflow: hidden;
 }
@@ -15,70 +31,416 @@
     border-top: 2px dashed rgba(255, 255, 255, 0.3);
 }
 
-/*
- * La corsia è larga quanto la strada: spostandola da -120px (van fuori a
- * sinistra) al 100% della sua larghezza (van fuori a destra) il van attraversa
- * tutto il riquadro a qualunque larghezza di schermo.
- */
+/* La corsia è larga quanto la strada: le percentuali seguono la sua larghezza */
 .lane {
     position: absolute;
     inset: 0;
-    animation: drive 9s linear infinite;
+    animation: drive var(--cycle) infinite;
 }
 
+/* Poggiato con le ruote sulla riga della strada */
 .van {
     position: absolute;
     left: 0;
-    bottom: 6px;
+    bottom: 3px;
     overflow: visible;
 }
 
-/* Piccolo sobbalzo della carrozzeria sulla strada */
-.body {
-    animation: bump 0.45s ease-in-out infinite alternate;
+@keyframes drive {
+    0% {
+        transform: translateX(-148px);
+        animation-timing-function: cubic-bezier(0.33, 0.4, 0.62, 1);
+    }
+
+    40% {
+        transform: translateX(calc(50% - 67px));
+    }
+
+    60% {
+        transform: translateX(calc(50% - 67px));
+        animation-timing-function: cubic-bezier(0.55, 0, 0.7, 0.65);
+    }
+
+    94%,
+    100% {
+        transform: translateX(calc(100% + 20px));
+    }
 }
+
+/* ===== Ruote: girano con la stessa andatura del van, ferme quando è fermo ===== */
 
 .wheel {
     transform-box: fill-box;
     transform-origin: center;
-    animation: spin 0.6s linear infinite;
+    animation: roll var(--cycle) infinite;
 }
 
-@keyframes drive {
-    from {
-        transform: translateX(-120px);
+@keyframes roll {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: cubic-bezier(0.33, 0.4, 0.62, 1);
     }
 
-    to {
-        transform: translateX(100%);
+    40% {
+        transform: rotate(2160deg);
+    }
+
+    60% {
+        transform: rotate(2160deg);
+        animation-timing-function: cubic-bezier(0.55, 0, 0.7, 0.65);
+    }
+
+    94%,
+    100% {
+        transform: rotate(4320deg);
     }
 }
 
-@keyframes bump {
-    from {
-        transform: translateY(0);
+/*
+ * ===== Sospensioni =====
+ * Frenata: il muso (a destra) affonda e rimbalza due volte prima di fermarsi.
+ * Clacson: un saltello a ogni colpo. Sgasata: tre dondolii. Partenza: muso su.
+ * La rotazione è attorno al fondo della carrozzeria, dove poggia sulle ruote.
+ */
+.chassis {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: suspension var(--cycle) infinite;
+}
+
+@keyframes suspension {
+    0%,
+    35% {
+        transform: rotate(0deg) translateY(0);
     }
 
-    to {
-        transform: translateY(-1.5px);
+    /* Frenata */
+    40% {
+        transform: rotate(3.8deg) translateY(1.2px);
+    }
+
+    43% {
+        transform: rotate(-1.8deg) translateY(-0.8px);
+    }
+
+    46% {
+        transform: rotate(0.7deg) translateY(0);
+    }
+
+    48.5% {
+        transform: rotate(-0.2deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    /* Clacson: un saltello a ogni colpo */
+    51% {
+        transform: rotate(0deg) translateY(-1.2px);
+    }
+
+    52% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    54% {
+        transform: rotate(0deg) translateY(-1.2px);
+    }
+
+    55% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    /* Sgasata */
+    56.5% {
+        transform: rotate(-1.6deg) translateY(-0.7px);
+    }
+
+    57.3% {
+        transform: rotate(0.7deg) translateY(0);
+    }
+
+    58.3% {
+        transform: rotate(-1.6deg) translateY(-0.7px);
+    }
+
+    59.2% {
+        transform: rotate(0.4deg) translateY(0);
+    }
+
+    60% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    /* Partenza: muso su e ritorno morbido */
+    65% {
+        transform: rotate(-2.4deg) translateY(-0.8px);
+    }
+
+    70% {
+        transform: rotate(0.8deg) translateY(0);
+    }
+
+    74%,
+    100% {
+        transform: rotate(0deg) translateY(0);
     }
 }
 
-@keyframes spin {
+/* Motore acceso: vibrazione minima, in movimento sembra la strada */
+.engine {
+    animation: idle 0.28s ease-in-out infinite alternate;
+}
+
+@keyframes idle {
     to {
-        transform: rotate(360deg);
+        transform: translateY(-0.7px);
+    }
+}
+
+/*
+ * La tavola sul tetto segue il movimento con un attimo di ritardo: in frenata
+ * scivola in avanti, in partenza indietro, poi torna al suo posto.
+ */
+.board {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cargo var(--cycle) infinite;
+}
+
+@keyframes cargo {
+    0%,
+    36% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    41.5% {
+        transform: translateX(3.2px) rotate(2.6deg);
+    }
+
+    45% {
+        transform: translateX(-1.2px) rotate(-1.2deg);
+    }
+
+    48.5% {
+        transform: translateX(0.4px) rotate(0.3deg);
+    }
+
+    51%,
+    60% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    66.5% {
+        transform: translateX(-2.4px) rotate(-2deg);
+    }
+
+    71.5% {
+        transform: translateX(0.6px) rotate(0.5deg);
+    }
+
+    76%,
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+/* ===== Saluto: due colpi di clacson, ognuno con il lampeggio del faro ===== */
+
+.glow {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: flash var(--cycle) infinite;
+}
+
+@keyframes flash {
+    0%,
+    50.5% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    51% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    52.5% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    53.5% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    54% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    55.5%,
+    100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+/* Onde del clacson che escono dal muso e si allargano */
+.honk {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: 0% 50%;
+    animation: honk var(--cycle) infinite;
+}
+
+@keyframes honk {
+    0%,
+    50.5% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    51% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    52.5% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+
+    53.5% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    54% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    55.5%,
+    100% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+}
+
+/* ===== Scarico ===== */
+
+.puff {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: puff 1.4s ease-out infinite;
+}
+
+.puffLate {
+    animation-delay: 0.7s;
+}
+
+@keyframes puff {
+    0% {
+        opacity: 0.5;
+        transform: translate(0, 0) scale(0.3);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-12px, -5px) scale(1.4);
+    }
+}
+
+/* Uno sbuffo per ognuno dei due colpi di acceleratore della sgasata */
+.rev {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rev var(--cycle) infinite;
+}
+
+@keyframes rev {
+    0%,
+    56% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.4);
+    }
+
+    56.5% {
+        opacity: 0.7;
+        transform: translate(-2px, 0) scale(0.7);
+    }
+
+    57.8% {
+        opacity: 0;
+        transform: translate(-13px, -4px) scale(1.4);
+    }
+
+    57.9% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.4);
+    }
+
+    58.3% {
+        opacity: 0.7;
+        transform: translate(-2px, 0) scale(0.7);
+    }
+
+    59.6%,
+    100% {
+        opacity: 0;
+        transform: translate(-13px, -4px) scale(1.4);
+    }
+}
+
+/* Lo sbuffo più grosso, alla partenza */
+.boost {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: boost var(--cycle) infinite;
+}
+
+@keyframes boost {
+    0%,
+    59.5% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.4);
+    }
+
+    60.5% {
+        opacity: 0.8;
+        transform: translate(-2px, 0) scale(0.8);
+    }
+
+    68%,
+    100% {
+        opacity: 0;
+        transform: translate(-24px, -8px) scale(2);
     }
 }
 
 /* Chi ha chiesto meno animazioni vede il van parcheggiato al centro */
 @media (prefers-reduced-motion: reduce) {
     .lane,
-    .body,
-    .wheel {
+    .wheel,
+    .chassis,
+    .engine,
+    .board,
+    .glow,
+    .honk,
+    .puff,
+    .rev,
+    .boost {
         animation: none;
     }
 
     .lane {
-        transform: translateX(calc(50% - 60px));
+        transform: translateX(calc(50% - 67px));
     }
 }
